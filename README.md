@@ -128,7 +128,7 @@ OpenLane 1 on sky130A, 1000 × 1000 µm die, 35% utilisation, ARCH 2 with the in
 
 ## Verification
 
-Independent Python/NumPy golden model (MATLAB was not available in the lab), self-checking SystemVerilog testbenches in Verilator 5.052, real bare-metal firmware on the CPU, equivalence of converted Verilog-2005 sources, and a zero-delay gate-level simulation of the post-route netlist. Testbenches fail if the number of vectors run is not the expected count.
+Independent Python/NumPy golden model, self-checking SystemVerilog testbenches in Verilator 5.052, real bare-metal firmware on the CPU, equivalence of converted Verilog-2005 sources, and a zero-delay gate-level simulation of the post-route netlist. Testbenches fail if the number of vectors run is not the expected count.
 
 ## Tools
 
