@@ -1,0 +1,97 @@
+
+28. Printing statistics.
+
+=== top ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+    10818        - wires
+    15383        - wire bits
+      300        - public wires
+     4795        - public wire bits
+        4        - ports
+        4        - port bits
+    15113 1.91E+05 cells
+       34  297.786   sky130_fd_sc_hd__a2111oi_0
+       27  236.477   sky130_fd_sc_hd__a211o_1
+       98  735.706   sky130_fd_sc_hd__a211oi_1
+        1    10.01   sky130_fd_sc_hd__a21bo_1
+       16  120.115   sky130_fd_sc_hd__a21boi_0
+       70  525.504   sky130_fd_sc_hd__a21o_1
+     1018 5.09E+03   sky130_fd_sc_hd__a21oi_1
+       20  200.192   sky130_fd_sc_hd__a221o_1
+      181  1585.27   sky130_fd_sc_hd__a221oi_1
+      300  3002.88   sky130_fd_sc_hd__a222oi_1
+      191 1.67E+03   sky130_fd_sc_hd__a22o_1
+      463 3.48E+03   sky130_fd_sc_hd__a22oi_1
+        2   17.517   sky130_fd_sc_hd__a2bb2oi_1
+        4   40.038   sky130_fd_sc_hd__a311o_1
+       20  175.168   sky130_fd_sc_hd__a311oi_1
+       10   87.584   sky130_fd_sc_hd__a31o_1
+      108  675.648   sky130_fd_sc_hd__a31oi_1
+       16  160.154   sky130_fd_sc_hd__a32o_1
+       14  122.618   sky130_fd_sc_hd__a32oi_1
+        1    10.01   sky130_fd_sc_hd__a41o_1
+       90   563.04   sky130_fd_sc_hd__and2_0
+       68  425.408   sky130_fd_sc_hd__and3_1
+       23  201.443   sky130_fd_sc_hd__and3b_1
+        7   61.309   sky130_fd_sc_hd__and4_1
+        1    10.01   sky130_fd_sc_hd__and4b_1
+     1029 3.86E+03   sky130_fd_sc_hd__clkinv_1
+      844 2.11E+04   sky130_fd_sc_hd__dfrtp_1
+       12  315.302   sky130_fd_sc_hd__dfstp_2
+      264 5.29E+03   sky130_fd_sc_hd__dfxtp_1
+     3302 9.92E+04   sky130_fd_sc_hd__edfxtp_1
+       60   375.36   sky130_fd_sc_hd__lpflow_inputiso1p_1
+      137  857.072   sky130_fd_sc_hd__lpflow_isobufsrc_1
+       84  840.806   sky130_fd_sc_hd__maj3_1
+      339 3.82E+03   sky130_fd_sc_hd__mux2_1
+      234 2.34E+03   sky130_fd_sc_hd__mux2i_1
+      107 2.41E+03   sky130_fd_sc_hd__mux4_2
+     1769 6.64E+03   sky130_fd_sc_hd__nand2_1
+       89  556.784   sky130_fd_sc_hd__nand2b_1
+      218 1.09E+03   sky130_fd_sc_hd__nand3_1
+       17  127.622   sky130_fd_sc_hd__nand3b_1
+      183 1.14E+03   sky130_fd_sc_hd__nand4_1
+        3   26.275   sky130_fd_sc_hd__nand4b_1
+     1168 4.38E+03   sky130_fd_sc_hd__nor2_1
+       16  100.096   sky130_fd_sc_hd__nor2b_1
+      181  905.869   sky130_fd_sc_hd__nor3_1
+       23  172.666   sky130_fd_sc_hd__nor3b_1
+       59  369.104   sky130_fd_sc_hd__nor4_1
+        6    52.55   sky130_fd_sc_hd__nor4b_1
+        3   30.029   sky130_fd_sc_hd__nor4bb_1
+        1   11.261   sky130_fd_sc_hd__o2111a_1
+        8   70.067   sky130_fd_sc_hd__o2111ai_1
+        3   30.029   sky130_fd_sc_hd__o211a_1
+       67  502.982   sky130_fd_sc_hd__o211ai_1
+       65  487.968   sky130_fd_sc_hd__o21a_1
+      886 4.43E+03   sky130_fd_sc_hd__o21ai_0
+        3   30.029   sky130_fd_sc_hd__o21ba_1
+        4   30.029   sky130_fd_sc_hd__o21bai_1
+        1   11.261   sky130_fd_sc_hd__o221a_1
+      168 1.47E+03   sky130_fd_sc_hd__o221ai_1
+       24  210.202   sky130_fd_sc_hd__o22a_1
+      226 1.41E+03   sky130_fd_sc_hd__o22ai_1
+        2   17.517   sky130_fd_sc_hd__o2bb2ai_1
+        4   40.038   sky130_fd_sc_hd__o311a_1
+       18  157.651   sky130_fd_sc_hd__o311ai_0
+        6    52.55   sky130_fd_sc_hd__o31a_1
+       40  300.288   sky130_fd_sc_hd__o31ai_1
+       12  120.115   sky130_fd_sc_hd__o32a_1
+       26  227.718   sky130_fd_sc_hd__o32ai_1
+        4   45.043   sky130_fd_sc_hd__o41a_1
+       30  262.752   sky130_fd_sc_hd__o41ai_1
+       28  175.168   sky130_fd_sc_hd__or3_1
+        2   17.517   sky130_fd_sc_hd__or3b_1
+       25   187.68   sky130_fd_sc_hd__or4_1
+        3   30.029   sky130_fd_sc_hd__or4b_1
+      320  2.8E+03   sky130_fd_sc_hd__xnor2_1
+       11  247.738   sky130_fd_sc_hd__xnor3_1
+      180 1.58E+03   sky130_fd_sc_hd__xor2_1
+       16  380.365   sky130_fd_sc_hd__xor3_1
+
+   Chip area for module '\top': 190834.275200
+     of which used for sequential elements: 125875.724800 (65.96%)
+

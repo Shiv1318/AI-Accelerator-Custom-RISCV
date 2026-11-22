@@ -1,0 +1,9 @@
+ID register: ARCH=0 MULT=0
+ARCH=0: 1006 vectors via AXI-Lite, CYCLES register = 8
+PASS: AXI-Lite accelerator ARCH=0 matches Python golden model
+ID register: ARCH=1 MULT=0
+ARCH=1: 1006 vectors via AXI-Lite, CYCLES register = 2
+PASS: AXI-Lite accelerator ARCH=1 matches Python golden model
+ID register: ARCH=2 MULT=0
+ARCH=2: 1006 vectors via AXI-Lite, CYCLES register = 5
+PASS: AXI-Lite accelerator ARCH=2 matches Python golden model

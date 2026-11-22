@@ -1,0 +1,7 @@
+arch,mult,period_ns,cells,area_um2,worst_slack_ns,crit_delay_ns
+iter,star,10,1178,10590.156800,1.49,8.26
+iter,booth,10,1005,9683.036800,0.12,9.63
+par,star,10,2427,19663.859200,-0.34,10.09
+par,booth,10,1943,15582.444800,-0.02,9.77
+systolic,star,10,3140,23724.003200,-0.15,9.9
+systolic,booth,10,2032,16946.252800,-0.55,10.3

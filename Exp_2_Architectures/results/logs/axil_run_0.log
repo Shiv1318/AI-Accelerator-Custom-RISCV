@@ -1,0 +1,7 @@
+ID register: ARCH=0 MULT=0
+ARCH=0: 1006 vectors via AXI-Lite, CYCLES register = 8
+PASS: AXI-Lite accelerator ARCH=0 matches Python golden model
+- tb/tb_matmul_axil.sv:75: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05
+- Verilator: $finish at 634ns; walltime 0.037 s; speed 17.193 us/s
+- Verilator: cpu 0.035 s on 1 threads; allocated 4 MB

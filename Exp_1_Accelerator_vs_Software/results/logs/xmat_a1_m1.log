@@ -1,0 +1,28 @@
+Converted 647 words (2588 bytes) → ../build/rom.hex
+   text	   data	    bss	    dec	    hex	filename
+   2588	      0	      0	   2588	    a1c	fw.elf
+[ROM] loaded from plusarg: build/rom.hex
+[UART] S1 pack=220 run=14 all=38 full=258 c=19,22,43,50
+[UART] S2 pack=220 run=14 all=38 full=258 c=32513,32513,-25500,-25500
+[UART] R01 pack=220 run=14 all=38 full=258 c=14240,-2044,-1400,-200
+[UART] R02 pack=220 run=14 all=38 full=258 c=14744,8638,-5928,613
+[UART] R03 pack=220 run=14 all=38 full=258 c=-8808,7800,10368,-9360
+[UART] R04 pack=220 run=14 all=38 full=258 c=8613,-8057,-1914,50
+[UART] R05 pack=220 run=14 all=38 full=258 c=10878,-5208,1873,-1324
+[UART] R06 pack=220 run=14 all=38 full=258 c=-5544,-9180,-7875,-14148
+[UART] R07 pack=220 run=14 all=38 full=258 c=-1298,-116,-801,-525
+[UART] R08 pack=220 run=14 all=38 full=258 c=-10850,-5644,3116,12144
+[UART] R09 pack=220 run=14 all=38 full=258 c=5198,2833,-8242,-8424
+[UART] R10 pack=220 run=14 all=38 full=258 c=-932,-8224,72,5904
+[UART] R11 pack=220 run=14 all=38 full=258 c=5265,-3097,7769,-1943
+[UART] R12 pack=220 run=14 all=38 full=258 c=-3198,73,-5178,-5115
+[UART] R13 pack=220 run=14 all=38 full=258 c=-3058,-13440,-2450,-11334
+[UART] R14 pack=220 run=14 all=38 full=258 c=9262,-8802,7738,-8274
+[UART] R15 pack=220 run=14 all=38 full=258 c=-10315,-11529,7910,12202
+[UART] R16 pack=220 run=14 all=38 full=258 c=-3021,-2365,10317,8069
+[UART] END
+simulated 4707207 cycles
+- tb/tb_soc_accel.sv:31: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05
+- Verilator: $finish at 94ms; walltime 3.055 s; speed 30.818 ms/s
+- Verilator: cpu 3.053 s on 1 threads; allocated 4 MB

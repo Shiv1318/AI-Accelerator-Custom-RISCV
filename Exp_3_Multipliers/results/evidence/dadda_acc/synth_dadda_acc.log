@@ -1,0 +1,4 @@
+arch,mult,period_ns,cells,area_um2,worst_slack_ns,crit_delay_ns
+iter,dadda,20,1010,9389.004800,10.63,9.12
+par,dadda,20,1989,15621.232000,9.51,10.24
+systolic,dadda,20,1987,17301.593600,12.26,7.49

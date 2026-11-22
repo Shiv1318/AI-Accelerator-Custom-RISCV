@@ -1,0 +1,27 @@
+
+61. Printing statistics.
+
+=== top ===
+
+   Number of wires:              21000
+   Number of wire bits:          25911
+   Number of public wires:         322
+   Number of public wire bits:    4873
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              25562
+     $_ANDNOT_                    4821
+     $_AND_                        827
+     $_MUX_                       8237
+     $_NAND_                       459
+     $_NOR_                        339
+     $_NOT_                       1100
+     $_ORNOT_                      263
+     $_OR_                        3795
+     $_XNOR_                       312
+     $_XOR_                       1127
+     sky130_fd_sc_hd__dfrtp_2      693
+     sky130_fd_sc_hd__dfstp_2       10
+     sky130_fd_sc_hd__dfxtp_2     3579
+

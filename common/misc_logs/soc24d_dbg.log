@@ -1,0 +1,32 @@
+Converted 881 words (3524 bytes) → ../build/rom.hex
+   text	   data	    bss	    dec	    hex	filename
+   3524	      0	      0	   3524	    dc4	fw.elf
+[ROM] loaded from plusarg: build/rom.hex
+[UART] arch=0 mult=0
+[UART] S1 cpu=2619 e2e=424 hw=8 ok=1 gold=1
+[UART] S2 cpu=4765 e2e=424 hw=8 ok=1
+[UART] I1 cpu=2999 e2e=424 hw=8 ok=1 gold=1
+[UART] I2 cpu=1111 e2e=424 hw=8 ok=1 gold=1
+[UART] Z1 cpu=2619 e2e=424 hw=8 ok=1 gold=1
+[UART] Z2 cpu=733 e2e=424 hw=8 ok=1 gold=1
+[UART] O1 cpu=1485 e2e=424 hw=8 ok=1 gold=1
+[UART] W1 cpu=2241 e2e=424 hw=8 ok=0 gold=1 cc=8,8,20,20 ca=224,224,560,560
+[UART] R01 cpu=3253 e2e=424 hw=8 ok=0 c=872,264,-4928,1248 cc=14240,-2044,-1400,-200 ca=872,264,-4928,1248
+[UART] R02 cpu=4135 e2e=424 hw=8 ok=0 c=9348,11842,8398,1395 cc=14744,8638,-5928,613 ca=9348,11842,8398,1395
+[UART] R03 cpu=3883 e2e=424 hw=8 ok=0 c=-13984,8160,-12928,5760 cc=-8808,7800,10368,-9360 ca=-13984,8160,-12928,5760
+[UART] R04 cpu=3311 e2e=424 hw=8 ok=0 c=-10527,-10761,4350,-9758 cc=8613,-8057,-1914,50 ca=-10527,-10761,4350,-9758
+[UART] R05 cpu=3757 e2e=424 hw=8 ok=0 c=-11108,4880,-6022,2584 cc=10878,-5208,1873,-1324 ca=-11108,4880,-6022,2584
+[UART] R06 cpu=3633 e2e=424 hw=8 ok=0 c=1652,2040,-4711,-8625 cc=-5544,-9180,-7875,-14148 ca=1652,2040,-4711,-8625
+[UART] R07 cpu=3505 e2e=424 hw=8 ok=0 c=-4190,2134,-1492,518 cc=-1298,-116,-801,-525 ca=-4190,2134,-1492,518
+[UART] R08 cpu=4135 e2e=424 hw=8 ok=0 c=6682,-1984,4676,11552 cc=-10850,-5644,3116,12144 ca=6682,-1984,4676,11552
+[UART] R09 cpu=4009 e2e=424 hw=8 ok=0 c=2710,184,1264,3302 cc=5198,2833,-8242,-8424 ca=2710,184,1264,3302
+[UART] R10 cpu=3757 e2e=424 hw=8 ok=0 c=-1896,-1472,-704,-4928 cc=-932,-8224,72,5904 ca=-1896,-1472,-704,-4928
+[UART] R11 cpu=4007 e2e=424 hw=8 ok=0 c=7506,7825,-4744,-14005 cc=5265,-3097,7769,-1943 ca=7506,7825,-4744,-14005
+[UART] R12 cpu=4009 e2e=424 hw=8 ok=0 c=-13332,-10041,-4764,-4193 cc=-3198,73,-5178,-5115 ca=-13332,-10041,-4764,-4193
+[UART] R13 cpu=3635 e2e=424 hw=8 ok=0 c=2732,6972,880,-4170 cc=-3058,-13440,-2450,-11334 ca=2732,6972,880,-4170
+[UART] R14 cpu=4261 e2e=424 hw=8 ok=0 c=-1686,770,-3830,2966 cc=9262,-8802,7738,-8274 ca=-1686,770,-3830,2966
+TIMEOUT: no END line from firmware
+- tb/tb_soc_accel.sv:13: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05
+- Verilator: $finish at 160ms; walltime 4.574 s; speed 34.982 ms/s
+- Verilator: cpu 4.572 s on 1 threads; allocated 4 MB

@@ -1,0 +1,5 @@
+window,cycles,power_mW,energy_uJ
+S1_cpu,2619,19.3,1.0109
+S1_acc,424,19.3,0.1637
+S2_cpu,4765,19.4,1.8488
+S2_acc,424,19.4,0.1645

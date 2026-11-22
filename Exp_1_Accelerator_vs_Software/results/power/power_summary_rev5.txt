@@ -1,0 +1,28 @@
+== win_s1_cpu
+Annotated 117411 pin activities.
+unannotated     0
+Sequential             8.59e-03   4.55e-05   3.81e-08   8.64e-03  44.8%
+Combinational          2.98e-04   6.80e-04   1.26e-07   9.78e-04   5.1%
+Clock                  5.53e-03   4.15e-03   8.77e-08   9.69e-03  50.2%
+Total                  1.44e-02   4.88e-03   2.52e-07   1.93e-02 100.0%
+== win_s1_acc424
+Annotated 117411 pin activities.
+unannotated     0
+Sequential             8.59e-03   4.13e-05   3.81e-08   8.63e-03  44.8%
+Combinational          2.89e-04   6.69e-04   1.26e-07   9.58e-04   5.0%
+Clock                  5.53e-03   4.15e-03   8.77e-08   9.69e-03  50.2%
+Total                  1.44e-02   4.86e-03   2.51e-07   1.93e-02 100.0%
+== win_s2_cpu
+Annotated 117411 pin activities.
+unannotated     0
+Sequential             8.60e-03   4.85e-05   3.76e-08   8.64e-03  44.6%
+Combinational          3.17e-04   7.14e-04   1.23e-07   1.03e-03   5.3%
+Clock                  5.53e-03   4.15e-03   8.77e-08   9.69e-03  50.0%
+Total                  1.44e-02   4.92e-03   2.49e-07   1.94e-02 100.0%
+== win_s2_acc424
+Annotated 117411 pin activities.
+unannotated     0
+Sequential             8.60e-03   4.94e-05   3.74e-08   8.65e-03  44.6%
+Combinational          3.21e-04   7.27e-04   1.22e-07   1.05e-03   5.4%
+Clock                  5.53e-03   4.15e-03   8.77e-08   9.69e-03  50.0%
+Total                  1.45e-02   4.93e-03   2.47e-07   1.94e-02 100.0%

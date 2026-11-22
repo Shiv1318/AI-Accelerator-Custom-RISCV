@@ -1,0 +1,5 @@
+PASS: mult_dadda correct for all 65536 pairs
+- rtl_dadda/tb_mult_dadda.sv:17: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05
+- Verilator: $finish at 66us; walltime 0.019 s; speed 3.505 ms/s
+- Verilator: cpu 0.019 s on 1 threads; allocated 4 MB

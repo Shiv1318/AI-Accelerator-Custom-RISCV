@@ -1,0 +1,1657 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.64+26 (git sha1 a54bca549, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+
+-- Running command `
+      read_verilog -sv results/synthesis/p20ns/work_matmul_systolic_m3/mult_star.sv results/synthesis/p20ns/work_matmul_systolic_m3/mult_booth.sv results/synthesis/p20ns/work_matmul_systolic_m3/mult_sel.sv results/synthesis/p20ns/work_matmul_systolic_m3/mult_wallace.sv results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv results/synthesis/p20ns/work_matmul_systolic_m3/mult_shiftadd.sv results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv;
+      hierarchy -check -top matmul_systolic;
+      synth -top matmul_systolic -flatten;
+      dfflibmap -liberty /apps/vlsi/src/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib;
+      abc -liberty /apps/vlsi/src/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib -D 20000;
+      opt_clean -purge;
+      write_verilog -noattr results/synthesis/p20ns/matmul_systolic_m3.v;
+      tee -o results/synthesis/p20ns/matmul_systolic_m3.stat stat -liberty /apps/vlsi/src/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib;
+    ' --
+
+1. Executing Verilog-2005 frontend: results/synthesis/p20ns/work_matmul_systolic_m3/mult_star.sv
+Parsing SystemVerilog input from `results/synthesis/p20ns/work_matmul_systolic_m3/mult_star.sv' to AST representation.
+Generating RTLIL representation for module `\mult_star'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: results/synthesis/p20ns/work_matmul_systolic_m3/mult_booth.sv
+Parsing SystemVerilog input from `results/synthesis/p20ns/work_matmul_systolic_m3/mult_booth.sv' to AST representation.
+Generating RTLIL representation for module `\mult_booth'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: results/synthesis/p20ns/work_matmul_systolic_m3/mult_sel.sv
+Parsing SystemVerilog input from `results/synthesis/p20ns/work_matmul_systolic_m3/mult_sel.sv' to AST representation.
+Generating RTLIL representation for module `\mult_sel'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: results/synthesis/p20ns/work_matmul_systolic_m3/mult_wallace.sv
+Parsing SystemVerilog input from `results/synthesis/p20ns/work_matmul_systolic_m3/mult_wallace.sv' to AST representation.
+Generating RTLIL representation for module `\mult_wallace'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv
+Parsing SystemVerilog input from `results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv' to AST representation.
+Generating RTLIL representation for module `\mult_array'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: results/synthesis/p20ns/work_matmul_systolic_m3/mult_shiftadd.sv
+Parsing SystemVerilog input from `results/synthesis/p20ns/work_matmul_systolic_m3/mult_shiftadd.sv' to AST representation.
+Generating RTLIL representation for module `\mult_shiftadd'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv
+Parsing SystemVerilog input from `results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv' to AST representation.
+Generating RTLIL representation for module `\systolic_pe'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv
+Parsing SystemVerilog input from `results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv' to AST representation.
+Generating RTLIL representation for module `\matmul_systolic'.
+Warning: Replacing memory \a_w with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:49
+Warning: Replacing memory \b_w with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:46
+Warning: Replacing memory \b_r with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:76
+Warning: Replacing memory \a_r with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:76
+Warning: Replacing memory \b_q with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:61
+Warning: Replacing memory \a_q with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:61
+Warning: Replacing memory \b_feed with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:36
+Warning: Replacing memory \a_feed with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:35
+Successfully finished Verilog frontend.
+
+9. Executing HIERARCHY pass (managing design hierarchy).
+
+9.1. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+Used module:     \systolic_pe
+Used module:         \mult_sel
+Used module:             \mult_booth
+Parameter 1 (\W) = 8
+
+9.2. Executing AST frontend in derive mode using pre-parsed AST for module `\mult_booth'.
+Parameter 1 (\W) = 8
+Generating RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter \W = 8
+Parameter \MULT = 3
+
+9.3. Executing AST frontend in derive mode using pre-parsed AST for module `\mult_sel'.
+Parameter \W = 8
+Parameter \MULT = 3
+Generating RTLIL representation for module `$paramod$5bbea47ef3295a032807305386025b9edb813462\mult_sel'.
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 3
+
+9.4. Executing AST frontend in derive mode using pre-parsed AST for module `\systolic_pe'.
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 3
+Generating RTLIL representation for module `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe'.
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 3
+Found cached RTLIL representation for module `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe'.
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 3
+Found cached RTLIL representation for module `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe'.
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 3
+Found cached RTLIL representation for module `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe'.
+Reprocessing module matmul_systolic because instantiated module $paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe has become available.
+Generating RTLIL representation for module `\matmul_systolic'.
+Warning: Replacing memory \acc_w with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54
+Warning: Replacing memory \a_w with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:49
+Warning: Replacing memory \b_w with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:46
+Warning: Replacing memory \b_r with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:76
+Warning: Replacing memory \a_r with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:76
+Warning: Replacing memory \b_q with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:61
+Warning: Replacing memory \a_q with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:61
+Warning: Replacing memory \b_feed with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:36
+Warning: Replacing memory \a_feed with list of registers. See results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:35
+
+9.5. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+Used module:     \systolic_pe
+Used module:         $paramod$5bbea47ef3295a032807305386025b9edb813462\mult_sel
+Used module:             \mult_array
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 3
+Found cached RTLIL representation for module `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe'.
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 3
+Found cached RTLIL representation for module `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe'.
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 3
+Found cached RTLIL representation for module `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe'.
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 3
+Found cached RTLIL representation for module `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe'.
+Parameter 1 (\W) = 8
+
+9.6. Executing AST frontend in derive mode using pre-parsed AST for module `\mult_array'.
+Parameter 1 (\W) = 8
+Generating RTLIL representation for module `$paramod\mult_array\W=s32'00000000000000000000000000001000'.
+
+9.7. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+Used module:     $paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe
+Used module:         \mult_sel
+Used module:             $paramod\mult_booth\W=s32'00000000000000000000000000001000
+Parameter \W = 8
+Parameter \MULT = 3
+Found cached RTLIL representation for module `$paramod$5bbea47ef3295a032807305386025b9edb813462\mult_sel'.
+
+9.8. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+Used module:     $paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe
+Used module:         $paramod$5bbea47ef3295a032807305386025b9edb813462\mult_sel
+Used module:             $paramod\mult_array\W=s32'00000000000000000000000000001000
+
+9.9. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+Used module:     $paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe
+Used module:         $paramod$5bbea47ef3295a032807305386025b9edb813462\mult_sel
+Used module:             $paramod\mult_array\W=s32'00000000000000000000000000001000
+Removing unused module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Removing unused module `\systolic_pe'.
+Removing unused module `\mult_shiftadd'.
+Removing unused module `\mult_array'.
+Removing unused module `\mult_wallace'.
+Removing unused module `\mult_sel'.
+Removing unused module `\mult_booth'.
+Removing unused module `\mult_star'.
+Removed 8 unused modules.
+
+10. Executing SYNTH pass.
+
+10.1. Executing HIERARCHY pass (managing design hierarchy).
+
+10.1.1. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+Used module:     $paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe
+Used module:         $paramod$5bbea47ef3295a032807305386025b9edb813462\mult_sel
+Used module:             $paramod\mult_array\W=s32'00000000000000000000000000001000
+
+10.1.2. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+Used module:     $paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe
+Used module:         $paramod$5bbea47ef3295a032807305386025b9edb813462\mult_sel
+Used module:             $paramod\mult_array\W=s32'00000000000000000000000000001000
+Removed 0 unused modules.
+
+10.2. Executing PROC pass (convert processes to netlists).
+
+10.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+10.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:21$585 in module $paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668 in module matmul_systolic.
+Marked 3 switch rules as full_case in process $proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668 in module matmul_systolic.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:59$658 in module matmul_systolic.
+Removed 4 dead cases from process $proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614 in module matmul_systolic.
+Marked 6 switch rules as full_case in process $proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614 in module matmul_systolic.
+Removed a total of 5 dead cases.
+
+10.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 8 redundant assignments.
+Promoted 44 assignments to connections.
+
+10.2.4. Executing PROC_INIT pass (extract init attributes).
+
+10.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:21$585'.
+Found async reset \rst_n in `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+Found async reset \rst_n in `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:59$658'.
+
+10.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~10 debug messages>
+
+10.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:21$585'.
+     1/3: $0\acc[19:0]
+     2/3: $0\b_out[7:0]
+     3/3: $0\a_out[7:0]
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$693'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$692'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:53$691'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$690'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$689'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:53$688'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:49$687'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$686'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$685'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:53$684'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$683'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$682'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:53$681'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:49$680'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:46$679'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:46$678'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+     1/16: $3$fordecl_block$475.x[31:0]$675
+     2/16: $2$fordecl_block$475.x[31:0]$674
+     3/16: $1$fordecl_block$475.x[31:0]$673
+     4/16: $0\done[0:0]
+     5/16: $1$fordecl_block$473.x[31:0]$672
+     6/16: $0\b_r[3][7:0]
+     7/16: $0\b_r[2][7:0]
+     8/16: $0\b_r[1][7:0]
+     9/16: $0\b_r[0][7:0]
+    10/16: $0\a_r[3][7:0]
+    11/16: $0\a_r[2][7:0]
+    12/16: $0\a_r[1][7:0]
+    13/16: $0\a_r[0][7:0]
+    14/16: $0\st[0:0]
+    15/16: $0\cycles[15:0]
+    16/16: $0\busy[0:0]
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:67$664'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:59$658'.
+     1/6: $1$fordecl_block$467.i[31:0]$663
+     2/6: $0\b_q[1][7:0]
+     3/6: $0\a_q[1][7:0]
+     4/6: $0\b_q[0][7:0]
+     5/6: $0\a_q[0][7:0]
+     6/6: $1$fordecl_block$465.i[31:0]$662
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614'.
+     1/16: $2$mem2reg_rd$\b_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$611_DATA[7:0]$657
+     2/16: $2$mem2reg_rd$\a_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$610_DATA[7:0]$653
+     3/16: $1\b_feed[1][7:0]
+     4/16: $1$mem2reg_rd$\b_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$611_DATA[7:0]$650
+     5/16: $1$mem2reg_rd$\b_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$611_ADDR[1:0]$649
+     6/16: $1\a_feed[1][7:0]
+     7/16: $1$mem2reg_rd$\a_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$610_DATA[7:0]$648
+     8/16: $1$mem2reg_rd$\a_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$610_ADDR[1:0]$647
+     9/16: $2$mem2reg_rd$\b_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$609_DATA[7:0]$640
+    10/16: $2$mem2reg_rd$\a_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$608_DATA[7:0]$636
+    11/16: $1\b_feed[0][7:0]
+    12/16: $1$mem2reg_rd$\b_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$609_DATA[7:0]$633
+    13/16: $1$mem2reg_rd$\b_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$609_ADDR[1:0]$632
+    14/16: $1\a_feed[0][7:0]
+    15/16: $1$mem2reg_rd$\a_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$608_DATA[7:0]$631
+    16/16: $1$mem2reg_rd$\a_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$608_ADDR[1:0]$630
+Creating decoders for process `$paramod\mult_array\W=s32'00000000000000000000000000001000.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:10$694'.
+
+10.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\matmul_systolic.\acc_w[3]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$693'.
+No latch inferred for signal `\matmul_systolic.\b_w[5]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$692'.
+No latch inferred for signal `\matmul_systolic.\a_w[5]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:53$691'.
+No latch inferred for signal `\matmul_systolic.\acc_w[2]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$690'.
+No latch inferred for signal `\matmul_systolic.\b_w[4]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$689'.
+No latch inferred for signal `\matmul_systolic.\a_w[4]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:53$688'.
+No latch inferred for signal `\matmul_systolic.\a_w[3]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:49$687'.
+No latch inferred for signal `\matmul_systolic.\acc_w[1]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$686'.
+No latch inferred for signal `\matmul_systolic.\b_w[3]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$685'.
+No latch inferred for signal `\matmul_systolic.\a_w[2]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:53$684'.
+No latch inferred for signal `\matmul_systolic.\acc_w[0]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$683'.
+No latch inferred for signal `\matmul_systolic.\b_w[2]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$682'.
+No latch inferred for signal `\matmul_systolic.\a_w[1]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:53$681'.
+No latch inferred for signal `\matmul_systolic.\a_w[0]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:49$680'.
+No latch inferred for signal `\matmul_systolic.\b_w[1]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:46$679'.
+No latch inferred for signal `\matmul_systolic.\b_w[0]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:46$678'.
+No latch inferred for signal `\matmul_systolic.\c_flat' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:67$664'.
+No latch inferred for signal `\matmul_systolic.$fordecl_block$469.i' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:67$664'.
+No latch inferred for signal `\matmul_systolic.$fordecl_block$469.$for_loop$470[0].$fordecl_block$471.j' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:67$664'.
+No latch inferred for signal `\matmul_systolic.$fordecl_block$469.$for_loop$470[1].$fordecl_block$471.j' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:67$664'.
+No latch inferred for signal `\matmul_systolic.$fordecl_block$463.i' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614'.
+No latch inferred for signal `\matmul_systolic.\a_feed[0]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614'.
+No latch inferred for signal `\matmul_systolic.\a_feed[1]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614'.
+No latch inferred for signal `\matmul_systolic.\b_feed[0]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614'.
+No latch inferred for signal `\matmul_systolic.\b_feed[1]' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614'.
+No latch inferred for signal `\matmul_systolic.$mem2reg_rd$\a_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$608_ADDR' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614'.
+No latch inferred for signal `\matmul_systolic.$mem2reg_rd$\a_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$608_DATA' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614'.
+No latch inferred for signal `\matmul_systolic.$mem2reg_rd$\b_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$609_ADDR' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614'.
+No latch inferred for signal `\matmul_systolic.$mem2reg_rd$\b_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$609_DATA' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614'.
+No latch inferred for signal `\matmul_systolic.$mem2reg_rd$\a_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$610_ADDR' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614'.
+No latch inferred for signal `\matmul_systolic.$mem2reg_rd$\a_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$610_DATA' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614'.
+No latch inferred for signal `\matmul_systolic.$mem2reg_rd$\b_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$611_ADDR' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614'.
+No latch inferred for signal `\matmul_systolic.$mem2reg_rd$\b_r$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$611_DATA' from process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614'.
+No latch inferred for signal `$paramod\mult_array\W=s32'00000000000000000000000000001000.\p' from process `$paramod\mult_array\W=s32'00000000000000000000000000001000.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:10$694'.
+No latch inferred for signal `$paramod\mult_array\W=s32'00000000000000000000000000001000.\pp' from process `$paramod\mult_array\W=s32'00000000000000000000000000001000.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:10$694'.
+No latch inferred for signal `$paramod\mult_array\W=s32'00000000000000000000000000001000.\sum' from process `$paramod\mult_array\W=s32'00000000000000000000000000001000.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:10$694'.
+No latch inferred for signal `$paramod\mult_array\W=s32'00000000000000000000000000001000.$fordecl_block$420.i' from process `$paramod\mult_array\W=s32'00000000000000000000000000001000.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:10$694'.
+
+10.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe.\acc' using process `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:21$585'.
+  created $adff cell `$procdff$884' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe.\a_out' using process `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:21$585'.
+  created $adff cell `$procdff$889' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe.\b_out' using process `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:21$585'.
+  created $adff cell `$procdff$894' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\busy' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+  created $adff cell `$procdff$899' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\done' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+  created $adff cell `$procdff$904' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\cycles' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+  created $adff cell `$procdff$909' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\st' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+  created $adff cell `$procdff$914' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.$fordecl_block$473.x' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+  created $adff cell `$procdff$919' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.$fordecl_block$475.x' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+  created $dff cell `$procdff$926' with positive edge clock.
+Creating register for signal `\matmul_systolic.\a_r[0]' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+  created $adff cell `$procdff$931' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\a_r[1]' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+  created $adff cell `$procdff$936' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\a_r[2]' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+  created $adff cell `$procdff$941' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\a_r[3]' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+  created $adff cell `$procdff$946' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\b_r[0]' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+  created $adff cell `$procdff$951' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\b_r[1]' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+  created $adff cell `$procdff$956' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\b_r[2]' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+  created $adff cell `$procdff$961' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\b_r[3]' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+  created $adff cell `$procdff$966' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.$fordecl_block$465.i' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:59$658'.
+  created $adff cell `$procdff$971' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.$fordecl_block$467.i' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:59$658'.
+  created $dff cell `$procdff$978' with positive edge clock.
+Creating register for signal `\matmul_systolic.\a_q[0]' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:59$658'.
+  created $adff cell `$procdff$983' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\a_q[1]' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:59$658'.
+  created $adff cell `$procdff$988' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\b_q[0]' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:59$658'.
+  created $adff cell `$procdff$993' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\b_q[1]' using process `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:59$658'.
+  created $adff cell `$procdff$998' with positive edge clock and positive level reset.
+
+10.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+10.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:21$585'.
+Removing empty process `$paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:21$585'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$693'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$692'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:53$691'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$690'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$689'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:53$688'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:49$687'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$686'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$685'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:53$684'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$683'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:54$682'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:53$681'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:49$680'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:46$679'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:46$678'.
+Found and cleaned up 3 empty switches in `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:73$668'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:67$664'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:59$658'.
+Found and cleaned up 6 empty switches in `\matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:33$614'.
+Removing empty process `$paramod\mult_array\W=s32'00000000000000000000000000001000.$proc$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:10$694'.
+Cleaned up 10 empty switches.
+
+10.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe.
+<suppressed ~6 debug messages>
+Optimizing module matmul_systolic.
+<suppressed ~74 debug messages>
+Optimizing module $paramod$5bbea47ef3295a032807305386025b9edb813462\mult_sel.
+Optimizing module $paramod\mult_array\W=s32'00000000000000000000000000001000.
+<suppressed ~8 debug messages>
+
+10.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$a4b120f14b8db172591a5839b459eb5befe10fd6\systolic_pe.
+Deleting now unused module $paramod$5bbea47ef3295a032807305386025b9edb813462\mult_sel.
+Deleting now unused module $paramod\mult_array\W=s32'00000000000000000000000000001000.
+<suppressed ~6 debug messages>
+
+10.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+<suppressed ~13 debug messages>
+
+10.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 73 unused cells and 353 unused wires.
+<suppressed ~91 debug messages>
+
+10.6. Executing CHECK pass (checking for obvious problems).
+Checking module matmul_systolic...
+Found and reported 0 problems.
+
+10.7. Executing OPT pass (performing simple optimizations).
+
+10.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+<suppressed ~3 debug messages>
+
+10.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 179 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 174 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
+
+10.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$792: \st -> 1'0
+      Replacing known input bits on port A of cell $procmux$790: \st -> 1'1
+      Replacing known input bits on port A of cell $procmux$795: \st -> 1'0
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$860.
+    dead port 2/2 on $mux $procmux$852.
+    dead port 1/5 on $pmux $procmux$847.
+    dead port 3/5 on $pmux $procmux$847.
+    dead port 2/2 on $mux $procmux$826.
+    dead port 2/2 on $mux $procmux$818.
+Removed 6 multiplexer ports.
+<suppressed ~134 debug messages>
+
+10.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 0 changes.
+
+10.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 170 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+10.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 0 unused cells and 12 unused wires.
+<suppressed ~1 debug messages>
+
+10.7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+10.7.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~130 debug messages>
+
+10.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 0 changes.
+
+10.7.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 170 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+10.7.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+
+10.7.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+10.7.16. Finished fast OPT passes. (There is nothing left to do.)
+
+10.8. Executing FSM pass (extract and optimize FSM).
+
+10.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+10.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+10.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+10.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+
+10.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+10.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+10.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+10.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+10.9. Executing OPT pass (performing simple optimizations).
+
+10.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+10.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 170 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+10.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~130 debug messages>
+
+10.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 0 changes.
+
+10.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 170 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+10.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$961 ($adff) from module matmul_systolic (D = \b_flat [23:16], Q = \b_r[2]).
+Adding EN signal on $procdff$956 ($adff) from module matmul_systolic (D = \b_flat [15:8], Q = \b_r[1]).
+Adding EN signal on $procdff$899 ($adff) from module matmul_systolic (D = $0\busy[0:0], Q = \busy).
+Adding EN signal on $procdff$966 ($adff) from module matmul_systolic (D = \b_flat [31:24], Q = \b_r[3]).
+Adding EN signal on $procdff$909 ($adff) from module matmul_systolic (D = $0\cycles[15:0], Q = \cycles).
+Adding EN signal on $procdff$931 ($adff) from module matmul_systolic (D = \a_flat [7:0], Q = \a_r[0]).
+Adding EN signal on $procdff$936 ($adff) from module matmul_systolic (D = \a_flat [15:8], Q = \a_r[1]).
+Adding EN signal on $procdff$941 ($adff) from module matmul_systolic (D = \a_flat [23:16], Q = \a_r[2]).
+Adding EN signal on $procdff$946 ($adff) from module matmul_systolic (D = \a_flat [31:24], Q = \a_r[3]).
+Adding EN signal on $procdff$951 ($adff) from module matmul_systolic (D = \b_flat [7:0], Q = \b_r[0]).
+
+10.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 16 unused cells and 16 unused wires.
+<suppressed ~17 debug messages>
+
+10.9.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+<suppressed ~5 debug messages>
+
+10.9.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~106 debug messages>
+
+10.9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+    New input vector for $reduce_and cell $auto$opt_dff.cc:252:make_patterns_logic$1023: { $auto$opt_dff.cc:234:make_patterns_logic$1016 $auto$opt_dff.cc:234:make_patterns_logic$1020 }
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 1 changes.
+
+10.9.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 174 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 165 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 158 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+<suppressed ~48 debug messages>
+Removed a total of 16 cells.
+
+10.9.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 0 unused cells and 19 unused wires.
+<suppressed ~1 debug messages>
+
+10.9.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+10.9.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.9.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~106 debug messages>
+
+10.9.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 0 changes.
+
+10.9.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 158 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+10.9.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.9.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+
+10.9.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+10.9.23. Finished fast OPT passes. (There is nothing left to do.)
+
+10.10. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 2) from port B of cell matmul_systolic.$auto$opt_dff.cc:235:make_patterns_logic$1021 ($ne).
+Removed top 16 bits (of 32) from port A of cell matmul_systolic.$ge$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:37$625 ($ge).
+Removed top 31 bits (of 32) from port B of cell matmul_systolic.$ge$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:37$625 ($ge).
+Removed top 16 bits (of 32) from port A of cell matmul_systolic.$lt$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:37$628 ($lt).
+Removed top 30 bits (of 32) from port B of cell matmul_systolic.$lt$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:37$628 ($lt).
+Removed top 16 bits (of 32) from port A of cell matmul_systolic.$ge$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:37$642 ($ge).
+Removed top 31 bits (of 32) from port B of cell matmul_systolic.$ge$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:37$642 ($ge).
+Removed top 30 bits (of 32) from port B of cell matmul_systolic.$lt$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:37$645 ($lt).
+Removed top 30 bits (of 32) from port A of cell matmul_systolic.$add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$652 ($add).
+Removed top 30 bits (of 32) from port Y of cell matmul_systolic.$add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$652 ($add).
+Removed top 30 bits (of 32) from port B of cell matmul_systolic.$add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$652 ($add).
+Removed top 16 bits (of 32) from port A of cell matmul_systolic.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$654 ($sub).
+Removed top 31 bits (of 32) from port B of cell matmul_systolic.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$654 ($sub).
+Removed top 15 bits (of 32) from port Y of cell matmul_systolic.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$654 ($sub).
+Converting cell matmul_systolic.$add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$656 ($add) from unsigned to signed.
+Removed top 14 bits (of 32) from port A of cell matmul_systolic.$add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$656 ($add).
+Removed top 30 bits (of 32) from port B of cell matmul_systolic.$add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$656 ($add).
+Removed top 30 bits (of 32) from port Y of cell matmul_systolic.$add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$656 ($add).
+Removed top 16 bits (of 18) from port A of cell matmul_systolic.$add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$656 ($add).
+Removed top 13 bits (of 16) from port B of cell matmul_systolic.$eq$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:89$677 ($eq).
+Removed top 1 bits (of 2) from port B of cell matmul_systolic.$procmux$816_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell matmul_systolic.$procmux$824_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell matmul_systolic.$procmux$858_CMP0 ($eq).
+Removed top 4 bits (of 20) from port B of cell matmul_systolic.$flatten\g_row[0].g_col[0].u_pe.$add$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:27$587 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_systolic.$flatten\g_row[0].g_col[1].u_pe.$add$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:27$587 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_systolic.$flatten\g_row[1].g_col[0].u_pe.$add$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:27$587 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_systolic.$flatten\g_row[1].g_col[1].u_pe.$add$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:27$587 ($add).
+Removed top 30 bits (of 32) from wire matmul_systolic.$add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$656_Y.
+Removed top 30 bits (of 32) from wire matmul_systolic.$add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$652_Y.
+
+10.11. Executing PEEPOPT pass (run peephole optimizers).
+
+10.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+10.13. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module matmul_systolic:
+  creating $macc model for $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$716 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$707 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$710 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$713 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$704 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$716 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719 ($sub).
+  creating $macc model for $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$707 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[1].u_pe.$add$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:27$587 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$710 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$713 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$713 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$701 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[0].u_pe.$add$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:27$587 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719 ($sub).
+  creating $macc model for $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$710 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$707 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$713 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$710 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$716 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$704 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[0].u_pe.$add$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:27$587 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$707 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$701 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719 ($sub).
+  creating $macc model for $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$701 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$704 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$701 ($add).
+  creating $macc model for $add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:88$676 ($add).
+  creating $macc model for $add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$656 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[1].u_pe.$add$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:27$587 ($add).
+  creating $macc model for $sub$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$654 ($sub).
+  creating $macc model for $add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$652 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719 ($sub).
+  creating $macc model for $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$716 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$704 ($add).
+  merging $macc model for $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$701 into $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$704.
+  merging $macc model for $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$713 into $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$716.
+  merging $macc model for $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$710 into $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$716.
+  merging $macc model for $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$707 into $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$716.
+  merging $macc model for $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$704 into $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$716.
+  merging $macc model for $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$716 into $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719.
+  merging $macc model for $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$713 into $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719.
+  merging $macc model for $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$710 into $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719.
+  merging $macc model for $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$707 into $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719.
+  merging $macc model for $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$704 into $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719.
+  merging $macc model for $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$701 into $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719.
+  merging $macc model for $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$716 into $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719.
+  merging $macc model for $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$701 into $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$704.
+  merging $macc model for $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$713 into $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$716.
+  merging $macc model for $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$710 into $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$716.
+  merging $macc model for $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$707 into $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$716.
+  merging $macc model for $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$704 into $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$716.
+  merging $macc model for $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$716 into $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719.
+  merging $macc model for $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$710 into $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$713.
+  merging $macc model for $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$707 into $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$713.
+  merging $macc model for $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$704 into $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$713.
+  merging $macc model for $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$701 into $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$713.
+  merging $macc model for $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$716 into $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719.
+  merging $macc model for $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$713 into $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719.
+  creating $alu model for $macc $flatten\g_row[0].g_col[0].u_pe.$add$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:27$587.
+  creating $alu model for $macc $flatten\g_row[1].g_col[1].u_pe.$add$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:27$587.
+  creating $alu model for $macc $flatten\g_row[0].g_col[1].u_pe.$add$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:27$587.
+  creating $alu model for $macc $sub$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$654.
+  creating $alu model for $macc $add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$652.
+  creating $alu model for $macc $add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$656.
+  creating $alu model for $macc $add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:88$676.
+  creating $alu model for $macc $flatten\g_row[1].g_col[0].u_pe.$add$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:27$587.
+  creating $macc cell for $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719: $auto$alumacc.cc:382:replace_macc$1063
+  creating $macc cell for $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719: $auto$alumacc.cc:382:replace_macc$1064
+  creating $macc cell for $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719: $auto$alumacc.cc:382:replace_macc$1065
+  creating $macc cell for $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$sub$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$719: $auto$alumacc.cc:382:replace_macc$1066
+  creating $alu model for $lt$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:37$645 ($lt): new $alu
+  creating $alu model for $ge$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:37$642 ($ge): merged with $sub$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$654.
+  creating $alu model for $lt$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:37$628 ($lt): new $alu
+  creating $alu model for $ge$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:37$625 ($ge): new $alu
+  creating $alu cell for $ge$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:37$625: $auto$alumacc.cc:512:replace_alu$1070
+  creating $alu cell for $lt$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:37$628: $auto$alumacc.cc:512:replace_alu$1083
+  creating $alu cell for $lt$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:37$645: $auto$alumacc.cc:512:replace_alu$1088
+  creating $alu cell for $flatten\g_row[1].g_col[0].u_pe.$add$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:27$587: $auto$alumacc.cc:512:replace_alu$1093
+  creating $alu cell for $add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:88$676: $auto$alumacc.cc:512:replace_alu$1096
+  creating $alu cell for $add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$656: $auto$alumacc.cc:512:replace_alu$1099
+  creating $alu cell for $add$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:38$652: $auto$alumacc.cc:512:replace_alu$1102
+  creating $alu cell for $sub$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:39$654, $ge$results/synthesis/p20ns/work_matmul_systolic_m3/matmul_systolic.sv:37$642: $auto$alumacc.cc:512:replace_alu$1105
+  creating $alu cell for $flatten\g_row[0].g_col[1].u_pe.$add$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:27$587: $auto$alumacc.cc:512:replace_alu$1118
+  creating $alu cell for $flatten\g_row[1].g_col[1].u_pe.$add$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:27$587: $auto$alumacc.cc:512:replace_alu$1121
+  creating $alu cell for $flatten\g_row[0].g_col[0].u_pe.$add$results/synthesis/p20ns/work_matmul_systolic_m3/systolic_pe.sv:27$587: $auto$alumacc.cc:512:replace_alu$1124
+  created 11 $alu and 4 $macc cells.
+
+10.14. Executing SHARE pass (SAT-based resource sharing).
+
+10.15. Executing OPT pass (performing simple optimizations).
+
+10.15.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+<suppressed ~5 debug messages>
+
+10.15.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 166 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+10.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~106 debug messages>
+
+10.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 0 changes.
+
+10.15.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 166 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+10.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 27 unused cells and 38 unused wires.
+<suppressed ~29 debug messages>
+
+10.15.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+10.15.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.15.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~106 debug messages>
+
+10.15.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 0 changes.
+
+10.15.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 138 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+10.15.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.15.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+
+10.15.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+10.15.16. Finished fast OPT passes. (There is nothing left to do.)
+
+10.16. Executing MEMORY pass.
+
+10.16.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+10.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+10.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+10.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+10.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+10.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+
+10.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+10.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+10.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+
+10.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+10.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+
+10.18. Executing OPT pass (performing simple optimizations).
+
+10.18.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+<suppressed ~22 debug messages>
+
+10.18.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 133 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+10.18.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.18.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 5 unused cells and 15 unused wires.
+<suppressed ~7 debug messages>
+
+10.18.5. Finished fast OPT passes.
+
+10.19. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+10.20. Executing OPT pass (performing simple optimizations).
+
+10.20.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+<suppressed ~3 debug messages>
+
+10.20.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 126 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 125 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+10.20.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/4 on $pmux $procmux$813.
+Removed 1 multiplexer ports.
+<suppressed ~96 debug messages>
+
+10.20.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+    Consolidated identical input bits for $mux cell $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709:
+      Old ports: A=16'0000000000000000, B={ \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] 4'0000 }, Y=$flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y
+      New ports: A=8'00000000, B=\a_q[1], Y=$flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11:4]
+      New connections: { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [15:12] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [3:0] } = { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] 4'0000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715:
+      Old ports: A=16'0000000000000000, B={ \a_q[1] [7] \a_q[1] [7] \a_q[1] 6'000000 }, Y=$flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y
+      New ports: A=8'00000000, B=\a_q[1], Y=$flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13:6]
+      New connections: { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [15:14] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [5:0] } = { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13] 6'000000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715:
+      Old ports: A=16'0000000000000000, B={ \a_q[0] [7] \a_q[0] [7] \a_q[0] 6'000000 }, Y=$flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y
+      New ports: A=8'00000000, B=\a_q[0], Y=$flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13:6]
+      New connections: { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [15:14] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [5:0] } = { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13] 6'000000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706:
+      Old ports: A=16'0000000000000000, B={ \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] 3'000 }, Y=$flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y
+      New ports: A=8'00000000, B=\a_q[1], Y=$flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10:3]
+      New connections: { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [15:11] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [2:0] } = { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] 3'000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703:
+      Old ports: A=16'0000000000000000, B={ \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] 2'00 }, Y=$flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y
+      New ports: A=8'00000000, B=\a_q[1], Y=$flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9:2]
+      New connections: { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [15:10] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [1:0] } = { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] 2'00 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709:
+      Old ports: A=16'0000000000000000, B={ \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out 4'0000 }, Y=$flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y
+      New ports: A=8'00000000, B=\g_row[1].g_col[0].u_pe.a_out, Y=$flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11:4]
+      New connections: { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [15:12] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [3:0] } = { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] 4'0000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$718:
+      Old ports: A=16'0000000000000000, B={ \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out 7'0000000 }, Y=\g_row[1].g_col[1].u_pe.g_b.u_mul.genblk1.g_arr.u.pp
+      New ports: A=8'00000000, B=\g_row[1].g_col[0].u_pe.a_out, Y=\g_row[1].g_col[1].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [14:7]
+      New connections: { \g_row[1].g_col[1].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [15] \g_row[1].g_col[1].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [6:0] } = { \g_row[1].g_col[1].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [14] 7'0000000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$697:
+      Old ports: A=16'0000000000000000, B={ \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out }, Y=$flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y
+      New ports: A=8'00000000, B=\g_row[1].g_col[0].u_pe.a_out, Y=$flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7:0]
+      New connections: $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [15:8] = { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] }
+    Consolidated identical input bits for $mux cell $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715:
+      Old ports: A=16'0000000000000000, B={ \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out 6'000000 }, Y=$flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y
+      New ports: A=8'00000000, B=\g_row[1].g_col[0].u_pe.a_out, Y=$flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13:6]
+      New connections: { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [15:14] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [5:0] } = { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13] 6'000000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706:
+      Old ports: A=16'0000000000000000, B={ \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out 3'000 }, Y=$flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y
+      New ports: A=8'00000000, B=\g_row[1].g_col[0].u_pe.a_out, Y=$flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10:3]
+      New connections: { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [15:11] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [2:0] } = { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] 3'000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703:
+      Old ports: A=16'0000000000000000, B={ \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out 2'00 }, Y=$flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y
+      New ports: A=8'00000000, B=\g_row[1].g_col[0].u_pe.a_out, Y=$flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9:2]
+      New connections: { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [15:10] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [1:0] } = { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] 2'00 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712:
+      Old ports: A=16'0000000000000000, B={ \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] 5'00000 }, Y=$flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y
+      New ports: A=8'00000000, B=\a_q[1], Y=$flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12:5]
+      New connections: { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [15:13] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [4:0] } = { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] 5'00000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709:
+      Old ports: A=16'0000000000000000, B={ \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] 4'0000 }, Y=$flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y
+      New ports: A=8'00000000, B=\a_q[0], Y=$flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11:4]
+      New connections: { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [15:12] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [3:0] } = { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] 4'0000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700:
+      Old ports: A=16'0000000000000000, B={ \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] 1'0 }, Y=$flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y
+      New ports: A=8'00000000, B=\a_q[1], Y=$flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8:1]
+      New connections: { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [15:9] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [0] } = { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] 1'0 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$718:
+      Old ports: A=16'0000000000000000, B={ \a_q[0] [7] \a_q[0] 7'0000000 }, Y=\g_row[0].g_col[0].u_pe.g_b.u_mul.genblk1.g_arr.u.pp
+      New ports: A=8'00000000, B=\a_q[0], Y=\g_row[0].g_col[0].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [14:7]
+      New connections: { \g_row[0].g_col[0].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [15] \g_row[0].g_col[0].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [6:0] } = { \g_row[0].g_col[0].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [14] 7'0000000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$718:
+      Old ports: A=16'0000000000000000, B={ \a_q[1] [7] \a_q[1] 7'0000000 }, Y=\g_row[1].g_col[0].u_pe.g_b.u_mul.genblk1.g_arr.u.pp
+      New ports: A=8'00000000, B=\a_q[1], Y=\g_row[1].g_col[0].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [14:7]
+      New connections: { \g_row[1].g_col[0].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [15] \g_row[1].g_col[0].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [6:0] } = { \g_row[1].g_col[0].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [14] 7'0000000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700:
+      Old ports: A=16'0000000000000000, B={ \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] 1'0 }, Y=$flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y
+      New ports: A=8'00000000, B=\a_q[0], Y=$flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8:1]
+      New connections: { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [15:9] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [0] } = { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] 1'0 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706:
+      Old ports: A=16'0000000000000000, B={ \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] 3'000 }, Y=$flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y
+      New ports: A=8'00000000, B=\a_q[0], Y=$flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10:3]
+      New connections: { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [15:11] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [2:0] } = { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] 3'000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$697:
+      Old ports: A=16'0000000000000000, B={ \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] [7] \a_q[1] }, Y=$flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y
+      New ports: A=8'00000000, B=\a_q[1], Y=$flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7:0]
+      New connections: $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [15:8] = { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] }
+    Consolidated identical input bits for $mux cell $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712:
+      Old ports: A=16'0000000000000000, B={ \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] 5'00000 }, Y=$flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y
+      New ports: A=8'00000000, B=\a_q[0], Y=$flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12:5]
+      New connections: { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [15:13] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [4:0] } = { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] 5'00000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703:
+      Old ports: A=16'0000000000000000, B={ \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] 2'00 }, Y=$flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y
+      New ports: A=8'00000000, B=\a_q[0], Y=$flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9:2]
+      New connections: { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [15:10] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [1:0] } = { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] 2'00 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$697:
+      Old ports: A=16'0000000000000000, B={ \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] [7] \a_q[0] }, Y=$flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y
+      New ports: A=8'00000000, B=\a_q[0], Y=$flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7:0]
+      New connections: $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [15:8] = { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] }
+    Consolidated identical input bits for $mux cell $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712:
+      Old ports: A=16'0000000000000000, B={ \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out 5'00000 }, Y=$flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y
+      New ports: A=8'00000000, B=\g_row[0].g_col[0].u_pe.a_out, Y=$flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12:5]
+      New connections: { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [15:13] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [4:0] } = { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] 5'00000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$697:
+      Old ports: A=16'0000000000000000, B={ \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out }, Y=$flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y
+      New ports: A=8'00000000, B=\g_row[0].g_col[0].u_pe.a_out, Y=$flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7:0]
+      New connections: $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [15:8] = { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] }
+    Consolidated identical input bits for $mux cell $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700:
+      Old ports: A=16'0000000000000000, B={ \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out 1'0 }, Y=$flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y
+      New ports: A=8'00000000, B=\g_row[1].g_col[0].u_pe.a_out, Y=$flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8:1]
+      New connections: { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [15:9] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [0] } = { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] 1'0 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715:
+      Old ports: A=16'0000000000000000, B={ \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out 6'000000 }, Y=$flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y
+      New ports: A=8'00000000, B=\g_row[0].g_col[0].u_pe.a_out, Y=$flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13:6]
+      New connections: { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [15:14] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [5:0] } = { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13] 6'000000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$718:
+      Old ports: A=16'0000000000000000, B={ \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out 7'0000000 }, Y=\g_row[0].g_col[1].u_pe.g_b.u_mul.genblk1.g_arr.u.pp
+      New ports: A=8'00000000, B=\g_row[0].g_col[0].u_pe.a_out, Y=\g_row[0].g_col[1].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [14:7]
+      New connections: { \g_row[0].g_col[1].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [15] \g_row[0].g_col[1].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [6:0] } = { \g_row[0].g_col[1].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [14] 7'0000000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709:
+      Old ports: A=16'0000000000000000, B={ \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out 4'0000 }, Y=$flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y
+      New ports: A=8'00000000, B=\g_row[0].g_col[0].u_pe.a_out, Y=$flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11:4]
+      New connections: { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [15:12] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [3:0] } = { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] 4'0000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700:
+      Old ports: A=16'0000000000000000, B={ \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out 1'0 }, Y=$flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y
+      New ports: A=8'00000000, B=\g_row[0].g_col[0].u_pe.a_out, Y=$flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8:1]
+      New connections: { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [15:9] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [0] } = { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] 1'0 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706:
+      Old ports: A=16'0000000000000000, B={ \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out 3'000 }, Y=$flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y
+      New ports: A=8'00000000, B=\g_row[0].g_col[0].u_pe.a_out, Y=$flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10:3]
+      New connections: { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [15:11] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [2:0] } = { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] 3'000 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703:
+      Old ports: A=16'0000000000000000, B={ \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out [7] \g_row[0].g_col[0].u_pe.a_out 2'00 }, Y=$flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y
+      New ports: A=8'00000000, B=\g_row[0].g_col[0].u_pe.a_out, Y=$flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9:2]
+      New connections: { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [15:10] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [1:0] } = { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] 2'00 }
+    Consolidated identical input bits for $mux cell $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712:
+      Old ports: A=16'0000000000000000, B={ \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out [7] \g_row[1].g_col[0].u_pe.a_out 5'00000 }, Y=$flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y
+      New ports: A=8'00000000, B=\g_row[1].g_col[0].u_pe.a_out, Y=$flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12:5]
+      New connections: { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [15:13] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [4:0] } = { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] 5'00000 }
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 32 changes.
+
+10.20.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 125 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+10.20.6. Executing OPT_SHARE pass.
+
+10.20.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.20.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+10.20.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+10.20.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.20.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~96 debug messages>
+
+10.20.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 0 changes.
+
+10.20.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 125 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+10.20.14. Executing OPT_SHARE pass.
+
+10.20.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.20.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+
+10.20.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+10.20.18. Finished fast OPT passes. (There is nothing left to do.)
+
+10.21. Executing TECHMAP pass (map to technology primitives).
+
+10.21.1. Executing Verilog-2005 frontend: /apps/vlsi/tools/yosys/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/apps/vlsi/tools/yosys/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+10.21.2. Continuing TECHMAP pass.
+Using template $paramod$743ee5cec06d810a0663fb1b806f0a75035616ec\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $reduce_and.
+Using template $paramod$d588c4475f18bc347201f0f2671d73b8c1e7b7ea\_90_alu for cells of type $alu.
+Using template $paramod$fc972a7a46956c1788f3cb5257b53c8f1df2d0cc\_90_alu for cells of type $alu.
+Using template $paramod$2af30114e9bd4ccb04dad757b3f0a8f6bf0615b0\_90_alu for cells of type $alu.
+Using template $paramod$7a879e600cfb66edc319701e3d60cd93f323b9dc\_90_alu for cells of type $alu.
+Using template $paramod$675ee3ed071b156aa661bdfa838b7e469d095ac0\_90_alu for cells of type $alu.
+Using extmapper maccmap for cells of type $macc_v2.
+  add { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7:0] } (16 bits, signed)
+  sub { \g_row[1].g_col[1].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [14] \g_row[1].g_col[1].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [14:7] 7'0000000 } (16 bits, signed)
+  add { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13:6] 6'000000 } (16 bits, signed)
+  add { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12:5] 5'00000 } (16 bits, signed)
+  add { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11:4] 4'0000 } (16 bits, signed)
+  add { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10:3] 3'000 } (16 bits, signed)
+  add { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9:2] 2'00 } (16 bits, signed)
+  add { $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8:1] 1'0 } (16 bits, signed)
+  add { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7:0] } (16 bits, signed)
+  sub { \g_row[0].g_col[0].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [14] \g_row[0].g_col[0].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [14:7] 7'0000000 } (16 bits, signed)
+  add { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13:6] 6'000000 } (16 bits, signed)
+  add { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12:5] 5'00000 } (16 bits, signed)
+  add { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11:4] 4'0000 } (16 bits, signed)
+  add { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10:3] 3'000 } (16 bits, signed)
+  add { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9:2] 2'00 } (16 bits, signed)
+  add { $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8:1] 1'0 } (16 bits, signed)
+  add { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7:0] } (16 bits, signed)
+  sub { \g_row[0].g_col[1].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [14] \g_row[0].g_col[1].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [14:7] 7'0000000 } (16 bits, signed)
+  add { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13:6] 6'000000 } (16 bits, signed)
+  add { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12:5] 5'00000 } (16 bits, signed)
+  add { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11:4] 4'0000 } (16 bits, signed)
+  add { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10:3] 3'000 } (16 bits, signed)
+  add { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9:2] 2'00 } (16 bits, signed)
+  add { $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8:1] 1'0 } (16 bits, signed)
+  add { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$add$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:14$698_Y [7:0] } (16 bits, signed)
+  sub { \g_row[1].g_col[0].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [14] \g_row[1].g_col[0].u_pe.g_b.u_mul.genblk1.g_arr.u.pp [14:7] 7'0000000 } (16 bits, signed)
+  add { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$715_Y [13:6] 6'000000 } (16 bits, signed)
+  add { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$712_Y [12:5] 5'00000 } (16 bits, signed)
+  add { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$709_Y [11:4] 4'0000 } (16 bits, signed)
+  add { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$706_Y [10:3] 3'000 } (16 bits, signed)
+  add { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$703_Y [9:2] 2'00 } (16 bits, signed)
+  add { $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8] $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.g_arr.u.$ternary$results/synthesis/p20ns/work_matmul_systolic_m3/mult_array.sv:13$700_Y [8:1] 1'0 } (16 bits, signed)
+Using extmapper simplemap for cells of type $adffe.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod$c5c783b17ab1d780abfad8cfe6563a0a7b47a3b0\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $mux.
+Using template $paramod$fc16b9f758000d363d24f130038bd99b46b4fa1b\_90_pmux for cells of type $pmux.
+Using template $paramod$645fe0cc96ae5edb83bff90cc2c78f4a20ca3e3c\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $adff.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001110 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001101 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010000 for cells of type $fa.
+Using template $paramod$6df0329addda9228fcc2546de2aaf14ad26c98e1\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001111 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001111 for cells of type $lcu.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000011111 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000011111 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010100 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010100 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010000 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000001 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000001 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010001 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010001 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~2447 debug messages>
+
+10.22. Executing OPT pass (performing simple optimizations).
+
+10.22.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+<suppressed ~1812 debug messages>
+
+10.22.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 3781 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 3687 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 3637 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 3602 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 3571 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 3543 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 3530 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 3529 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+<suppressed ~756 debug messages>
+Removed a total of 252 cells.
+
+10.22.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.22.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 335 unused cells and 1243 unused wires.
+<suppressed ~336 debug messages>
+
+10.22.5. Finished fast OPT passes.
+
+10.23. Executing ABC pass (technology mapping using ABC).
+
+10.23.1. Extracting gate netlist of module `\matmul_systolic' to `<abc-temp-dir>/input.blif'..
+
+10.23.1.1. Executed ABC.
+Extracted 2955 gates and 3182 wires to a netlist network with 226 inputs and 166 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Apr  7 2026 21:27:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+10.23.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:      574
+ABC RESULTS:            ANDNOT cells:       35
+ABC RESULTS:               MUX cells:       36
+ABC RESULTS:              NAND cells:     1108
+ABC RESULTS:               NOR cells:       13
+ABC RESULTS:               NOT cells:        3
+ABC RESULTS:                OR cells:      103
+ABC RESULTS:             ORNOT cells:       34
+ABC RESULTS:              XNOR cells:      132
+ABC RESULTS:               XOR cells:      513
+ABC RESULTS:        internal signals:     2790
+ABC RESULTS:           input signals:      226
+ABC RESULTS:          output signals:      166
+Removing temp directory.
+Removing global temp directory.
+
+10.24. Executing OPT pass (performing simple optimizations).
+
+10.24.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+10.24.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 2790 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+10.24.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.24.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 0 unused cells and 983 unused wires.
+<suppressed ~17 debug messages>
+
+10.24.5. Finished fast OPT passes.
+
+10.25. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `matmul_systolic'. Setting top module to matmul_systolic.
+
+10.25.1. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+
+10.25.2. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+Removed 0 unused modules.
+
+10.26. Printing statistics.
+
+=== matmul_systolic ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     2594 wires
+     3402 wire bits
+       91 public wires
+      883 public wire bits
+        9 ports
+      165 port bits
+     2790 cells
+       35   $_ANDNOT_
+      574   $_AND_
+       81   $_DFFE_PN0P_
+      146   $_DFF_PN0_
+       36   $_MUX_
+     1108   $_NAND_
+       13   $_NOR_
+        3   $_NOT_
+       34   $_ORNOT_
+      103   $_OR_
+      132   $_XNOR_
+      513   $_XOR_
+       12   $scopeinfo
+
+10.27. Executing CHECK pass (checking for obvious problems).
+Checking module matmul_systolic...
+Found and reported 0 problems.
+
+11. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_2 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFE_NN_
+    unmapped dff cell: $_DFFE_NP_
+    unmapped dff cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+11.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+<suppressed ~24 debug messages>
+Mapping DFF cells in module `\matmul_systolic':
+  mapped 227 $_DFF_PN0_ cells to \sky130_fd_sc_hd__dfrtp_1 cells.
+
+12. Executing ABC pass (technology mapping using ABC).
+
+12.1. Extracting gate netlist of module `\matmul_systolic' to `<abc-temp-dir>/input.blif'..
+
+12.1.1. Executed ABC.
+Extracted 2632 gates and 2923 wires to a netlist network with 291 inputs and 227 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Apr  7 2026 21:27:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /apps/vlsi/src/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.16 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_0".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_8".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_bleeder_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__lpflow_inputisolatch_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_4".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "/apps/vlsi/src/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" has 334 cells (94 skipped: 63 seq; 13 tri-state; 18 no func; 0 dont_use; 0 with 2 outputs; 0 with 3+ outputs).  Time =     0.25 sec
+ABC: Memory =   19.81 MB. Time =     0.25 sec
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + retime -o -D 20000 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf -D 20000 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+12.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_0 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__a21o_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:      163
+ABC RESULTS:   sky130_fd_sc_hd__a221o_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a222oi_1 cells:       16
+ABC RESULTS:   sky130_fd_sc_hd__a22o_1 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:       25
+ABC RESULTS:   sky130_fd_sc_hd__a2bb2oi_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a311o_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a311oi_1 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__a31o_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:       18
+ABC RESULTS:   sky130_fd_sc_hd__a32oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and2_0 cells:       77
+ABC RESULTS:   sky130_fd_sc_hd__and3_1 cells:       22
+ABC RESULTS:   sky130_fd_sc_hd__and4_1 cells:       18
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:       25
+ABC RESULTS:   sky130_fd_sc_hd__lpflow_inputiso1p_1 cells:       15
+ABC RESULTS:   sky130_fd_sc_hd__lpflow_isobufsrc_1 cells:       46
+ABC RESULTS:   sky130_fd_sc_hd__maj3_1 cells:      190
+ABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__mux2i_1 cells:       18
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:      442
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_1 cells:       29
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:       15
+ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:      157
+ABC RESULTS:   sky130_fd_sc_hd__nor2b_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:       19
+ABC RESULTS:   sky130_fd_sc_hd__nor3b_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nor4b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:       99
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_1 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__o311a_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o31ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or3_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__or4_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:      254
+ABC RESULTS:   sky130_fd_sc_hd__xnor3_1 cells:       33
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:      223
+ABC RESULTS:   sky130_fd_sc_hd__xor3_1 cells:       34
+ABC RESULTS:        internal signals:     2405
+ABC RESULTS:           input signals:      291
+ABC RESULTS:          output signals:      227
+Removing temp directory.
+Removing global temp directory.
+
+13. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 12 unused cells and 2968 unused wires.
+<suppressed ~74 debug messages>
+
+14. Executing Verilog backend.
+
+14.1. Executing BMUXMAP pass.
+
+14.2. Executing DEMUXMAP pass.
+Dumping module `\matmul_systolic'.
+
+15. Printing statistics.
+
+=== matmul_systolic ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     2026        - wires
+     2322        - wire bits
+       30        - public wires
+      326        - public wire bits
+        9        - ports
+      165        - port bits
+     2255 1.98E+04 cells
+        2   15.014   sky130_fd_sc_hd__a211oi_1
+        7    52.55   sky130_fd_sc_hd__a21boi_0
+        3   22.522   sky130_fd_sc_hd__a21o_1
+      163  815.782   sky130_fd_sc_hd__a21oi_1
+        3   30.029   sky130_fd_sc_hd__a221o_1
+       16  160.154   sky130_fd_sc_hd__a222oi_1
+        9   78.826   sky130_fd_sc_hd__a22o_1
+       25   187.68   sky130_fd_sc_hd__a22oi_1
+        3   26.275   sky130_fd_sc_hd__a2bb2oi_1
+        1    10.01   sky130_fd_sc_hd__a311o_1
+        9   78.826   sky130_fd_sc_hd__a311oi_1
+        2   17.517   sky130_fd_sc_hd__a31o_1
+       18  112.608   sky130_fd_sc_hd__a31oi_1
+        1    8.758   sky130_fd_sc_hd__a32oi_1
+       77  481.712   sky130_fd_sc_hd__and2_0
+       22  137.632   sky130_fd_sc_hd__and3_1
+       18  157.651   sky130_fd_sc_hd__and4_1
+       25    93.84   sky130_fd_sc_hd__clkinv_1
+      227 5.68E+03   sky130_fd_sc_hd__dfrtp_1
+       15    93.84   sky130_fd_sc_hd__lpflow_inputiso1p_1
+       46  287.776   sky130_fd_sc_hd__lpflow_isobufsrc_1
+      190  1.9E+03   sky130_fd_sc_hd__maj3_1
+        1   11.261   sky130_fd_sc_hd__mux2_1
+       18  180.173   sky130_fd_sc_hd__mux2i_1
+      442 1.66E+03   sky130_fd_sc_hd__nand2_1
+       29  181.424   sky130_fd_sc_hd__nand2b_1
+       15   75.072   sky130_fd_sc_hd__nand3_1
+       13   81.328   sky130_fd_sc_hd__nand4_1
+      157  589.315   sky130_fd_sc_hd__nor2_1
+        2   12.512   sky130_fd_sc_hd__nor2b_1
+       19   95.091   sky130_fd_sc_hd__nor3_1
+        5   37.536   sky130_fd_sc_hd__nor3b_1
+        3   18.768   sky130_fd_sc_hd__nor4_1
+        1    8.758   sky130_fd_sc_hd__nor4b_1
+        5   37.536   sky130_fd_sc_hd__o21a_1
+       99  495.475   sky130_fd_sc_hd__o21ai_0
+        6   45.043   sky130_fd_sc_hd__o21bai_1
+        8   50.048   sky130_fd_sc_hd__o22ai_1
+        2   20.019   sky130_fd_sc_hd__o311a_1
+        1    7.507   sky130_fd_sc_hd__o31ai_1
+        2   12.512   sky130_fd_sc_hd__or3_1
+        1    7.507   sky130_fd_sc_hd__or4_1
+      254 2.22E+03   sky130_fd_sc_hd__xnor2_1
+       33  743.213   sky130_fd_sc_hd__xnor3_1
+      223 1.95E+03   sky130_fd_sc_hd__xor2_1
+       34  808.275   sky130_fd_sc_hd__xor3_1
+
+   Chip area for module '\matmul_systolic': 19806.496000
+     of which used for sequential elements: 5680.448000 (28.68%)
+
+Warnings: 9 unique messages, 17 total
+End of script. Logfile hash: b9cbf694da, time: 2.91s, user: 1.22s, system: 0.08s, MEM: 49.97 MB peak
+Yosys 0.64+26 (git sha1 a54bca549, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 57% 2x abc (1 sec), 6% 25x opt_clean (0 sec), ...

@@ -1,0 +1,6 @@
+src/uart_axi.v:164: error: Unable to bind wire/reg/memory `r_vld' in `tb_top.u_dut.u_uart'
+src/uart_axi.v:214:      : A symbol with that name was declared here. Check for declaration after use.
+src/uart_axi.v:164: error: Unable to bind wire/reg/memory `r_is_stat' in `tb_top.u_dut.u_uart'
+src/uart_axi.v:216:      : A symbol with that name was declared here. Check for declaration after use.
+src/uart_axi.v:164: error: Unable to elaborate condition expression.
+3 error(s) during elaboration.

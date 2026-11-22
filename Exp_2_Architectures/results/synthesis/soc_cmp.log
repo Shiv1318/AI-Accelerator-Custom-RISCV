@@ -1,0 +1,6 @@
+axi_a1m0 cells=14884 area=186859.212800 slack=5.35
+xmat_a1m0 cells=17708 area=208782.739200 slack=4.39
+xmat_a0m0 cells=15113 area=190834.275200 slack=4.78
+xmat_a2m0 cells=18031 area=212984.268800 slack=5.41
+axi_a0m0 cells=13816 area=177799.273600 slack=5.03
+axi_a2m0 cells=15044 area=188778.553600 slack=4.47

@@ -1,0 +1,162 @@
+arch=0 mult=0
+[UART] arch=0 mult=0
+[UART] S1 cpu=2619 e2e=424 hw=8 ok=1 gold=1
+[UART] S2 cpu=4765 e2e=424 hw=8 ok=1
+[UART] I1 cpu=3757 e2e=424 hw=8 ok=1 gold=1
+[UART] I2 cpu=1113 e2e=424 hw=8 ok=1 gold=1
+[UART] Z1 cpu=2623 e2e=424 hw=8 ok=1 gold=1
+[UART] Z2 cpu=737 e2e=424 hw=8 ok=1 gold=1
+[UART] O1 cpu=1485 e2e=424 hw=8 ok=1 gold=1
+[UART] W1 cpu=5013 e2e=424 hw=8 ok=1 gold=1
+[UART] R01 cpu=3253 e2e=424 hw=8 ok=1 c=14240,-2044,-1400,-200
+[UART] R02 cpu=4135 e2e=424 hw=8 ok=1 c=14744,8638,-5928,613
+[UART] R03 cpu=3883 e2e=424 hw=8 ok=1 c=-8808,7800,10368,-9360
+[UART] R04 cpu=3311 e2e=424 hw=8 ok=1 c=8613,-8057,-1914,50
+[UART] R05 cpu=3757 e2e=424 hw=8 ok=1 c=10878,-5208,1873,-1324
+[UART] R06 cpu=3633 e2e=424 hw=8 ok=1 c=-5544,-9180,-7875,-14148
+[UART] R07 cpu=3505 e2e=424 hw=8 ok=1 c=-1298,-116,-801,-525
+[UART] R08 cpu=4135 e2e=424 hw=8 ok=1 c=-10850,-5644,3116,12144
+[UART] R09 cpu=4009 e2e=424 hw=8 ok=1 c=5198,2833,-8242,-8424
+[UART] R10 cpu=3757 e2e=424 hw=8 ok=1 c=-932,-8224,72,5904
+[UART] R11 cpu=4007 e2e=424 hw=8 ok=1 c=5265,-3097,7769,-1943
+[UART] R12 cpu=4009 e2e=424 hw=8 ok=1 c=-3198,73,-5178,-5115
+[UART] R13 cpu=3635 e2e=424 hw=8 ok=1 c=-3058,-13440,-2450,-11334
+[UART] R14 cpu=4261 e2e=424 hw=8 ok=1 c=9262,-8802,7738,-8274
+[UART] R15 cpu=3757 e2e=424 hw=8 ok=1 c=-10315,-11529,7910,12202
+[UART] R16 cpu=4009 e2e=424 hw=8 ok=1 c=-3021,-2365,10317,8069
+[UART] END
+arch=0 mult=1
+[UART] arch=0 mult=1
+[UART] S1 cpu=2619 e2e=424 hw=8 ok=1 gold=1
+[UART] S2 cpu=4765 e2e=424 hw=8 ok=1
+[UART] I1 cpu=3757 e2e=424 hw=8 ok=1 gold=1
+[UART] I2 cpu=1113 e2e=424 hw=8 ok=1 gold=1
+[UART] Z1 cpu=2623 e2e=424 hw=8 ok=1 gold=1
+[UART] Z2 cpu=737 e2e=424 hw=8 ok=1 gold=1
+[UART] O1 cpu=1485 e2e=424 hw=8 ok=1 gold=1
+[UART] W1 cpu=5013 e2e=424 hw=8 ok=1 gold=1
+[UART] R01 cpu=3253 e2e=424 hw=8 ok=1 c=14240,-2044,-1400,-200
+[UART] R02 cpu=4135 e2e=424 hw=8 ok=1 c=14744,8638,-5928,613
+[UART] R03 cpu=3883 e2e=424 hw=8 ok=1 c=-8808,7800,10368,-9360
+[UART] R04 cpu=3311 e2e=424 hw=8 ok=1 c=8613,-8057,-1914,50
+[UART] R05 cpu=3757 e2e=424 hw=8 ok=1 c=10878,-5208,1873,-1324
+[UART] R06 cpu=3633 e2e=424 hw=8 ok=1 c=-5544,-9180,-7875,-14148
+[UART] R07 cpu=3505 e2e=424 hw=8 ok=1 c=-1298,-116,-801,-525
+[UART] R08 cpu=4135 e2e=424 hw=8 ok=1 c=-10850,-5644,3116,12144
+[UART] R09 cpu=4009 e2e=424 hw=8 ok=1 c=5198,2833,-8242,-8424
+[UART] R10 cpu=3757 e2e=424 hw=8 ok=1 c=-932,-8224,72,5904
+[UART] R11 cpu=4007 e2e=424 hw=8 ok=1 c=5265,-3097,7769,-1943
+[UART] R12 cpu=4009 e2e=424 hw=8 ok=1 c=-3198,73,-5178,-5115
+[UART] R13 cpu=3635 e2e=424 hw=8 ok=1 c=-3058,-13440,-2450,-11334
+[UART] R14 cpu=4261 e2e=424 hw=8 ok=1 c=9262,-8802,7738,-8274
+[UART] R15 cpu=3757 e2e=424 hw=8 ok=1 c=-10315,-11529,7910,12202
+[UART] R16 cpu=4009 e2e=424 hw=8 ok=1 c=-3021,-2365,10317,8069
+[UART] END
+arch=1 mult=0
+[UART] arch=1 mult=0
+[UART] S1 cpu=2619 e2e=424 hw=2 ok=1 gold=1
+[UART] S2 cpu=4765 e2e=424 hw=2 ok=1
+[UART] I1 cpu=3757 e2e=424 hw=2 ok=1 gold=1
+[UART] I2 cpu=1113 e2e=424 hw=2 ok=1 gold=1
+[UART] Z1 cpu=2623 e2e=424 hw=2 ok=1 gold=1
+[UART] Z2 cpu=737 e2e=424 hw=2 ok=1 gold=1
+[UART] O1 cpu=1485 e2e=424 hw=2 ok=1 gold=1
+[UART] W1 cpu=5013 e2e=424 hw=2 ok=1 gold=1
+[UART] R01 cpu=3253 e2e=424 hw=2 ok=1 c=14240,-2044,-1400,-200
+[UART] R02 cpu=4135 e2e=424 hw=2 ok=1 c=14744,8638,-5928,613
+[UART] R03 cpu=3883 e2e=424 hw=2 ok=1 c=-8808,7800,10368,-9360
+[UART] R04 cpu=3311 e2e=424 hw=2 ok=1 c=8613,-8057,-1914,50
+[UART] R05 cpu=3757 e2e=424 hw=2 ok=1 c=10878,-5208,1873,-1324
+[UART] R06 cpu=3633 e2e=424 hw=2 ok=1 c=-5544,-9180,-7875,-14148
+[UART] R07 cpu=3505 e2e=424 hw=2 ok=1 c=-1298,-116,-801,-525
+[UART] R08 cpu=4135 e2e=424 hw=2 ok=1 c=-10850,-5644,3116,12144
+[UART] R09 cpu=4009 e2e=424 hw=2 ok=1 c=5198,2833,-8242,-8424
+[UART] R10 cpu=3757 e2e=424 hw=2 ok=1 c=-932,-8224,72,5904
+[UART] R11 cpu=4007 e2e=424 hw=2 ok=1 c=5265,-3097,7769,-1943
+[UART] R12 cpu=4009 e2e=424 hw=2 ok=1 c=-3198,73,-5178,-5115
+[UART] R13 cpu=3635 e2e=424 hw=2 ok=1 c=-3058,-13440,-2450,-11334
+[UART] R14 cpu=4261 e2e=424 hw=2 ok=1 c=9262,-8802,7738,-8274
+[UART] R15 cpu=3757 e2e=424 hw=2 ok=1 c=-10315,-11529,7910,12202
+[UART] R16 cpu=4009 e2e=424 hw=2 ok=1 c=-3021,-2365,10317,8069
+[UART] END
+arch=1 mult=1
+[UART] arch=1 mult=1
+[UART] S1 cpu=2619 e2e=424 hw=2 ok=1 gold=1
+[UART] S2 cpu=4765 e2e=424 hw=2 ok=1
+[UART] I1 cpu=3757 e2e=424 hw=2 ok=1 gold=1
+[UART] I2 cpu=1113 e2e=424 hw=2 ok=1 gold=1
+[UART] Z1 cpu=2623 e2e=424 hw=2 ok=1 gold=1
+[UART] Z2 cpu=737 e2e=424 hw=2 ok=1 gold=1
+[UART] O1 cpu=1485 e2e=424 hw=2 ok=1 gold=1
+[UART] W1 cpu=5013 e2e=424 hw=2 ok=1 gold=1
+[UART] R01 cpu=3253 e2e=424 hw=2 ok=1 c=14240,-2044,-1400,-200
+[UART] R02 cpu=4135 e2e=424 hw=2 ok=1 c=14744,8638,-5928,613
+[UART] R03 cpu=3883 e2e=424 hw=2 ok=1 c=-8808,7800,10368,-9360
+[UART] R04 cpu=3311 e2e=424 hw=2 ok=1 c=8613,-8057,-1914,50
+[UART] R05 cpu=3757 e2e=424 hw=2 ok=1 c=10878,-5208,1873,-1324
+[UART] R06 cpu=3633 e2e=424 hw=2 ok=1 c=-5544,-9180,-7875,-14148
+[UART] R07 cpu=3505 e2e=424 hw=2 ok=1 c=-1298,-116,-801,-525
+[UART] R08 cpu=4135 e2e=424 hw=2 ok=1 c=-10850,-5644,3116,12144
+[UART] R09 cpu=4009 e2e=424 hw=2 ok=1 c=5198,2833,-8242,-8424
+[UART] R10 cpu=3757 e2e=424 hw=2 ok=1 c=-932,-8224,72,5904
+[UART] R11 cpu=4007 e2e=424 hw=2 ok=1 c=5265,-3097,7769,-1943
+[UART] R12 cpu=4009 e2e=424 hw=2 ok=1 c=-3198,73,-5178,-5115
+[UART] R13 cpu=3635 e2e=424 hw=2 ok=1 c=-3058,-13440,-2450,-11334
+[UART] R14 cpu=4261 e2e=424 hw=2 ok=1 c=9262,-8802,7738,-8274
+[UART] R15 cpu=3757 e2e=424 hw=2 ok=1 c=-10315,-11529,7910,12202
+[UART] R16 cpu=4009 e2e=424 hw=2 ok=1 c=-3021,-2365,10317,8069
+[UART] END
+arch=2 mult=0
+[UART] arch=2 mult=0
+[UART] S1 cpu=2619 e2e=424 hw=5 ok=1 gold=1
+[UART] S2 cpu=4765 e2e=424 hw=5 ok=1
+[UART] I1 cpu=3757 e2e=424 hw=5 ok=1 gold=1
+[UART] I2 cpu=1113 e2e=424 hw=5 ok=1 gold=1
+[UART] Z1 cpu=2623 e2e=424 hw=5 ok=1 gold=1
+[UART] Z2 cpu=737 e2e=424 hw=5 ok=1 gold=1
+[UART] O1 cpu=1485 e2e=424 hw=5 ok=1 gold=1
+[UART] W1 cpu=5013 e2e=424 hw=5 ok=1 gold=1
+[UART] R01 cpu=3253 e2e=424 hw=5 ok=1 c=14240,-2044,-1400,-200
+[UART] R02 cpu=4135 e2e=424 hw=5 ok=1 c=14744,8638,-5928,613
+[UART] R03 cpu=3883 e2e=424 hw=5 ok=1 c=-8808,7800,10368,-9360
+[UART] R04 cpu=3311 e2e=424 hw=5 ok=1 c=8613,-8057,-1914,50
+[UART] R05 cpu=3757 e2e=424 hw=5 ok=1 c=10878,-5208,1873,-1324
+[UART] R06 cpu=3633 e2e=424 hw=5 ok=1 c=-5544,-9180,-7875,-14148
+[UART] R07 cpu=3505 e2e=424 hw=5 ok=1 c=-1298,-116,-801,-525
+[UART] R08 cpu=4135 e2e=424 hw=5 ok=1 c=-10850,-5644,3116,12144
+[UART] R09 cpu=4009 e2e=424 hw=5 ok=1 c=5198,2833,-8242,-8424
+[UART] R10 cpu=3757 e2e=424 hw=5 ok=1 c=-932,-8224,72,5904
+[UART] R11 cpu=4007 e2e=424 hw=5 ok=1 c=5265,-3097,7769,-1943
+[UART] R12 cpu=4009 e2e=424 hw=5 ok=1 c=-3198,73,-5178,-5115
+[UART] R13 cpu=3635 e2e=424 hw=5 ok=1 c=-3058,-13440,-2450,-11334
+[UART] R14 cpu=4261 e2e=424 hw=5 ok=1 c=9262,-8802,7738,-8274
+[UART] R15 cpu=3757 e2e=424 hw=5 ok=1 c=-10315,-11529,7910,12202
+[UART] R16 cpu=4009 e2e=424 hw=5 ok=1 c=-3021,-2365,10317,8069
+[UART] END
+arch=2 mult=1
+[UART] arch=2 mult=1
+[UART] S1 cpu=2619 e2e=424 hw=5 ok=1 gold=1
+[UART] S2 cpu=4765 e2e=424 hw=5 ok=1
+[UART] I1 cpu=3757 e2e=424 hw=5 ok=1 gold=1
+[UART] I2 cpu=1113 e2e=424 hw=5 ok=1 gold=1
+[UART] Z1 cpu=2623 e2e=424 hw=5 ok=1 gold=1
+[UART] Z2 cpu=737 e2e=424 hw=5 ok=1 gold=1
+[UART] O1 cpu=1485 e2e=424 hw=5 ok=1 gold=1
+[UART] W1 cpu=5013 e2e=424 hw=5 ok=1 gold=1
+[UART] R01 cpu=3253 e2e=424 hw=5 ok=1 c=14240,-2044,-1400,-200
+[UART] R02 cpu=4135 e2e=424 hw=5 ok=1 c=14744,8638,-5928,613
+[UART] R03 cpu=3883 e2e=424 hw=5 ok=1 c=-8808,7800,10368,-9360
+[UART] R04 cpu=3311 e2e=424 hw=5 ok=1 c=8613,-8057,-1914,50
+[UART] R05 cpu=3757 e2e=424 hw=5 ok=1 c=10878,-5208,1873,-1324
+[UART] R06 cpu=3633 e2e=424 hw=5 ok=1 c=-5544,-9180,-7875,-14148
+[UART] R07 cpu=3505 e2e=424 hw=5 ok=1 c=-1298,-116,-801,-525
+[UART] R08 cpu=4135 e2e=424 hw=5 ok=1 c=-10850,-5644,3116,12144
+[UART] R09 cpu=4009 e2e=424 hw=5 ok=1 c=5198,2833,-8242,-8424
+[UART] R10 cpu=3757 e2e=424 hw=5 ok=1 c=-932,-8224,72,5904
+[UART] R11 cpu=4007 e2e=424 hw=5 ok=1 c=5265,-3097,7769,-1943
+[UART] R12 cpu=4009 e2e=424 hw=5 ok=1 c=-3198,73,-5178,-5115
+[UART] R13 cpu=3635 e2e=424 hw=5 ok=1 c=-3058,-13440,-2450,-11334
+[UART] R14 cpu=4261 e2e=424 hw=5 ok=1 c=9262,-8802,7738,-8274
+[UART] R15 cpu=3757 e2e=424 hw=5 ok=1 c=-10315,-11529,7910,12202
+[UART] R16 cpu=4009 e2e=424 hw=5 ok=1 c=-3021,-2365,10317,8069
+[UART] END

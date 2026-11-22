@@ -1,0 +1,6 @@
+Vectors run: 1006, core-visible cycles for XMAT.RUN: 10
+PASS: XMAT matches golden model
+- tb/tb_pcpi_matmul.sv:58: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05
+- Verilator: $finish at 292us; walltime 0.022 s; speed 13.021 ms/s
+- Verilator: cpu 0.021 s on 1 threads; allocated 4 MB

@@ -1,0 +1,379 @@
+rm -rf obj_soc
+cd /home/lab-user/AI_ACCELERATOR_RISCV/soc_work/fw && make && cd ..
+make[1]: Entering directory '/home/lab-user/AI_ACCELERATOR_RISCV/soc_work/fw'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/lab-user/AI_ACCELERATOR_RISCV/soc_work/fw'
+verilator --binary -j 0 -Wall --trace --timing -Wno-fatal -Wno-WIDTHTRUNC -Wno-WIDTHEXPAND -Wno-CASEINCOMPLETE -Wno-UNOPTFLAT -Wno-INITIALDLY -Wno-PINMISSING -Wno-UNSIGNED -Wno-SYNCASYNCNET -Wno-DECLFILENAME -Wno-GENUNNAMED -Wno-UNUSEDSIGNAL -Wno-PINCONNECTEMPTY -Wno-TIMESCALEMOD -Wno-CASEOVERLAP -Wno-BLKSEQ -Wno-EOFNEWLINE -Wno-PROCASSWIRE -Wno-WIDTHXZEXPAND  \
+  --top tb_top \
+  -Mdir obj_soc \
+  -o sim_soc \
+  /home/lab-user/AI_ACCELERATOR_RISCV/soc_work/rtl/picorv32.v \
+  /home/lab-user/AI_ACCELERATOR_RISCV/soc_work/rtl/uart_tx.v \
+  /home/lab-user/AI_ACCELERATOR_RISCV/soc_work/rtl/uart_rx.v \
+  /home/lab-user/AI_ACCELERATOR_RISCV/soc_work/rtl/uart_axi.v \
+  /home/lab-user/AI_ACCELERATOR_RISCV/soc_work/rtl/rom.v \
+  /home/lab-user/AI_ACCELERATOR_RISCV/soc_work/rtl/sram.v \
+  /home/lab-user/AI_ACCELERATOR_RISCV/soc_work/rtl/axi_decoder.v \
+  /home/lab-user/AI_ACCELERATOR_RISCV/soc_work/rtl/axi_lite_interconnect.v \
+  /home/lab-user/AI_ACCELERATOR_RISCV/soc_work/rtl/top.v \
+  /home/lab-user/AI_ACCELERATOR_RISCV/soc_work/tb/tb_top.v
+%Warning-PROCASSINIT: /home/lab-user/AI_ACCELERATOR_RISCV/soc_work/tb/tb_top.v:99:17: Procedural assignment to declaration with initial value: 'clk'
+                                                                                    : ... note: In instance 'tb_top'
+                                                                                    : ... Location of variable initialization
+   99 |     reg clk   = 0;
+      |                 ^
+                      /home/lab-user/AI_ACCELERATOR_RISCV/soc_work/tb/tb_top.v:107:28: ... Location of variable process write
+                                                                                     : ... Perhaps should initialize instead using a reset in this process
+  107 |     always #(CLK_PERIOD/2) clk = ~clk;
+      |                            ^~~
+                      ... For warning description see https://verilator.org/warn/PROCASSINIT?v=5.052
+                      ... Use "/* verilator lint_off PROCASSINIT */" and lint_on around source to disable this message.
+make[1]: Entering directory '/home/lab-user/AI_ACCELERATOR_RISCV/soc_work/obj_soc'
+g++ -Os  -I.  -MMD -I/apps/vlsi/tools/verilator/5.052/share/verilator/include -I/apps/vlsi/tools/verilator/5.052/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated.o /apps/vlsi/tools/verilator/5.052/share/verilator/include/verilated.cpp
+g++ -Os  -I.  -MMD -I/apps/vlsi/tools/verilator/5.052/share/verilator/include -I/apps/vlsi/tools/verilator/5.052/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_vcd_c.o /apps/vlsi/tools/verilator/5.052/share/verilator/include/verilated_vcd_c.cpp
+g++ -Os  -I.  -MMD -I/apps/vlsi/tools/verilator/5.052/share/verilator/include -I/apps/vlsi/tools/verilator/5.052/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_timing.o /apps/vlsi/tools/verilator/5.052/share/verilator/include/verilated_timing.cpp
+g++ -Os  -I.  -MMD -I/apps/vlsi/tools/verilator/5.052/share/verilator/include -I/apps/vlsi/tools/verilator/5.052/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_threads.o /apps/vlsi/tools/verilator/5.052/share/verilator/include/verilated_threads.cpp
+python3 /apps/vlsi/tools/verilator/5.052/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vtb_top.cpp Vtb_top___024root__0.cpp Vtb_top__main.cpp Vtb_top__Trace__0.cpp Vtb_top__ConstPool__0__Slow.cpp Vtb_top___024root__Slow.cpp Vtb_top___024root__0__Slow.cpp Vtb_top__Syms__Slow.cpp Vtb_top__Trace__0__Slow.cpp Vtb_top__TraceDecls__0__Slow.cpp > Vtb_top__ALL.cpp
+g++ -Os  -I.  -MMD -I/apps/vlsi/tools/verilator/5.052/share/verilator/include -I/apps/vlsi/tools/verilator/5.052/share/verilator/include/vltstd -DVERILATOR=1 -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -DVM_TRACE_SAIF=0 -DVM_VPI=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-int-in-bool-context -Wno-shadow -Wno-sign-compare -Wno-subobject-linkage -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o Vtb_top__ALL.o Vtb_top__ALL.cpp
+g++    verilated.o verilated_vcd_c.o verilated_timing.o verilated_threads.o Vtb_top__ALL.a    -pthread -lpthread -latomic   -o sim_soc
+rm Vtb_top__ALL.verilator_deplist.tmp
+make[1]: Leaving directory '/home/lab-user/AI_ACCELERATOR_RISCV/soc_work/obj_soc'
+- V e r i l a t i o n   R e p o r t: Verilator 5.052 2026-09-05 rev v5.052
+- Verilator: Built from 1.455 MB sources in 18 modules, into 0.549 MB in 10 C++ files needing 0.001 MB
+- Verilator: Walltime 5.954 s (elab=0.021, cvt=0.146, bld=5.547); cpu 0.202 s on 16 threads; allocated 28.723 MB
+./obj_soc/sim_soc +romhex=/home/lab-user/AI_ACCELERATOR_RISCV/soc_work/rtl/rom.hex
+[ROM] loaded from plusarg: /home/lab-user/AI_ACCELERATOR_RISCV/soc_work/rtl/rom.hex
+--------------------------------------------------
+ UART SoC Simulation Started
+--------------------------------------------------
+
+[TB] UART Monitor Started
+--------------------------------------------
+[TB] RX byte: H
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: l
+[TB] RX byte: o
+[TB] RX byte:  
+[TB] RX byte: D
+[TB] RX byte: e
+[TB] RX byte: e
+[TB] RX byte: p
+[TB] RX byte: a
+[TB] RX byte: k
+[TB] RX byte:  
+[TB] RX byte: f
+[TB] RX byte: r
+[TB] RX byte: o
+[TB] RX byte: m
+[TB] RX byte:  
+[TB] RX byte: N
+[TB] RX byte: i
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: i
+[TB] RX byte: t
+[TB] RX byte: !
+[TB] RX byte: 
+
+Hello Deepak from Nielit!
+
+[TB] Greeting message count = 1
+[TB] RX byte: H
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: l
+[TB] RX byte: o
+[TB] RX byte:  
+[TB] RX byte: D
+[TB] RX byte: e
+[TB] RX byte: e
+[TB] RX byte: p
+[TB] RX byte: a
+[TB] RX byte: k
+[TB] RX byte:  
+[TB] RX byte: f
+[TB] RX byte: r
+[TB] RX byte: o
+[TB] RX byte: m
+[TB] RX byte:  
+[TB] RX byte: N
+[TB] RX byte: i
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: i
+[TB] RX byte: t
+[TB] RX byte: !
+[TB] RX byte: 
+
+Hello Deepak from Nielit!
+
+[TB] Greeting message count = 2
+[TB] RX byte: H
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: l
+[TB] RX byte: o
+[TB] RX byte:  
+[TB] RX byte: D
+[TB] RX byte: e
+[TB] RX byte: e
+[TB] RX byte: p
+[TB] RX byte: a
+[TB] RX byte: k
+[TB] RX byte:  
+[TB] RX byte: f
+[TB] RX byte: r
+[TB] RX byte: o
+[TB] RX byte: m
+[TB] RX byte:  
+[TB] RX byte: N
+[TB] RX byte: i
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: i
+[TB] RX byte: t
+[TB] RX byte: !
+[TB] RX byte: 
+
+Hello Deepak from Nielit!
+
+[TB] Greeting message count = 3
+[TB] RX byte: H
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: l
+[TB] RX byte: o
+[TB] RX byte:  
+[TB] RX byte: D
+[TB] RX byte: e
+[TB] RX byte: e
+[TB] RX byte: p
+[TB] RX byte: a
+[TB] RX byte: k
+[TB] RX byte:  
+[TB] RX byte: f
+[TB] RX byte: r
+[TB] RX byte: o
+[TB] RX byte: m
+[TB] RX byte:  
+[TB] RX byte: N
+[TB] RX byte: i
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: i
+[TB] RX byte: t
+[TB] RX byte: !
+[TB] RX byte: 
+
+Hello Deepak from Nielit!
+
+[TB] Greeting message count = 4
+[TB] RX byte: H
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: l
+[TB] RX byte: o
+[TB] RX byte:  
+[TB] RX byte: D
+[TB] RX byte: e
+[TB] RX byte: e
+[TB] RX byte: p
+[TB] RX byte: a
+[TB] RX byte: k
+[TB] RX byte:  
+[TB] RX byte: f
+[TB] RX byte: r
+[TB] RX byte: o
+[TB] RX byte: m
+[TB] RX byte:  
+[TB] RX byte: N
+[TB] RX byte: i
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: i
+[TB] RX byte: t
+[TB] RX byte: !
+[TB] RX byte: 
+
+Hello Deepak from Nielit!
+
+[TB] Greeting message count = 5
+[TB] RX byte: H
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: l
+[TB] RX byte: o
+[TB] RX byte:  
+[TB] RX byte: D
+[TB] RX byte: e
+[TB] RX byte: e
+[TB] RX byte: p
+[TB] RX byte: a
+[TB] RX byte: k
+[TB] RX byte:  
+[TB] RX byte: f
+[TB] RX byte: r
+[TB] RX byte: o
+[TB] RX byte: m
+[TB] RX byte:  
+[TB] RX byte: N
+[TB] RX byte: i
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: i
+[TB] RX byte: t
+[TB] RX byte: !
+[TB] RX byte: 
+
+Hello Deepak from Nielit!
+
+[TB] Greeting message count = 6
+[TB] RX byte: H
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: l
+[TB] RX byte: o
+[TB] RX byte:  
+[TB] RX byte: D
+[TB] RX byte: e
+[TB] RX byte: e
+[TB] RX byte: p
+[TB] RX byte: a
+[TB] RX byte: k
+[TB] RX byte:  
+[TB] RX byte: f
+[TB] RX byte: r
+[TB] RX byte: o
+[TB] RX byte: m
+[TB] RX byte:  
+[TB] RX byte: N
+[TB] RX byte: i
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: i
+[TB] RX byte: t
+[TB] RX byte: !
+[TB] RX byte: 
+
+Hello Deepak from Nielit!
+
+[TB] Greeting message count = 7
+[TB] RX byte: H
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: l
+[TB] RX byte: o
+[TB] RX byte:  
+[TB] RX byte: D
+[TB] RX byte: e
+[TB] RX byte: e
+[TB] RX byte: p
+[TB] RX byte: a
+[TB] RX byte: k
+[TB] RX byte:  
+[TB] RX byte: f
+[TB] RX byte: r
+[TB] RX byte: o
+[TB] RX byte: m
+[TB] RX byte:  
+[TB] RX byte: N
+[TB] RX byte: i
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: i
+[TB] RX byte: t
+[TB] RX byte: !
+[TB] RX byte: 
+
+Hello Deepak from Nielit!
+
+[TB] Greeting message count = 8
+[TB] RX byte: H
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: l
+[TB] RX byte: o
+[TB] RX byte:  
+[TB] RX byte: D
+[TB] RX byte: e
+[TB] RX byte: e
+[TB] RX byte: p
+[TB] RX byte: a
+[TB] RX byte: k
+[TB] RX byte:  
+[TB] RX byte: f
+[TB] RX byte: r
+[TB] RX byte: o
+[TB] RX byte: m
+[TB] RX byte:  
+[TB] RX byte: N
+[TB] RX byte: i
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: i
+[TB] RX byte: t
+[TB] RX byte: !
+[TB] RX byte: 
+
+Hello Deepak from Nielit!
+
+[TB] Greeting message count = 9
+[TB] RX byte: H
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: l
+[TB] RX byte: o
+[TB] RX byte:  
+[TB] RX byte: D
+[TB] RX byte: e
+[TB] RX byte: e
+[TB] RX byte: p
+[TB] RX byte: a
+[TB] RX byte: k
+[TB] RX byte:  
+[TB] RX byte: f
+[TB] RX byte: r
+[TB] RX byte: o
+[TB] RX byte: m
+[TB] RX byte:  
+[TB] RX byte: N
+[TB] RX byte: i
+[TB] RX byte: e
+[TB] RX byte: l
+[TB] RX byte: i
+[TB] RX byte: t
+[TB] RX byte: !
+[TB] RX byte: 
+
+Hello Deepak from Nielit!
+
+[TB] Greeting message count = 10
+
+============================================
+ 10 GREETING MESSAGES RECEIVED
+ UART OUTPUT VERIFIED
+============================================
+
+
+--------------------------------------------
+[TB] Greeting phase finished
+--------------------------------------------
+
+--------------------------------------------
+[TB] FIFO flushed – sending command : PING
+--------------------------------------------
+[TB] RX byte: P
+[TB] RX byte: I
+[TB] RX byte: N
+[TB] RX byte: G
+
+============================================
+ TEST PASSED
+ Echo received : PING
+============================================
+
+- /home/lab-user/AI_ACCELERATOR_RISCV/soc_work/tb/tb_top.v:466: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05
+- Verilator: $finish at 23ms; walltime 1.728 s; speed 13.385 ms/s
+- Verilator: cpu 1.723 s on 1 threads; allocated 4 MB

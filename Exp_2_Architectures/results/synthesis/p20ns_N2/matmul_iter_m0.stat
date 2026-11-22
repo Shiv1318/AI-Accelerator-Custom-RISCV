@@ -1,0 +1,65 @@
+
+11. Printing statistics.
+
+=== matmul_iter ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     1014        - wires
+     1245        - wire bits
+       22        - public wires
+      253        - public wire bits
+        9        - ports
+      165        - port bits
+     1178 1.06E+04 cells
+        1    7.507   sky130_fd_sc_hd__a211oi_1
+        1    10.01   sky130_fd_sc_hd__a21bo_1
+        1    7.507   sky130_fd_sc_hd__a21boi_0
+        1    7.507   sky130_fd_sc_hd__a21o_1
+       69  345.331   sky130_fd_sc_hd__a21oi_1
+       10   75.072   sky130_fd_sc_hd__a22oi_1
+        5   43.792   sky130_fd_sc_hd__a31o_1
+       11   68.816   sky130_fd_sc_hd__a31oi_1
+        2   20.019   sky130_fd_sc_hd__a32o_1
+        1    8.758   sky130_fd_sc_hd__a32oi_1
+        7   43.792   sky130_fd_sc_hd__and2_0
+        9   56.304   sky130_fd_sc_hd__and3_1
+       10   87.584   sky130_fd_sc_hd__and3b_1
+       14    52.55   sky130_fd_sc_hd__clkinv_1
+      186 4.65E+03   sky130_fd_sc_hd__dfrtp_1
+        8   50.048   sky130_fd_sc_hd__lpflow_inputiso1p_1
+       24  150.144   sky130_fd_sc_hd__lpflow_isobufsrc_1
+       36  360.346   sky130_fd_sc_hd__maj3_1
+        1   11.261   sky130_fd_sc_hd__mux2_1
+        1    10.01   sky130_fd_sc_hd__mux2i_1
+        8  180.173   sky130_fd_sc_hd__mux4_2
+      346  1.3E+03   sky130_fd_sc_hd__nand2_1
+       12   75.072   sky130_fd_sc_hd__nand2b_1
+       15   75.072   sky130_fd_sc_hd__nand3_1
+        7    52.55   sky130_fd_sc_hd__nand3b_1
+        4   25.024   sky130_fd_sc_hd__nand4_1
+        1    8.758   sky130_fd_sc_hd__nand4b_1
+       76  285.274   sky130_fd_sc_hd__nor2_1
+        3   18.768   sky130_fd_sc_hd__nor2b_1
+        7   35.034   sky130_fd_sc_hd__nor3_1
+        5   37.536   sky130_fd_sc_hd__nor3b_1
+        1    10.01   sky130_fd_sc_hd__o211a_1
+       77   385.37   sky130_fd_sc_hd__o21ai_0
+        2   20.019   sky130_fd_sc_hd__o21ba_1
+        2   15.014   sky130_fd_sc_hd__o21bai_1
+        4   35.034   sky130_fd_sc_hd__o22a_1
+        3   18.768   sky130_fd_sc_hd__o22ai_1
+        2   15.014   sky130_fd_sc_hd__o31ai_1
+        1    8.758   sky130_fd_sc_hd__o32ai_1
+        5   43.792   sky130_fd_sc_hd__o41ai_1
+        3   26.275   sky130_fd_sc_hd__or3b_1
+        5   37.536   sky130_fd_sc_hd__or4_1
+      122 1.07E+03   sky130_fd_sc_hd__xnor2_1
+        9  202.694   sky130_fd_sc_hd__xnor3_1
+       59  516.746   sky130_fd_sc_hd__xor2_1
+        1   23.773   sky130_fd_sc_hd__xor3_1
+
+   Chip area for module '\matmul_iter': 10590.156800
+     of which used for sequential elements: 4654.464000 (43.95%)
+

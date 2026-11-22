@@ -1,0 +1,2343 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.64+26 (git sha1 a54bca549, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+
+-- Running command `
+      read_verilog -sv results/synthesis/p20ns_N4/work_matmul_par_m1/mult_star.sv results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv results/synthesis/p20ns_N4/work_matmul_par_m1/systolic_pe.sv results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv;
+      hierarchy -check -top matmul_par;
+      synth -top matmul_par -flatten;
+      dfflibmap -liberty /apps/vlsi/src/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib;
+      abc -liberty /apps/vlsi/src/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib -D 20000;
+      opt_clean -purge;
+      write_verilog -noattr results/synthesis/p20ns_N4/matmul_par_m1.v;
+      tee -o results/synthesis/p20ns_N4/matmul_par_m1.stat stat -liberty /apps/vlsi/src/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib;
+    ' --
+
+1. Executing Verilog-2005 frontend: results/synthesis/p20ns_N4/work_matmul_par_m1/mult_star.sv
+Parsing SystemVerilog input from `results/synthesis/p20ns_N4/work_matmul_par_m1/mult_star.sv' to AST representation.
+Generating RTLIL representation for module `\mult_star'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv
+Parsing SystemVerilog input from `results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv' to AST representation.
+Generating RTLIL representation for module `\mult_booth'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: results/synthesis/p20ns_N4/work_matmul_par_m1/systolic_pe.sv
+Parsing SystemVerilog input from `results/synthesis/p20ns_N4/work_matmul_par_m1/systolic_pe.sv' to AST representation.
+Generating RTLIL representation for module `\systolic_pe'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv
+Parsing SystemVerilog input from `results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv' to AST representation.
+Generating RTLIL representation for module `\matmul_par'.
+Warning: Replacing memory \c_r with list of registers. See results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:47
+Warning: Replacing memory \b_r with list of registers. See results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:47
+Warning: Replacing memory \a_r with list of registers. See results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:47
+Successfully finished Verilog frontend.
+
+5. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1. Analyzing design hierarchy..
+Top module:  \matmul_par
+Used module:     \mult_booth
+Parameter 1 (\W) = 8
+
+5.2. Executing AST frontend in derive mode using pre-parsed AST for module `\mult_booth'.
+Parameter 1 (\W) = 8
+Generating RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Reprocessing module matmul_par because instantiated module $paramod\mult_booth\W=s32'00000000000000000000000000001000 has become available.
+Generating RTLIL representation for module `\matmul_par'.
+Warning: Replacing memory \prod with list of registers. See results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35
+Warning: Replacing memory \c_r with list of registers. See results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:47
+Warning: Replacing memory \b_r with list of registers. See results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:47
+Warning: Replacing memory \a_r with list of registers. See results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:47
+
+5.3. Analyzing design hierarchy..
+Top module:  \matmul_par
+Used module:     \mult_booth
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter 1 (\W) = 8
+Found cached RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+
+5.4. Analyzing design hierarchy..
+Top module:  \matmul_par
+Used module:     $paramod\mult_booth\W=s32'00000000000000000000000000001000
+
+5.5. Analyzing design hierarchy..
+Top module:  \matmul_par
+Used module:     $paramod\mult_booth\W=s32'00000000000000000000000000001000
+Removing unused module `\systolic_pe'.
+Removing unused module `\mult_booth'.
+Removing unused module `\mult_star'.
+Removed 3 unused modules.
+
+6. Executing SYNTH pass.
+
+6.1. Executing HIERARCHY pass (managing design hierarchy).
+
+6.1.1. Analyzing design hierarchy..
+Top module:  \matmul_par
+Used module:     $paramod\mult_booth\W=s32'00000000000000000000000000001000
+
+6.1.2. Analyzing design hierarchy..
+Top module:  \matmul_par
+Used module:     $paramod\mult_booth\W=s32'00000000000000000000000000001000
+Removed 0 unused modules.
+
+6.2. Executing PROC pass (convert processes to netlists).
+
+6.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:13$281 in module $paramod\mult_booth\W=s32'00000000000000000000000000001000.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$541 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$541 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$537 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$537 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$531 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$531 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$527 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$527 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$521 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$521 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$517 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$517 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$511 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$511 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$507 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$507 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$501 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$501 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$497 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$497 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$491 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$491 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$487 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$487 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$481 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$481 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$477 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$477 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$471 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$471 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$467 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$467 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$461 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$461 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$457 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$457 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$451 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$451 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$447 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$447 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$441 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$441 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$437 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$437 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$431 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$431 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$427 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$427 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$421 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$421 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$417 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$417 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$411 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$411 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$407 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$407 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$401 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$401 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$397 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$397 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$391 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$391 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$387 in module matmul_par.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$387 in module matmul_par.
+Removed 1 dead cases from process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357 in module matmul_par.
+Marked 4 switch rules as full_case in process $proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357 in module matmul_par.
+Removed a total of 33 dead cases.
+
+6.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 72 assignments to connections.
+
+6.2.4. Executing PROC_INIT pass (extract init attributes).
+
+6.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+
+6.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~39 debug messages>
+
+6.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod\mult_booth\W=s32'00000000000000000000000000001000.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:13$281'.
+     1/4: $4\pp[15:0]
+     2/4: $3\pp[15:0]
+     3/4: $2\pp[15:0]
+     4/4: $1\pp[15:0]
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$546'.
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$541'.
+     1/1: $1$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$354_DATA[7:0]$543
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$537'.
+     1/1: $1$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$353_DATA[7:0]$539
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$536'.
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$531'.
+     1/1: $1$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$352_DATA[7:0]$533
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$527'.
+     1/1: $1$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$351_DATA[7:0]$529
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$526'.
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$521'.
+     1/1: $1$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$350_DATA[7:0]$523
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$517'.
+     1/1: $1$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$349_DATA[7:0]$519
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$516'.
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$511'.
+     1/1: $1$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$348_DATA[7:0]$513
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$507'.
+     1/1: $1$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$347_DATA[7:0]$509
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$506'.
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$501'.
+     1/1: $1$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$346_DATA[7:0]$503
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$497'.
+     1/1: $1$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$345_DATA[7:0]$499
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$496'.
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$491'.
+     1/1: $1$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$344_DATA[7:0]$493
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$487'.
+     1/1: $1$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$343_DATA[7:0]$489
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$486'.
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$481'.
+     1/1: $1$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$342_DATA[7:0]$483
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$477'.
+     1/1: $1$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$341_DATA[7:0]$479
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$476'.
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$471'.
+     1/1: $1$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$340_DATA[7:0]$473
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$467'.
+     1/1: $1$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$339_DATA[7:0]$469
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$466'.
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$461'.
+     1/1: $1$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$338_DATA[7:0]$463
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$457'.
+     1/1: $1$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$337_DATA[7:0]$459
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$456'.
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$451'.
+     1/1: $1$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$336_DATA[7:0]$453
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$447'.
+     1/1: $1$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$335_DATA[7:0]$449
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$446'.
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$441'.
+     1/1: $1$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$334_DATA[7:0]$443
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$437'.
+     1/1: $1$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$333_DATA[7:0]$439
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$436'.
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$431'.
+     1/1: $1$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$332_DATA[7:0]$433
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$427'.
+     1/1: $1$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$331_DATA[7:0]$429
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$426'.
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$421'.
+     1/1: $1$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$330_DATA[7:0]$423
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$417'.
+     1/1: $1$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$329_DATA[7:0]$419
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$416'.
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$411'.
+     1/1: $1$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$328_DATA[7:0]$413
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$407'.
+     1/1: $1$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$327_DATA[7:0]$409
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$406'.
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$401'.
+     1/1: $1$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$326_DATA[7:0]$403
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$397'.
+     1/1: $1$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$325_DATA[7:0]$399
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$396'.
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$391'.
+     1/1: $1$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$324_DATA[7:0]$393
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$387'.
+     1/1: $1$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$323_DATA[7:0]$389
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+     1/59: $3$fordecl_block$37.x[31:0]$367
+     2/59: $2$fordecl_block$37.x[31:0]$365
+     3/59: $2$fordecl_block$39.x[31:0]$366
+     4/59: $1$fordecl_block$39.x[31:0]$364
+     5/59: $1$fordecl_block$37.x[31:0]$363
+     6/59: $0\done[0:0]
+     7/59: $1$fordecl_block$35.x[31:0]$362
+     8/59: $0\c_r[15][19:0]
+     9/59: $0\c_r[14][19:0]
+    10/59: $0\c_r[13][19:0]
+    11/59: $0\c_r[12][19:0]
+    12/59: $0\c_r[11][19:0]
+    13/59: $0\c_r[10][19:0]
+    14/59: $0\c_r[9][19:0]
+    15/59: $0\c_r[8][19:0]
+    16/59: $0\c_r[7][19:0]
+    17/59: $0\c_r[6][19:0]
+    18/59: $0\c_r[5][19:0]
+    19/59: $0\c_r[4][19:0]
+    20/59: $0\c_r[3][19:0]
+    21/59: $0\c_r[2][19:0]
+    22/59: $0\c_r[1][19:0]
+    23/59: $0\c_r[0][19:0]
+    24/59: $0\b_r[15][7:0]
+    25/59: $0\b_r[14][7:0]
+    26/59: $0\b_r[13][7:0]
+    27/59: $0\b_r[12][7:0]
+    28/59: $0\b_r[11][7:0]
+    29/59: $0\b_r[10][7:0]
+    30/59: $0\b_r[9][7:0]
+    31/59: $0\b_r[8][7:0]
+    32/59: $0\b_r[7][7:0]
+    33/59: $0\b_r[6][7:0]
+    34/59: $0\b_r[5][7:0]
+    35/59: $0\b_r[4][7:0]
+    36/59: $0\b_r[3][7:0]
+    37/59: $0\b_r[2][7:0]
+    38/59: $0\b_r[1][7:0]
+    39/59: $0\b_r[0][7:0]
+    40/59: $0\a_r[15][7:0]
+    41/59: $0\a_r[14][7:0]
+    42/59: $0\a_r[13][7:0]
+    43/59: $0\a_r[12][7:0]
+    44/59: $0\a_r[11][7:0]
+    45/59: $0\a_r[10][7:0]
+    46/59: $0\a_r[9][7:0]
+    47/59: $0\a_r[8][7:0]
+    48/59: $0\a_r[7][7:0]
+    49/59: $0\a_r[6][7:0]
+    50/59: $0\a_r[5][7:0]
+    51/59: $0\a_r[4][7:0]
+    52/59: $0\a_r[3][7:0]
+    53/59: $0\a_r[2][7:0]
+    54/59: $0\a_r[1][7:0]
+    55/59: $0\a_r[0][7:0]
+    56/59: $0\k[1:0]
+    57/59: $0\st[0:0]
+    58/59: $0\cycles[15:0]
+    59/59: $0\busy[0:0]
+Creating decoders for process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:40$355'.
+
+6.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod\mult_booth\W=s32'00000000000000000000000000001000.\p' from process `$paramod\mult_booth\W=s32'00000000000000000000000000001000.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:13$281'.
+No latch inferred for signal `$paramod\mult_booth\W=s32'00000000000000000000000000001000.\pp' from process `$paramod\mult_booth\W=s32'00000000000000000000000000001000.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:13$281'.
+No latch inferred for signal `$paramod\mult_booth\W=s32'00000000000000000000000000001000.\sum' from process `$paramod\mult_booth\W=s32'00000000000000000000000000001000.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:13$281'.
+No latch inferred for signal `$paramod\mult_booth\W=s32'00000000000000000000000000001000.$fordecl_block$2.i' from process `$paramod\mult_booth\W=s32'00000000000000000000000000001000.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:13$281'.
+No latch inferred for signal `\matmul_par.\prod[15]' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$546'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$354_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$541'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$353_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$537'.
+No latch inferred for signal `\matmul_par.\prod[14]' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$536'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$352_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$531'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$351_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$527'.
+No latch inferred for signal `\matmul_par.\prod[13]' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$526'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$350_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$521'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$349_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$517'.
+No latch inferred for signal `\matmul_par.\prod[12]' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$516'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$348_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$511'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$347_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$507'.
+No latch inferred for signal `\matmul_par.\prod[11]' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$506'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$346_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$501'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$345_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$497'.
+No latch inferred for signal `\matmul_par.\prod[10]' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$496'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$344_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$491'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$343_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$487'.
+No latch inferred for signal `\matmul_par.\prod[9]' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$486'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$342_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$481'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$341_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$477'.
+No latch inferred for signal `\matmul_par.\prod[8]' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$476'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$340_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$471'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$339_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$467'.
+No latch inferred for signal `\matmul_par.\prod[7]' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$466'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$338_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$461'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$337_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$457'.
+No latch inferred for signal `\matmul_par.\prod[6]' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$456'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$336_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$451'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$335_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$447'.
+No latch inferred for signal `\matmul_par.\prod[5]' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$446'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$334_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$441'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$333_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$437'.
+No latch inferred for signal `\matmul_par.\prod[4]' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$436'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$332_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$431'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$331_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$427'.
+No latch inferred for signal `\matmul_par.\prod[3]' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$426'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$330_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$421'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$329_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$417'.
+No latch inferred for signal `\matmul_par.\prod[2]' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$416'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$328_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$411'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$327_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$407'.
+No latch inferred for signal `\matmul_par.\prod[1]' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$406'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$326_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$401'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$325_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$397'.
+No latch inferred for signal `\matmul_par.\prod[0]' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$396'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\b_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$324_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$391'.
+No latch inferred for signal `\matmul_par.$mem2reg_rd$\a_r$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$323_DATA' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$387'.
+No latch inferred for signal `\matmul_par.\c_flat' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:40$355'.
+No latch inferred for signal `\matmul_par.$fordecl_block$33.x' from process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:40$355'.
+
+6.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\matmul_par.\busy' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1457' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\done' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1462' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\cycles' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1467' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\st' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1472' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\k' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1477' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.$fordecl_block$35.x' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1482' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.$fordecl_block$37.x' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $dff cell `$procdff$1489' with positive edge clock.
+Creating register for signal `\matmul_par.$fordecl_block$39.x' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $dff cell `$procdff$1496' with positive edge clock.
+Creating register for signal `\matmul_par.\a_r[0]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1501' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\a_r[1]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1506' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\a_r[2]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1511' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\a_r[3]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1516' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\a_r[4]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1521' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\a_r[5]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1526' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\a_r[6]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1531' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\a_r[7]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1536' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\a_r[8]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1541' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\a_r[9]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1546' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\a_r[10]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1551' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\a_r[11]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1556' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\a_r[12]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1561' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\a_r[13]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1566' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\a_r[14]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1571' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\a_r[15]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1576' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\b_r[0]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1581' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\b_r[1]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1586' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\b_r[2]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1591' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\b_r[3]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1596' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\b_r[4]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1601' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\b_r[5]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1606' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\b_r[6]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1611' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\b_r[7]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1616' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\b_r[8]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1621' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\b_r[9]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1626' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\b_r[10]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1631' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\b_r[11]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1636' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\b_r[12]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1641' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\b_r[13]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1646' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\b_r[14]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1651' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\b_r[15]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1656' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\c_r[0]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1661' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\c_r[1]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1666' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\c_r[2]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1671' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\c_r[3]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1676' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\c_r[4]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1681' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\c_r[5]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1686' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\c_r[6]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1691' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\c_r[7]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1696' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\c_r[8]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1701' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\c_r[9]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1706' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\c_r[10]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1711' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\c_r[11]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1716' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\c_r[12]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1721' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\c_r[13]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1726' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\c_r[14]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1731' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_par.\c_r[15]' using process `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+  created $adff cell `$procdff$1736' with positive edge clock and positive level reset.
+
+6.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+6.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 4 empty switches in `$paramod\mult_booth\W=s32'00000000000000000000000000001000.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:13$281'.
+Removing empty process `$paramod\mult_booth\W=s32'00000000000000000000000000001000.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:13$281'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$546'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$541'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$541'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$537'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$537'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$536'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$531'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$531'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$527'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$527'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$526'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$521'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$521'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$517'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$517'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$516'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$511'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$511'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$507'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$507'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$506'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$501'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$501'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$497'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$497'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$496'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$491'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$491'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$487'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$487'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$486'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$481'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$481'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$477'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$477'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$476'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$471'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$471'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$467'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$467'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$466'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$461'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$461'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$457'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$457'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$456'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$451'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$451'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$447'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$447'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$446'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$441'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$441'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$437'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$437'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$436'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$431'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$431'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$427'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$427'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$426'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$421'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$421'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$417'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$417'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$416'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$411'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$411'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$407'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$407'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$406'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$401'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$401'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$397'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$397'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:35$396'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$391'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$391'.
+Found and cleaned up 1 empty switch in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$387'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$387'.
+Found and cleaned up 3 empty switches in `\matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:44$357'.
+Removing empty process `matmul_par.$proc$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:40$355'.
+Cleaned up 39 empty switches.
+
+6.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\mult_booth\W=s32'00000000000000000000000000001000.
+<suppressed ~12 debug messages>
+Optimizing module matmul_par.
+<suppressed ~255 debug messages>
+
+6.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\mult_booth\W=s32'00000000000000000000000000001000.
+<suppressed ~16 debug messages>
+
+6.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+<suppressed ~56 debug messages>
+
+6.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+Removed 101 unused cells and 902 unused wires.
+<suppressed ~126 debug messages>
+
+6.6. Executing CHECK pass (checking for obvious problems).
+Checking module matmul_par...
+Found and reported 0 problems.
+
+6.7. Executing OPT pass (performing simple optimizations).
+
+6.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+<suppressed ~176 debug messages>
+
+6.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_par'.
+Computing hashes of 1361 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Computing hashes of 1200 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Computing hashes of 912 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+<suppressed ~1347 debug messages>
+Removed a total of 449 cells.
+
+6.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_par..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$1432: \st -> 1'0
+      Replacing known input bits on port A of cell $procmux$1430: \st -> 1'1
+      Replacing known input bits on port A of cell $procmux$1435: \st -> 1'0
+  Analyzing evaluation results.
+    dead port 3/5 on $pmux $flatten\g_row[3].g_col[2].g_b.u_mul.$procmux$566.
+    dead port 3/5 on $pmux $flatten\g_row[3].g_col[1].g_b.u_mul.$procmux$566.
+    dead port 3/5 on $pmux $flatten\g_row[2].g_col[2].g_b.u_mul.$procmux$566.
+    dead port 3/5 on $pmux $flatten\g_row[1].g_col[3].g_b.u_mul.$procmux$566.
+    dead port 1/17 on $pmux $procmux$1098.
+    dead port 2/17 on $pmux $procmux$1098.
+    dead port 3/17 on $pmux $procmux$1098.
+    dead port 4/17 on $pmux $procmux$1098.
+    dead port 5/17 on $pmux $procmux$1098.
+    dead port 6/17 on $pmux $procmux$1098.
+    dead port 7/17 on $pmux $procmux$1098.
+    dead port 8/17 on $pmux $procmux$1098.
+    dead port 9/17 on $pmux $procmux$1098.
+    dead port 10/17 on $pmux $procmux$1098.
+    dead port 11/17 on $pmux $procmux$1098.
+    dead port 12/17 on $pmux $procmux$1098.
+    dead port 3/5 on $pmux $flatten\g_row[2].g_col[1].g_b.u_mul.$procmux$566.
+    dead port 3/5 on $pmux $flatten\g_row[3].g_col[0].g_b.u_mul.$procmux$566.
+    dead port 1/17 on $pmux $procmux$1081.
+    dead port 2/17 on $pmux $procmux$1081.
+    dead port 3/17 on $pmux $procmux$1081.
+    dead port 5/17 on $pmux $procmux$1081.
+    dead port 6/17 on $pmux $procmux$1081.
+    dead port 7/17 on $pmux $procmux$1081.
+    dead port 9/17 on $pmux $procmux$1081.
+    dead port 10/17 on $pmux $procmux$1081.
+    dead port 11/17 on $pmux $procmux$1081.
+    dead port 13/17 on $pmux $procmux$1081.
+    dead port 14/17 on $pmux $procmux$1081.
+    dead port 15/17 on $pmux $procmux$1081.
+    dead port 1/17 on $pmux $procmux$1064.
+    dead port 2/17 on $pmux $procmux$1064.
+    dead port 3/17 on $pmux $procmux$1064.
+    dead port 4/17 on $pmux $procmux$1064.
+    dead port 5/17 on $pmux $procmux$1064.
+    dead port 6/17 on $pmux $procmux$1064.
+    dead port 7/17 on $pmux $procmux$1064.
+    dead port 8/17 on $pmux $procmux$1064.
+    dead port 9/17 on $pmux $procmux$1064.
+    dead port 10/17 on $pmux $procmux$1064.
+    dead port 11/17 on $pmux $procmux$1064.
+    dead port 12/17 on $pmux $procmux$1064.
+    dead port 1/17 on $pmux $procmux$1030.
+    dead port 2/17 on $pmux $procmux$1030.
+    dead port 3/17 on $pmux $procmux$1030.
+    dead port 4/17 on $pmux $procmux$1030.
+    dead port 5/17 on $pmux $procmux$1030.
+    dead port 6/17 on $pmux $procmux$1030.
+    dead port 7/17 on $pmux $procmux$1030.
+    dead port 8/17 on $pmux $procmux$1030.
+    dead port 9/17 on $pmux $procmux$1030.
+    dead port 10/17 on $pmux $procmux$1030.
+    dead port 11/17 on $pmux $procmux$1030.
+    dead port 12/17 on $pmux $procmux$1030.
+    dead port 1/17 on $pmux $procmux$996.
+    dead port 2/17 on $pmux $procmux$996.
+    dead port 3/17 on $pmux $procmux$996.
+    dead port 4/17 on $pmux $procmux$996.
+    dead port 5/17 on $pmux $procmux$996.
+    dead port 6/17 on $pmux $procmux$996.
+    dead port 7/17 on $pmux $procmux$996.
+    dead port 8/17 on $pmux $procmux$996.
+    dead port 9/17 on $pmux $procmux$996.
+    dead port 10/17 on $pmux $procmux$996.
+    dead port 11/17 on $pmux $procmux$996.
+    dead port 12/17 on $pmux $procmux$996.
+    dead port 1/17 on $pmux $procmux$945.
+    dead port 2/17 on $pmux $procmux$945.
+    dead port 3/17 on $pmux $procmux$945.
+    dead port 5/17 on $pmux $procmux$945.
+    dead port 6/17 on $pmux $procmux$945.
+    dead port 7/17 on $pmux $procmux$945.
+    dead port 9/17 on $pmux $procmux$945.
+    dead port 10/17 on $pmux $procmux$945.
+    dead port 11/17 on $pmux $procmux$945.
+    dead port 13/17 on $pmux $procmux$945.
+    dead port 14/17 on $pmux $procmux$945.
+    dead port 15/17 on $pmux $procmux$945.
+    dead port 3/5 on $pmux $flatten\g_row[1].g_col[1].g_b.u_mul.$procmux$566.
+    dead port 3/5 on $pmux $flatten\g_row[1].g_col[0].g_b.u_mul.$procmux$566.
+    dead port 3/5 on $pmux $flatten\g_row[2].g_col[0].g_b.u_mul.$procmux$566.
+    dead port 3/5 on $pmux $flatten\g_row[1].g_col[2].g_b.u_mul.$procmux$566.
+    dead port 1/17 on $pmux $procmux$809.
+    dead port 2/17 on $pmux $procmux$809.
+    dead port 3/17 on $pmux $procmux$809.
+    dead port 5/17 on $pmux $procmux$809.
+    dead port 6/17 on $pmux $procmux$809.
+    dead port 7/17 on $pmux $procmux$809.
+    dead port 9/17 on $pmux $procmux$809.
+    dead port 10/17 on $pmux $procmux$809.
+    dead port 11/17 on $pmux $procmux$809.
+    dead port 13/17 on $pmux $procmux$809.
+    dead port 14/17 on $pmux $procmux$809.
+    dead port 15/17 on $pmux $procmux$809.
+    dead port 3/5 on $pmux $flatten\g_row[0].g_col[3].g_b.u_mul.$procmux$566.
+    dead port 3/5 on $pmux $flatten\g_row[2].g_col[3].g_b.u_mul.$procmux$566.
+    dead port 3/5 on $pmux $flatten\g_row[0].g_col[2].g_b.u_mul.$procmux$566.
+    dead port 1/17 on $pmux $procmux$673.
+    dead port 2/17 on $pmux $procmux$673.
+    dead port 3/17 on $pmux $procmux$673.
+    dead port 5/17 on $pmux $procmux$673.
+    dead port 6/17 on $pmux $procmux$673.
+    dead port 7/17 on $pmux $procmux$673.
+    dead port 9/17 on $pmux $procmux$673.
+    dead port 10/17 on $pmux $procmux$673.
+    dead port 11/17 on $pmux $procmux$673.
+    dead port 13/17 on $pmux $procmux$673.
+    dead port 14/17 on $pmux $procmux$673.
+    dead port 15/17 on $pmux $procmux$673.
+    dead port 3/5 on $pmux $flatten\g_row[0].g_col[1].g_b.u_mul.$procmux$566.
+    dead port 3/5 on $pmux $flatten\g_row[0].g_col[0].g_b.u_mul.$procmux$566.
+    dead port 3/5 on $pmux $flatten\g_row[3].g_col[3].g_b.u_mul.$procmux$566.
+Removed 112 multiplexer ports.
+<suppressed ~354 debug messages>
+
+6.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_par.
+Performed a total of 0 changes.
+
+6.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_par'.
+Computing hashes of 912 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Computing hashes of 888 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Computing hashes of 612 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Computing hashes of 540 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+<suppressed ~1116 debug messages>
+Removed a total of 372 cells.
+
+6.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+Removed 0 unused cells and 869 unused wires.
+<suppressed ~1 debug messages>
+
+6.7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+
+6.7.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_par..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~306 debug messages>
+
+6.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_par.
+Performed a total of 0 changes.
+
+6.7.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_par'.
+Computing hashes of 540 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Removed a total of 0 cells.
+
+6.7.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+
+6.7.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+
+6.7.16. Finished fast OPT passes. (There is nothing left to do.)
+
+6.8. Executing FSM pass (extract and optimize FSM).
+
+6.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+6.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+6.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+
+6.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+6.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+6.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+6.9. Executing OPT pass (performing simple optimizations).
+
+6.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+
+6.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_par'.
+Computing hashes of 540 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Removed a total of 0 cells.
+
+6.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_par..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~306 debug messages>
+
+6.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_par.
+Performed a total of 0 changes.
+
+6.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_par'.
+Computing hashes of 540 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Removed a total of 0 cells.
+
+6.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$1716 ($adff) from module matmul_par (D = $0\c_r[11][19:0], Q = \c_r[11]).
+Adding EN signal on $procdff$1551 ($adff) from module matmul_par (D = \a_flat [87:80], Q = \a_r[10]).
+Adding EN signal on $procdff$1676 ($adff) from module matmul_par (D = $0\c_r[3][19:0], Q = \c_r[3]).
+Adding EN signal on $procdff$1736 ($adff) from module matmul_par (D = $0\c_r[15][19:0], Q = \c_r[15]).
+Adding EN signal on $procdff$1651 ($adff) from module matmul_par (D = \b_flat [119:112], Q = \b_r[14]).
+Adding EN signal on $procdff$1556 ($adff) from module matmul_par (D = \a_flat [95:88], Q = \a_r[11]).
+Adding EN signal on $procdff$1536 ($adff) from module matmul_par (D = \a_flat [63:56], Q = \a_r[7]).
+Adding EN signal on $procdff$1671 ($adff) from module matmul_par (D = $0\c_r[2][19:0], Q = \c_r[2]).
+Adding EN signal on $procdff$1726 ($adff) from module matmul_par (D = $0\c_r[13][19:0], Q = \c_r[13]).
+Adding EN signal on $procdff$1636 ($adff) from module matmul_par (D = \b_flat [95:88], Q = \b_r[11]).
+Adding EN signal on $procdff$1681 ($adff) from module matmul_par (D = $0\c_r[4][19:0], Q = \c_r[4]).
+Adding EN signal on $procdff$1541 ($adff) from module matmul_par (D = \a_flat [71:64], Q = \a_r[8]).
+Adding EN signal on $procdff$1561 ($adff) from module matmul_par (D = \a_flat [103:96], Q = \a_r[12]).
+Adding EN signal on $procdff$1631 ($adff) from module matmul_par (D = \b_flat [87:80], Q = \b_r[10]).
+Adding EN signal on $procdff$1571 ($adff) from module matmul_par (D = \a_flat [119:112], Q = \a_r[14]).
+Adding EN signal on $procdff$1701 ($adff) from module matmul_par (D = $0\c_r[8][19:0], Q = \c_r[8]).
+Adding EN signal on $procdff$1626 ($adff) from module matmul_par (D = \b_flat [79:72], Q = \b_r[9]).
+Adding EN signal on $procdff$1621 ($adff) from module matmul_par (D = \b_flat [71:64], Q = \b_r[8]).
+Adding EN signal on $procdff$1576 ($adff) from module matmul_par (D = \a_flat [127:120], Q = \a_r[15]).
+Adding EN signal on $procdff$1616 ($adff) from module matmul_par (D = \b_flat [63:56], Q = \b_r[7]).
+Adding EN signal on $procdff$1696 ($adff) from module matmul_par (D = $0\c_r[7][19:0], Q = \c_r[7]).
+Adding EN signal on $procdff$1731 ($adff) from module matmul_par (D = $0\c_r[14][19:0], Q = \c_r[14]).
+Adding EN signal on $procdff$1581 ($adff) from module matmul_par (D = \b_flat [7:0], Q = \b_r[0]).
+Adding EN signal on $procdff$1546 ($adff) from module matmul_par (D = \a_flat [79:72], Q = \a_r[9]).
+Adding EN signal on $procdff$1566 ($adff) from module matmul_par (D = \a_flat [111:104], Q = \a_r[13]).
+Adding EN signal on $procdff$1686 ($adff) from module matmul_par (D = $0\c_r[5][19:0], Q = \c_r[5]).
+Adding EN signal on $procdff$1586 ($adff) from module matmul_par (D = \b_flat [15:8], Q = \b_r[1]).
+Adding EN signal on $procdff$1591 ($adff) from module matmul_par (D = \b_flat [23:16], Q = \b_r[2]).
+Adding EN signal on $procdff$1721 ($adff) from module matmul_par (D = $0\c_r[12][19:0], Q = \c_r[12]).
+Adding EN signal on $procdff$1611 ($adff) from module matmul_par (D = \b_flat [55:48], Q = \b_r[6]).
+Adding EN signal on $procdff$1596 ($adff) from module matmul_par (D = \b_flat [31:24], Q = \b_r[3]).
+Adding EN signal on $procdff$1606 ($adff) from module matmul_par (D = \b_flat [47:40], Q = \b_r[5]).
+Adding EN signal on $procdff$1641 ($adff) from module matmul_par (D = \b_flat [103:96], Q = \b_r[12]).
+Adding EN signal on $procdff$1457 ($adff) from module matmul_par (D = $0\busy[0:0], Q = \busy).
+Adding EN signal on $procdff$1691 ($adff) from module matmul_par (D = $0\c_r[6][19:0], Q = \c_r[6]).
+Adding EN signal on $procdff$1706 ($adff) from module matmul_par (D = $0\c_r[9][19:0], Q = \c_r[9]).
+Adding EN signal on $procdff$1467 ($adff) from module matmul_par (D = $0\cycles[15:0], Q = \cycles).
+Adding EN signal on $procdff$1646 ($adff) from module matmul_par (D = \b_flat [111:104], Q = \b_r[13]).
+Adding EN signal on $procdff$1477 ($adff) from module matmul_par (D = $0\k[1:0], Q = \k).
+Adding EN signal on $procdff$1601 ($adff) from module matmul_par (D = \b_flat [39:32], Q = \b_r[4]).
+Adding EN signal on $procdff$1656 ($adff) from module matmul_par (D = \b_flat [127:120], Q = \b_r[15]).
+Adding EN signal on $procdff$1501 ($adff) from module matmul_par (D = \a_flat [7:0], Q = \a_r[0]).
+Adding EN signal on $procdff$1711 ($adff) from module matmul_par (D = $0\c_r[10][19:0], Q = \c_r[10]).
+Adding EN signal on $procdff$1506 ($adff) from module matmul_par (D = \a_flat [15:8], Q = \a_r[1]).
+Adding EN signal on $procdff$1661 ($adff) from module matmul_par (D = $0\c_r[0][19:0], Q = \c_r[0]).
+Adding EN signal on $procdff$1511 ($adff) from module matmul_par (D = \a_flat [23:16], Q = \a_r[2]).
+Adding EN signal on $procdff$1516 ($adff) from module matmul_par (D = \a_flat [31:24], Q = \a_r[3]).
+Adding EN signal on $procdff$1521 ($adff) from module matmul_par (D = \a_flat [39:32], Q = \a_r[4]).
+Adding EN signal on $procdff$1666 ($adff) from module matmul_par (D = $0\c_r[1][19:0], Q = \c_r[1]).
+Adding EN signal on $procdff$1526 ($adff) from module matmul_par (D = \a_flat [47:40], Q = \a_r[5]).
+Adding EN signal on $procdff$1531 ($adff) from module matmul_par (D = \a_flat [55:48], Q = \a_r[6]).
+
+6.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+Removed 64 unused cells and 64 unused wires.
+<suppressed ~65 debug messages>
+
+6.9.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+<suppressed ~56 debug messages>
+
+6.9.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_par..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~210 debug messages>
+
+6.9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_par.
+    New input vector for $reduce_and cell $auto$opt_dff.cc:252:make_patterns_logic$1948: { $auto$opt_dff.cc:234:make_patterns_logic$1941 $auto$opt_dff.cc:234:make_patterns_logic$1945 }
+  Optimizing cells in module \matmul_par.
+Performed a total of 1 changes.
+
+6.9.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_par'.
+Computing hashes of 561 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Computing hashes of 496 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Computing hashes of 465 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+<suppressed ~288 debug messages>
+Removed a total of 96 cells.
+
+6.9.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+Removed 0 unused cells and 133 unused wires.
+<suppressed ~1 debug messages>
+
+6.9.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+
+6.9.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.9.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_par..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~212 debug messages>
+
+6.9.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_par.
+Performed a total of 0 changes.
+
+6.9.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_par'.
+Computing hashes of 465 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Removed a total of 0 cells.
+
+6.9.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.9.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+
+6.9.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+
+6.9.23. Finished fast OPT passes. (There is nothing left to do.)
+
+6.10. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 2) from port B of cell matmul_par.$auto$opt_dff.cc:235:make_patterns_logic$1946 ($ne).
+Removed top 4 bits (of 20) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$369 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$370 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$371 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$372 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$373 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$374 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$375 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$376 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$377 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$378 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$379 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$380 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$381 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$382 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$383 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$384 ($add).
+Removed top 29 bits (of 32) from port A of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$460 ($add).
+Removed top 30 bits (of 32) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$460 ($add).
+Removed top 28 bits (of 32) from port Y of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$460 ($add).
+Removed top 28 bits (of 32) from port A of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$500 ($add).
+Removed top 30 bits (of 32) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$500 ($add).
+Removed top 28 bits (of 32) from port Y of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$500 ($add).
+Removed top 28 bits (of 32) from port A of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$525 ($add).
+Removed top 31 bits (of 32) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$525 ($add).
+Removed top 28 bits (of 32) from port Y of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$525 ($add).
+Removed top 28 bits (of 32) from port A of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$535 ($add).
+Removed top 30 bits (of 32) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$535 ($add).
+Removed top 28 bits (of 32) from port Y of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$535 ($add).
+Removed top 28 bits (of 32) from port A of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$540 ($add).
+Removed top 30 bits (of 32) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$540 ($add).
+Removed top 28 bits (of 32) from port Y of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$540 ($add).
+Removed top 28 bits (of 32) from port A of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$545 ($add).
+Removed top 30 bits (of 32) from port B of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$545 ($add).
+Removed top 28 bits (of 32) from port Y of cell matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$545 ($add).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$699_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$700_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$701_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$702_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell matmul_par.$procmux$703_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell matmul_par.$procmux$704_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell matmul_par.$procmux$705_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$835_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$836_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$837_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$838_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell matmul_par.$procmux$839_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell matmul_par.$procmux$840_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell matmul_par.$procmux$841_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$971_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$972_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$973_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$974_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell matmul_par.$procmux$975_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell matmul_par.$procmux$976_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell matmul_par.$procmux$977_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$988_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$989_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$990_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$991_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell matmul_par.$procmux$992_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell matmul_par.$procmux$993_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell matmul_par.$procmux$994_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$1022_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$1023_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$1024_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$1025_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell matmul_par.$procmux$1026_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell matmul_par.$procmux$1027_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell matmul_par.$procmux$1028_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$1056_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$1057_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$1058_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell matmul_par.$procmux$1059_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell matmul_par.$procmux$1060_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell matmul_par.$procmux$1061_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell matmul_par.$procmux$1062_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell matmul_par.$procmux$1113_CMP0 ($eq).
+Removed top 2 bits (of 16) from mux cell matmul_par.$flatten\g_row[0].g_col[0].g_b.u_mul.$procmux$560 ($pmux).
+Removed top 4 bits (of 16) from mux cell matmul_par.$flatten\g_row[0].g_col[0].g_b.u_mul.$procmux$554 ($pmux).
+Removed top 6 bits (of 16) from mux cell matmul_par.$flatten\g_row[0].g_col[0].g_b.u_mul.$procmux$548 ($pmux).
+Removed top 2 bits (of 16) from mux cell matmul_par.$flatten\g_row[0].g_col[1].g_b.u_mul.$procmux$560 ($pmux).
+Removed top 4 bits (of 16) from mux cell matmul_par.$flatten\g_row[0].g_col[1].g_b.u_mul.$procmux$554 ($pmux).
+Removed top 6 bits (of 16) from mux cell matmul_par.$flatten\g_row[0].g_col[1].g_b.u_mul.$procmux$548 ($pmux).
+Removed top 2 bits (of 16) from mux cell matmul_par.$flatten\g_row[0].g_col[2].g_b.u_mul.$procmux$560 ($pmux).
+Removed top 4 bits (of 16) from mux cell matmul_par.$flatten\g_row[0].g_col[2].g_b.u_mul.$procmux$554 ($pmux).
+Removed top 6 bits (of 16) from mux cell matmul_par.$flatten\g_row[0].g_col[2].g_b.u_mul.$procmux$548 ($pmux).
+Removed top 2 bits (of 16) from mux cell matmul_par.$flatten\g_row[0].g_col[3].g_b.u_mul.$procmux$560 ($pmux).
+Removed top 4 bits (of 16) from mux cell matmul_par.$flatten\g_row[0].g_col[3].g_b.u_mul.$procmux$554 ($pmux).
+Removed top 6 bits (of 16) from mux cell matmul_par.$flatten\g_row[0].g_col[3].g_b.u_mul.$procmux$548 ($pmux).
+Removed top 8 bits (of 16) from port A of cell matmul_par.$flatten\g_row[0].g_col[3].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:20$286 ($neg).
+Removed top 7 bits (of 16) from port A of cell matmul_par.$flatten\g_row[0].g_col[3].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:19$285 ($neg).
+Removed top 2 bits (of 16) from mux cell matmul_par.$flatten\g_row[1].g_col[0].g_b.u_mul.$procmux$560 ($pmux).
+Removed top 4 bits (of 16) from mux cell matmul_par.$flatten\g_row[1].g_col[0].g_b.u_mul.$procmux$554 ($pmux).
+Removed top 6 bits (of 16) from mux cell matmul_par.$flatten\g_row[1].g_col[0].g_b.u_mul.$procmux$548 ($pmux).
+Removed top 2 bits (of 3) from port B of cell matmul_par.$flatten\g_row[1].g_col[0].g_b.u_mul.$procmux$564_CMP0 ($eq).
+Removed top 2 bits (of 16) from mux cell matmul_par.$flatten\g_row[1].g_col[1].g_b.u_mul.$procmux$560 ($pmux).
+Removed top 4 bits (of 16) from mux cell matmul_par.$flatten\g_row[1].g_col[1].g_b.u_mul.$procmux$554 ($pmux).
+Removed top 6 bits (of 16) from mux cell matmul_par.$flatten\g_row[1].g_col[1].g_b.u_mul.$procmux$548 ($pmux).
+Removed top 2 bits (of 16) from mux cell matmul_par.$flatten\g_row[1].g_col[2].g_b.u_mul.$procmux$560 ($pmux).
+Removed top 4 bits (of 16) from mux cell matmul_par.$flatten\g_row[1].g_col[2].g_b.u_mul.$procmux$554 ($pmux).
+Removed top 6 bits (of 16) from mux cell matmul_par.$flatten\g_row[1].g_col[2].g_b.u_mul.$procmux$548 ($pmux).
+Removed top 1 bits (of 2) from port B of cell matmul_par.$flatten\g_row[1].g_col[2].g_b.u_mul.$procmux$570_CMP1 ($eq).
+Removed top 2 bits (of 16) from mux cell matmul_par.$flatten\g_row[1].g_col[3].g_b.u_mul.$procmux$560 ($pmux).
+Removed top 2 bits (of 3) from port B of cell matmul_par.$flatten\g_row[1].g_col[3].g_b.u_mul.$procmux$558_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[1].g_col[3].g_b.u_mul.$procmux$557_CMP0 ($eq).
+Removed top 4 bits (of 16) from mux cell matmul_par.$flatten\g_row[1].g_col[3].g_b.u_mul.$procmux$554 ($pmux).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[1].g_col[3].g_b.u_mul.$procmux$552_CMP1 ($eq).
+Removed top 2 bits (of 3) from port B of cell matmul_par.$flatten\g_row[1].g_col[3].g_b.u_mul.$procmux$552_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[1].g_col[3].g_b.u_mul.$procmux$551_CMP0 ($eq).
+Removed top 6 bits (of 16) from mux cell matmul_par.$flatten\g_row[1].g_col[3].g_b.u_mul.$procmux$548 ($pmux).
+Removed top 2 bits (of 3) from port B of cell matmul_par.$flatten\g_row[1].g_col[3].g_b.u_mul.$procmux$564_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[1].g_col[3].g_b.u_mul.$procmux$564_CMP1 ($eq).
+Removed top 8 bits (of 16) from port A of cell matmul_par.$flatten\g_row[1].g_col[3].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:20$286 ($neg).
+Removed top 7 bits (of 16) from port A of cell matmul_par.$flatten\g_row[1].g_col[3].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:19$285 ($neg).
+Removed top 1 bits (of 2) from port B of cell matmul_par.$flatten\g_row[1].g_col[3].g_b.u_mul.$procmux$570_CMP1 ($eq).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[2].g_col[0].g_b.u_mul.$procmux$563_CMP0 ($eq).
+Removed top 2 bits (of 16) from mux cell matmul_par.$flatten\g_row[2].g_col[0].g_b.u_mul.$procmux$560 ($pmux).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[2].g_col[0].g_b.u_mul.$procmux$558_CMP1 ($eq).
+Removed top 2 bits (of 3) from port B of cell matmul_par.$flatten\g_row[2].g_col[0].g_b.u_mul.$procmux$558_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[2].g_col[0].g_b.u_mul.$procmux$557_CMP0 ($eq).
+Removed top 4 bits (of 16) from mux cell matmul_par.$flatten\g_row[2].g_col[0].g_b.u_mul.$procmux$554 ($pmux).
+Removed top 6 bits (of 16) from mux cell matmul_par.$flatten\g_row[2].g_col[0].g_b.u_mul.$procmux$548 ($pmux).
+Removed top 2 bits (of 16) from mux cell matmul_par.$flatten\g_row[2].g_col[1].g_b.u_mul.$procmux$560 ($pmux).
+Removed top 4 bits (of 16) from mux cell matmul_par.$flatten\g_row[2].g_col[1].g_b.u_mul.$procmux$554 ($pmux).
+Removed top 6 bits (of 16) from mux cell matmul_par.$flatten\g_row[2].g_col[1].g_b.u_mul.$procmux$548 ($pmux).
+Removed top 2 bits (of 3) from port B of cell matmul_par.$flatten\g_row[2].g_col[1].g_b.u_mul.$procmux$564_CMP0 ($eq).
+Removed top 8 bits (of 16) from port A of cell matmul_par.$flatten\g_row[2].g_col[1].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:20$304 ($neg).
+Removed top 7 bits (of 16) from port A of cell matmul_par.$flatten\g_row[2].g_col[1].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:19$297 ($neg).
+Removed top 2 bits (of 16) from mux cell matmul_par.$flatten\g_row[2].g_col[2].g_b.u_mul.$procmux$560 ($pmux).
+Removed top 4 bits (of 16) from mux cell matmul_par.$flatten\g_row[2].g_col[2].g_b.u_mul.$procmux$554 ($pmux).
+Removed top 6 bits (of 16) from mux cell matmul_par.$flatten\g_row[2].g_col[2].g_b.u_mul.$procmux$548 ($pmux).
+Removed top 2 bits (of 3) from port B of cell matmul_par.$flatten\g_row[2].g_col[2].g_b.u_mul.$procmux$564_CMP0 ($eq).
+Removed top 2 bits (of 16) from mux cell matmul_par.$flatten\g_row[2].g_col[3].g_b.u_mul.$procmux$560 ($pmux).
+Removed top 4 bits (of 16) from mux cell matmul_par.$flatten\g_row[2].g_col[3].g_b.u_mul.$procmux$554 ($pmux).
+Removed top 6 bits (of 16) from mux cell matmul_par.$flatten\g_row[2].g_col[3].g_b.u_mul.$procmux$548 ($pmux).
+Removed top 2 bits (of 16) from mux cell matmul_par.$flatten\g_row[3].g_col[0].g_b.u_mul.$procmux$560 ($pmux).
+Removed top 4 bits (of 16) from mux cell matmul_par.$flatten\g_row[3].g_col[0].g_b.u_mul.$procmux$554 ($pmux).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[0].g_b.u_mul.$procmux$552_CMP1 ($eq).
+Removed top 2 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[0].g_b.u_mul.$procmux$552_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[0].g_b.u_mul.$procmux$551_CMP0 ($eq).
+Removed top 6 bits (of 16) from mux cell matmul_par.$flatten\g_row[3].g_col[0].g_b.u_mul.$procmux$548 ($pmux).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[0].g_b.u_mul.$procmux$564_CMP1 ($eq).
+Removed top 1 bits (of 2) from port B of cell matmul_par.$flatten\g_row[3].g_col[0].g_b.u_mul.$procmux$570_CMP1 ($eq).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[1].g_b.u_mul.$procmux$563_CMP0 ($eq).
+Removed top 2 bits (of 16) from mux cell matmul_par.$flatten\g_row[3].g_col[1].g_b.u_mul.$procmux$560 ($pmux).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[1].g_b.u_mul.$procmux$558_CMP1 ($eq).
+Removed top 2 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[1].g_b.u_mul.$procmux$558_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[1].g_b.u_mul.$procmux$557_CMP0 ($eq).
+Removed top 4 bits (of 16) from mux cell matmul_par.$flatten\g_row[3].g_col[1].g_b.u_mul.$procmux$554 ($pmux).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[1].g_b.u_mul.$procmux$552_CMP1 ($eq).
+Removed top 2 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[1].g_b.u_mul.$procmux$552_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[1].g_b.u_mul.$procmux$551_CMP0 ($eq).
+Removed top 6 bits (of 16) from mux cell matmul_par.$flatten\g_row[3].g_col[1].g_b.u_mul.$procmux$548 ($pmux).
+Removed top 8 bits (of 16) from port A of cell matmul_par.$flatten\g_row[3].g_col[1].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:20$304 ($neg).
+Removed top 7 bits (of 16) from port A of cell matmul_par.$flatten\g_row[3].g_col[1].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:19$303 ($neg).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[1].g_b.u_mul.$procmux$564_CMP1 ($eq).
+Removed top 1 bits (of 2) from port B of cell matmul_par.$flatten\g_row[3].g_col[1].g_b.u_mul.$procmux$570_CMP1 ($eq).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[2].g_b.u_mul.$procmux$563_CMP0 ($eq).
+Removed top 2 bits (of 16) from mux cell matmul_par.$flatten\g_row[3].g_col[2].g_b.u_mul.$procmux$560 ($pmux).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[2].g_b.u_mul.$procmux$558_CMP1 ($eq).
+Removed top 2 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[2].g_b.u_mul.$procmux$558_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[2].g_b.u_mul.$procmux$557_CMP0 ($eq).
+Removed top 4 bits (of 16) from mux cell matmul_par.$flatten\g_row[3].g_col[2].g_b.u_mul.$procmux$554 ($pmux).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[2].g_b.u_mul.$procmux$552_CMP1 ($eq).
+Removed top 2 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[2].g_b.u_mul.$procmux$552_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[2].g_b.u_mul.$procmux$551_CMP0 ($eq).
+Removed top 6 bits (of 16) from mux cell matmul_par.$flatten\g_row[3].g_col[2].g_b.u_mul.$procmux$548 ($pmux).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[2].g_b.u_mul.$procmux$564_CMP1 ($eq).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[3].g_b.u_mul.$procmux$563_CMP0 ($eq).
+Removed top 2 bits (of 16) from mux cell matmul_par.$flatten\g_row[3].g_col[3].g_b.u_mul.$procmux$560 ($pmux).
+Removed top 1 bits (of 3) from port B of cell matmul_par.$flatten\g_row[3].g_col[3].g_b.u_mul.$procmux$558_CMP1 ($eq).
+Removed top 4 bits (of 16) from mux cell matmul_par.$flatten\g_row[3].g_col[3].g_b.u_mul.$procmux$554 ($pmux).
+Removed top 6 bits (of 16) from mux cell matmul_par.$flatten\g_row[3].g_col[3].g_b.u_mul.$procmux$548 ($pmux).
+Removed top 2 bits (of 16) from wire matmul_par.$flatten\g_row[2].g_col[0].g_b.u_mul.$2\pp[15:0].
+Removed top 4 bits (of 16) from wire matmul_par.$flatten\g_row[2].g_col[0].g_b.u_mul.$3\pp[15:0].
+Removed top 4 bits (of 16) from wire matmul_par.$flatten\g_row[0].g_col[0].g_b.u_mul.$3\pp[15:0].
+Removed top 4 bits (of 16) from wire matmul_par.$flatten\g_row[1].g_col[0].g_b.u_mul.$3\pp[15:0].
+Removed top 2 bits (of 16) from wire matmul_par.$flatten\g_row[0].g_col[0].g_b.u_mul.$2\pp[15:0].
+Removed top 2 bits (of 16) from wire matmul_par.$flatten\g_row[2].g_col[2].g_b.u_mul.$2\pp[15:0].
+Removed top 28 bits (of 32) from wire matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$510_Y.
+Removed top 2 bits (of 16) from wire matmul_par.$flatten\g_row[0].g_col[3].g_b.u_mul.$2\pp[15:0].
+Removed top 4 bits (of 16) from wire matmul_par.$flatten\g_row[2].g_col[2].g_b.u_mul.$3\pp[15:0].
+Removed top 4 bits (of 16) from wire matmul_par.$flatten\g_row[3].g_col[1].g_b.u_mul.$3\pp[15:0].
+Removed top 4 bits (of 16) from wire matmul_par.$flatten\g_row[0].g_col[3].g_b.u_mul.$3\pp[15:0].
+Removed top 2 bits (of 16) from wire matmul_par.$flatten\g_row[3].g_col[1].g_b.u_mul.$2\pp[15:0].
+Removed top 28 bits (of 32) from wire matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$470_Y.
+Removed top 2 bits (of 16) from wire matmul_par.$flatten\g_row[1].g_col[0].g_b.u_mul.$2\pp[15:0].
+Removed top 4 bits (of 16) from wire matmul_par.$flatten\g_row[0].g_col[1].g_b.u_mul.$3\pp[15:0].
+Removed top 4 bits (of 16) from wire matmul_par.$flatten\g_row[1].g_col[1].g_b.u_mul.$3\pp[15:0].
+Removed top 28 bits (of 32) from wire matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$430_Y.
+Removed top 28 bits (of 32) from wire matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$425_Y.
+Removed top 2 bits (of 16) from wire matmul_par.$flatten\g_row[0].g_col[1].g_b.u_mul.$2\pp[15:0].
+Removed top 28 bits (of 32) from wire matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$415_Y.
+Removed top 2 bits (of 16) from wire matmul_par.$flatten\g_row[1].g_col[2].g_b.u_mul.$2\pp[15:0].
+Removed top 2 bits (of 16) from wire matmul_par.$flatten\g_row[1].g_col[3].g_b.u_mul.$2\pp[15:0].
+Removed top 28 bits (of 32) from wire matmul_par.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$405_Y.
+Removed top 2 bits (of 16) from wire matmul_par.$flatten\g_row[1].g_col[1].g_b.u_mul.$2\pp[15:0].
+Removed top 4 bits (of 16) from wire matmul_par.$flatten\g_row[3].g_col[2].g_b.u_mul.$3\pp[15:0].
+Removed top 2 bits (of 16) from wire matmul_par.$flatten\g_row[2].g_col[1].g_b.u_mul.$2\pp[15:0].
+Removed top 4 bits (of 16) from wire matmul_par.$flatten\g_row[2].g_col[3].g_b.u_mul.$3\pp[15:0].
+Removed top 4 bits (of 16) from wire matmul_par.$flatten\g_row[2].g_col[1].g_b.u_mul.$3\pp[15:0].
+Removed top 4 bits (of 16) from wire matmul_par.$flatten\g_row[1].g_col[2].g_b.u_mul.$3\pp[15:0].
+Removed top 2 bits (of 16) from wire matmul_par.$flatten\g_row[3].g_col[2].g_b.u_mul.$2\pp[15:0].
+Removed top 4 bits (of 16) from wire matmul_par.$flatten\g_row[1].g_col[3].g_b.u_mul.$3\pp[15:0].
+Removed top 4 bits (of 16) from wire matmul_par.$flatten\g_row[3].g_col[3].g_b.u_mul.$3\pp[15:0].
+Removed top 2 bits (of 16) from wire matmul_par.$flatten\g_row[3].g_col[0].g_b.u_mul.$2\pp[15:0].
+Removed top 2 bits (of 16) from wire matmul_par.$flatten\g_row[3].g_col[3].g_b.u_mul.$2\pp[15:0].
+Removed top 4 bits (of 16) from wire matmul_par.$flatten\g_row[0].g_col[2].g_b.u_mul.$3\pp[15:0].
+Removed top 4 bits (of 16) from wire matmul_par.$flatten\g_row[3].g_col[0].g_b.u_mul.$3\pp[15:0].
+Removed top 2 bits (of 16) from wire matmul_par.$flatten\g_row[0].g_col[2].g_b.u_mul.$2\pp[15:0].
+Removed top 2 bits (of 16) from wire matmul_par.$flatten\g_row[2].g_col[3].g_b.u_mul.$2\pp[15:0].
+
+6.11. Executing PEEPOPT pass (run peephole optimizers).
+
+6.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+Removed 0 unused cells and 38 unused wires.
+<suppressed ~1 debug messages>
+
+6.13. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module matmul_par:
+  creating $macc model for $flatten\g_row[1].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306 ($add).
+  creating $macc model for $flatten\g_row[3].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306 ($add).
+  creating $macc model for $flatten\g_row[3].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 ($add).
+  creating $macc model for $flatten\g_row[2].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306 ($add).
+  creating $macc model for $flatten\g_row[3].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 ($add).
+  creating $macc model for $flatten\g_row[2].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306 ($add).
+  creating $macc model for $flatten\g_row[2].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[3].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:19$285 ($neg).
+  creating $macc model for $flatten\g_row[0].g_col[3].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:20$286 ($neg).
+  creating $macc model for $flatten\g_row[0].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 ($add).
+  creating $macc model for $flatten\g_row[2].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306 ($add).
+  creating $macc model for $flatten\g_row[3].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 ($add).
+  creating $macc model for $flatten\g_row[3].g_col[1].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:20$304 ($neg).
+  creating $macc model for $flatten\g_row[2].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306 ($add).
+  creating $macc model for $flatten\g_row[3].g_col[1].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:19$303 ($neg).
+  creating $macc model for $flatten\g_row[2].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306 ($add).
+  creating $macc model for $flatten\g_row[2].g_col[1].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:20$304 ($neg).
+  creating $macc model for $flatten\g_row[3].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 ($add).
+  creating $macc model for $flatten\g_row[2].g_col[1].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:19$297 ($neg).
+  creating $macc model for $flatten\g_row[2].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 ($add).
+  creating $macc model for $flatten\g_row[3].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 ($add).
+  creating $macc model for $flatten\g_row[3].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[3].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:19$285 ($neg).
+  creating $macc model for $flatten\g_row[1].g_col[3].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:20$286 ($neg).
+  creating $macc model for $flatten\g_row[2].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 ($add).
+  creating $macc model for $flatten\g_row[3].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306 ($add).
+  creating $macc model for $flatten\g_row[3].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$545 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$540 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$535 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$525 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306 ($add).
+  creating $macc model for $flatten\g_row[3].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$500 ($add).
+  creating $macc model for $flatten\g_row[3].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$460 ($add).
+  creating $macc model for $flatten\g_row[3].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 ($add).
+  creating $macc model for $flatten\g_row[2].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 ($add).
+  creating $macc model for $flatten\g_row[2].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 ($add).
+  creating $macc model for $flatten\g_row[2].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306 ($add).
+  creating $macc model for $flatten\g_row[2].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:64$386 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$384 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$383 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$382 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$381 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$380 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$379 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$378 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$377 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$376 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$375 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$374 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$373 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$372 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$371 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$370 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$369 ($add).
+  creating $macc model for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:60$368 ($add).
+  merging $macc model for $flatten\g_row[2].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 into $flatten\g_row[2].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[2].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 into $flatten\g_row[2].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[3].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 into $flatten\g_row[3].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300.
+  merging $macc model for $flatten\g_row[1].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 into $flatten\g_row[1].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300.
+  merging $macc model for $flatten\g_row[1].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 into $flatten\g_row[1].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[1].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 into $flatten\g_row[1].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[0].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 into $flatten\g_row[0].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[0].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 into $flatten\g_row[0].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[3].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 into $flatten\g_row[3].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[3].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 into $flatten\g_row[3].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[3].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 into $flatten\g_row[3].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[0].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 into $flatten\g_row[0].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[0].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 into $flatten\g_row[0].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[3].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 into $flatten\g_row[3].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[3].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 into $flatten\g_row[3].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[2].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 into $flatten\g_row[2].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300.
+  merging $macc model for $flatten\g_row[3].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 into $flatten\g_row[3].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300.
+  merging $macc model for $flatten\g_row[2].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 into $flatten\g_row[2].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[0].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 into $flatten\g_row[0].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[0].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 into $flatten\g_row[0].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[2].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 into $flatten\g_row[2].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[2].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 into $flatten\g_row[2].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[3].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 into $flatten\g_row[3].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[0].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 into $flatten\g_row[0].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[0].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 into $flatten\g_row[0].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[2].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 into $flatten\g_row[2].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300.
+  merging $macc model for $flatten\g_row[2].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 into $flatten\g_row[2].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[1].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 into $flatten\g_row[1].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[1].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 into $flatten\g_row[1].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[1].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 into $flatten\g_row[1].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[1].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$300 into $flatten\g_row[1].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  merging $macc model for $flatten\g_row[1].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$294 into $flatten\g_row[1].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$545.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:64$386.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$370.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$374.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$535.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$383.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$525.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$382.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$377.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$381.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$380.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$379.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$376.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$375.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$500.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$373.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$540.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$378.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$372.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$371.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$460.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$384.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$369.
+  creating $alu model for $macc $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:60$368.
+  creating $macc cell for $flatten\g_row[3].g_col[1].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:20$304: $auto$alumacc.cc:382:replace_macc$2086
+  creating $macc cell for $flatten\g_row[2].g_col[1].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:19$297: $auto$alumacc.cc:382:replace_macc$2087
+  creating $macc cell for $flatten\g_row[2].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306: $auto$alumacc.cc:382:replace_macc$2088
+  creating $macc cell for $flatten\g_row[3].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306: $auto$alumacc.cc:382:replace_macc$2089
+  creating $macc cell for $flatten\g_row[0].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306: $auto$alumacc.cc:382:replace_macc$2090
+  creating $macc cell for $flatten\g_row[3].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306: $auto$alumacc.cc:382:replace_macc$2091
+  creating $macc cell for $flatten\g_row[2].g_col[1].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:20$304: $auto$alumacc.cc:382:replace_macc$2092
+  creating $macc cell for $flatten\g_row[0].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306: $auto$alumacc.cc:382:replace_macc$2093
+  creating $macc cell for $flatten\g_row[0].g_col[3].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:20$286: $auto$alumacc.cc:382:replace_macc$2094
+  creating $macc cell for $flatten\g_row[0].g_col[3].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:19$285: $auto$alumacc.cc:382:replace_macc$2095
+  creating $macc cell for $flatten\g_row[1].g_col[3].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:19$285: $auto$alumacc.cc:382:replace_macc$2096
+  creating $macc cell for $flatten\g_row[1].g_col[3].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:20$286: $auto$alumacc.cc:382:replace_macc$2097
+  creating $macc cell for $flatten\g_row[2].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306: $auto$alumacc.cc:382:replace_macc$2098
+  creating $macc cell for $flatten\g_row[2].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306: $auto$alumacc.cc:382:replace_macc$2099
+  creating $macc cell for $flatten\g_row[1].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306: $auto$alumacc.cc:382:replace_macc$2100
+  creating $macc cell for $flatten\g_row[3].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306: $auto$alumacc.cc:382:replace_macc$2101
+  creating $macc cell for $flatten\g_row[3].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306: $auto$alumacc.cc:382:replace_macc$2102
+  creating $macc cell for $flatten\g_row[3].g_col[1].g_b.u_mul.$neg$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:19$303: $auto$alumacc.cc:382:replace_macc$2103
+  creating $macc cell for $flatten\g_row[0].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306: $auto$alumacc.cc:382:replace_macc$2104
+  creating $macc cell for $flatten\g_row[1].g_col[3].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306: $auto$alumacc.cc:382:replace_macc$2105
+  creating $macc cell for $flatten\g_row[0].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306: $auto$alumacc.cc:382:replace_macc$2106
+  creating $macc cell for $flatten\g_row[1].g_col[1].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306: $auto$alumacc.cc:382:replace_macc$2107
+  creating $macc cell for $flatten\g_row[1].g_col[2].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306: $auto$alumacc.cc:382:replace_macc$2108
+  creating $macc cell for $flatten\g_row[2].g_col[0].g_b.u_mul.$add$results/synthesis/p20ns_N4/work_matmul_par_m1/mult_booth.sv:23$306: $auto$alumacc.cc:382:replace_macc$2109
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:60$368: $auto$alumacc.cc:512:replace_alu$2110
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$369: $auto$alumacc.cc:512:replace_alu$2113
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$384: $auto$alumacc.cc:512:replace_alu$2116
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$460: $auto$alumacc.cc:512:replace_alu$2119
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$371: $auto$alumacc.cc:512:replace_alu$2122
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$372: $auto$alumacc.cc:512:replace_alu$2125
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$378: $auto$alumacc.cc:512:replace_alu$2128
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$540: $auto$alumacc.cc:512:replace_alu$2131
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$373: $auto$alumacc.cc:512:replace_alu$2134
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:30$500: $auto$alumacc.cc:512:replace_alu$2137
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$375: $auto$alumacc.cc:512:replace_alu$2140
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$376: $auto$alumacc.cc:512:replace_alu$2143
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$379: $auto$alumacc.cc:512:replace_alu$2146
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$380: $auto$alumacc.cc:512:replace_alu$2149
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$381: $auto$alumacc.cc:512:replace_alu$2152
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$377: $auto$alumacc.cc:512:replace_alu$2155
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$382: $auto$alumacc.cc:512:replace_alu$2158
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$525: $auto$alumacc.cc:512:replace_alu$2161
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$383: $auto$alumacc.cc:512:replace_alu$2164
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$535: $auto$alumacc.cc:512:replace_alu$2167
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$374: $auto$alumacc.cc:512:replace_alu$2170
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:61$370: $auto$alumacc.cc:512:replace_alu$2173
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:64$386: $auto$alumacc.cc:512:replace_alu$2176
+  creating $alu cell for $add$results/synthesis/p20ns_N4/work_matmul_par_m1/matmul_par.sv:31$545: $auto$alumacc.cc:512:replace_alu$2179
+  created 24 $alu and 24 $macc cells.
+
+6.14. Executing SHARE pass (SAT-based resource sharing).
+
+6.15. Executing OPT pass (performing simple optimizations).
+
+6.15.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+
+6.15.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_par'.
+Computing hashes of 465 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Removed a total of 0 cells.
+
+6.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_par..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~212 debug messages>
+
+6.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_par.
+Performed a total of 0 changes.
+
+6.15.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_par'.
+Computing hashes of 465 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Removed a total of 0 cells.
+
+6.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+Removed 32 unused cells and 32 unused wires.
+<suppressed ~33 debug messages>
+
+6.15.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+
+6.15.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.15.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_par..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~212 debug messages>
+
+6.15.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_par.
+Performed a total of 0 changes.
+
+6.15.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_par'.
+Computing hashes of 433 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Removed a total of 0 cells.
+
+6.15.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.15.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+
+6.15.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+
+6.15.16. Finished fast OPT passes. (There is nothing left to do.)
+
+6.16. Executing MEMORY pass.
+
+6.16.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+6.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+6.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+6.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+6.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+6.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+
+6.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+6.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+6.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+
+6.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+6.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+
+6.18. Executing OPT pass (performing simple optimizations).
+
+6.18.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+<suppressed ~156 debug messages>
+
+6.18.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_par'.
+Computing hashes of 350 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Computing hashes of 348 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+6.18.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.18.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+Removed 1 unused cells and 102 unused wires.
+<suppressed ~3 debug messages>
+
+6.18.5. Finished fast OPT passes.
+
+6.19. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+6.20. Executing OPT pass (performing simple optimizations).
+
+6.20.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+<suppressed ~7 debug messages>
+
+6.20.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_par'.
+Computing hashes of 346 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Computing hashes of 323 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+<suppressed ~69 debug messages>
+Removed a total of 23 cells.
+
+6.20.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_par..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/16 on $pmux $procmux$826.
+    dead port 2/16 on $pmux $procmux$826.
+    dead port 3/16 on $pmux $procmux$826.
+    dead port 4/16 on $pmux $procmux$826.
+    dead port 9/16 on $pmux $procmux$826.
+    dead port 10/16 on $pmux $procmux$826.
+    dead port 11/16 on $pmux $procmux$826.
+    dead port 12/16 on $pmux $procmux$826.
+    dead port 13/16 on $pmux $procmux$826.
+    dead port 14/16 on $pmux $procmux$826.
+    dead port 15/16 on $pmux $procmux$826.
+    dead port 1/16 on $pmux $procmux$962.
+    dead port 2/16 on $pmux $procmux$962.
+    dead port 3/16 on $pmux $procmux$962.
+    dead port 4/16 on $pmux $procmux$962.
+    dead port 5/16 on $pmux $procmux$962.
+    dead port 6/16 on $pmux $procmux$962.
+    dead port 7/16 on $pmux $procmux$962.
+    dead port 8/16 on $pmux $procmux$962.
+    dead port 13/16 on $pmux $procmux$962.
+    dead port 14/16 on $pmux $procmux$962.
+    dead port 15/16 on $pmux $procmux$962.
+    dead port 1/16 on $pmux $procmux$1013.
+    dead port 3/16 on $pmux $procmux$1013.
+    dead port 4/16 on $pmux $procmux$1013.
+    dead port 5/16 on $pmux $procmux$1013.
+    dead port 7/16 on $pmux $procmux$1013.
+    dead port 8/16 on $pmux $procmux$1013.
+    dead port 9/16 on $pmux $procmux$1013.
+    dead port 11/16 on $pmux $procmux$1013.
+    dead port 12/16 on $pmux $procmux$1013.
+    dead port 13/16 on $pmux $procmux$1013.
+    dead port 15/16 on $pmux $procmux$1013.
+    dead port 2/16 on $pmux $procmux$979.
+    dead port 3/16 on $pmux $procmux$979.
+    dead port 4/16 on $pmux $procmux$979.
+    dead port 6/16 on $pmux $procmux$979.
+    dead port 7/16 on $pmux $procmux$979.
+    dead port 8/16 on $pmux $procmux$979.
+    dead port 10/16 on $pmux $procmux$979.
+    dead port 11/16 on $pmux $procmux$979.
+    dead port 12/16 on $pmux $procmux$979.
+    dead port 14/16 on $pmux $procmux$979.
+    dead port 15/16 on $pmux $procmux$979.
+    dead port 5/16 on $pmux $procmux$690.
+    dead port 6/16 on $pmux $procmux$690.
+    dead port 7/16 on $pmux $procmux$690.
+    dead port 8/16 on $pmux $procmux$690.
+    dead port 9/16 on $pmux $procmux$690.
+    dead port 10/16 on $pmux $procmux$690.
+    dead port 11/16 on $pmux $procmux$690.
+    dead port 12/16 on $pmux $procmux$690.
+    dead port 13/16 on $pmux $procmux$690.
+    dead port 14/16 on $pmux $procmux$690.
+    dead port 15/16 on $pmux $procmux$690.
+    dead port 1/16 on $pmux $procmux$1047.
+    dead port 2/16 on $pmux $procmux$1047.
+    dead port 4/16 on $pmux $procmux$1047.
+    dead port 5/16 on $pmux $procmux$1047.
+    dead port 6/16 on $pmux $procmux$1047.
+    dead port 8/16 on $pmux $procmux$1047.
+    dead port 9/16 on $pmux $procmux$1047.
+    dead port 10/16 on $pmux $procmux$1047.
+    dead port 12/16 on $pmux $procmux$1047.
+    dead port 13/16 on $pmux $procmux$1047.
+    dead port 14/16 on $pmux $procmux$1047.
+Removed 66 multiplexer ports.
+<suppressed ~183 debug messages>
+
+6.20.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_par.
+Performed a total of 0 changes.
+
+6.20.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_par'.
+Computing hashes of 323 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Removed a total of 0 cells.
+
+6.20.6. Executing OPT_SHARE pass.
+
+6.20.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.20.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+Removed 0 unused cells and 23 unused wires.
+<suppressed ~1 debug messages>
+
+6.20.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+
+6.20.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.20.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_par..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~183 debug messages>
+
+6.20.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_par.
+Performed a total of 0 changes.
+
+6.20.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_par'.
+Computing hashes of 323 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Removed a total of 0 cells.
+
+6.20.14. Executing OPT_SHARE pass.
+
+6.20.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.20.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+
+6.20.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+
+6.20.18. Finished fast OPT passes. (There is nothing left to do.)
+
+6.21. Executing TECHMAP pass (map to technology primitives).
+
+6.21.1. Executing Verilog-2005 frontend: /apps/vlsi/tools/yosys/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/apps/vlsi/tools/yosys/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+6.21.2. Continuing TECHMAP pass.
+Using template $paramod$175e67c02b86e96b1288b9dc100122520d7240d8\_90_alu for cells of type $alu.
+Using template $paramod$743ee5cec06d810a0663fb1b806f0a75035616ec\_90_alu for cells of type $alu.
+Using template $paramod$2af30114e9bd4ccb04dad757b3f0a8f6bf0615b0\_90_alu for cells of type $alu.
+Using extmapper maccmap for cells of type $macc_v2.
+  add $flatten\g_row[2].g_col[0].g_b.u_mul.$1\pp[15:0] (16 bits, signed)
+  add { \g_row[2].g_col[0].g_b.u_mul.pp [9:0] 6'000000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2049 [11:0] 4'0000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2048 [13:0] 2'00 } (16 bits, signed)
+  add $flatten\g_row[1].g_col[2].g_b.u_mul.$1\pp[15:0] (16 bits, signed)
+  add { \g_row[1].g_col[2].g_b.u_mul.pp [9:0] 6'000000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2076 [11:0] 4'0000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2068 [13:0] 2'00 } (16 bits, signed)
+  add $flatten\g_row[1].g_col[1].g_b.u_mul.$1\pp[15:0] (16 bits, signed)
+  add { \g_row[1].g_col[1].g_b.u_mul.pp [9:0] 6'000000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2063 [11:0] 4'0000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2071 [13:0] 2'00 } (16 bits, signed)
+  add $flatten\g_row[0].g_col[0].g_b.u_mul.$1\pp[15:0] (16 bits, signed)
+  add { \g_row[0].g_col[0].g_b.u_mul.pp [9:0] 6'000000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2050 [11:0] 4'0000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2052 [13:0] 2'00 } (16 bits, signed)
+  add $flatten\g_row[1].g_col[3].g_b.u_mul.$1\pp[15:0] (16 bits, signed)
+  add { \g_row[1].g_col[3].g_b.u_mul.pp [9:0] 6'000000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2078 [11:0] 4'0000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2069 [13:0] 2'00 } (16 bits, signed)
+  add $flatten\g_row[0].g_col[2].g_b.u_mul.$1\pp[15:0] (16 bits, signed)
+  add { \g_row[0].g_col[2].g_b.u_mul.pp [9:0] 6'000000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2082 [11:0] 4'0000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2084 [13:0] 2'00 } (16 bits, signed)
+  sub { \g_row[3].g_col[0].g_b.u_mul.a 1'0 } (9 bits, signed)
+  add $flatten\g_row[3].g_col[0].g_b.u_mul.$1\pp[15:0] (16 bits, signed)
+  add { \g_row[3].g_col[0].g_b.u_mul.pp [9:0] 6'000000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2083 [11:0] 4'0000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2080 [13:0] 2'00 } (16 bits, signed)
+  add $flatten\g_row[3].g_col[3].g_b.u_mul.$1\pp[15:0] (16 bits, signed)
+  add { \g_row[3].g_col[3].g_b.u_mul.pp [9:0] 6'000000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2079 [11:0] 4'0000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2081 [13:0] 2'00 } (16 bits, signed)
+  add $flatten\g_row[1].g_col[0].g_b.u_mul.$1\pp[15:0] (16 bits, signed)
+  add { \g_row[1].g_col[0].g_b.u_mul.pp [9:0] 6'000000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2051 [11:0] 4'0000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2061 [13:0] 2'00 } (16 bits, signed)
+  add $flatten\g_row[2].g_col[3].g_b.u_mul.$1\pp[15:0] (16 bits, signed)
+  add { \g_row[2].g_col[3].g_b.u_mul.pp [9:0] 6'000000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2074 [11:0] 4'0000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2085 [13:0] 2'00 } (16 bits, signed)
+  add $flatten\g_row[2].g_col[2].g_b.u_mul.$1\pp[15:0] (16 bits, signed)
+  add { \g_row[2].g_col[2].g_b.u_mul.pp [9:0] 6'000000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2056 [11:0] 4'0000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2053 [13:0] 2'00 } (16 bits, signed)
+  sub \g_row[1].g_col[0].g_b.u_mul.a (8 bits, signed)
+  sub { \g_row[1].g_col[0].g_b.u_mul.a 1'0 } (9 bits, signed)
+  sub { \g_row[0].g_col[0].g_b.u_mul.a 1'0 } (9 bits, signed)
+  sub \g_row[0].g_col[0].g_b.u_mul.a (8 bits, signed)
+  add $flatten\g_row[0].g_col[1].g_b.u_mul.$1\pp[15:0] (16 bits, signed)
+  add { \g_row[0].g_col[1].g_b.u_mul.pp [9:0] 6'000000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2062 [11:0] 4'0000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2066 [13:0] 2'00 } (16 bits, signed)
+  sub \g_row[2].g_col[0].g_b.u_mul.a (8 bits, signed)
+  add $flatten\g_row[3].g_col[2].g_b.u_mul.$1\pp[15:0] (16 bits, signed)
+  add { \g_row[3].g_col[2].g_b.u_mul.pp [9:0] 6'000000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2072 [11:0] 4'0000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2077 [13:0] 2'00 } (16 bits, signed)
+  add $flatten\g_row[0].g_col[3].g_b.u_mul.$1\pp[15:0] (16 bits, signed)
+  add { \g_row[0].g_col[3].g_b.u_mul.pp [9:0] 6'000000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2058 [11:0] 4'0000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2055 [13:0] 2'00 } (16 bits, signed)
+  add $flatten\g_row[3].g_col[1].g_b.u_mul.$1\pp[15:0] (16 bits, signed)
+  add { \g_row[3].g_col[1].g_b.u_mul.pp [9:0] 6'000000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2057 [11:0] 4'0000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2059 [13:0] 2'00 } (16 bits, signed)
+  add $flatten\g_row[2].g_col[1].g_b.u_mul.$1\pp[15:0] (16 bits, signed)
+  add { \g_row[2].g_col[1].g_b.u_mul.pp [9:0] 6'000000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2075 [11:0] 4'0000 } (16 bits, signed)
+  add { $auto$wreduce.cc:514:run$2073 [13:0] 2'00 } (16 bits, signed)
+  sub { \g_row[2].g_col[0].g_b.u_mul.a 1'0 } (9 bits, signed)
+  sub \g_row[3].g_col[0].g_b.u_mul.a (8 bits, signed)
+Using extmapper simplemap for cells of type $adffe.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $ne.
+Using template $paramod$ee721315a7b0169d82611b9aea01747035b97792\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $logic_not.
+Using template $paramod$645fe0cc96ae5edb83bff90cc2c78f4a20ca3e3c\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $not.
+Using template $paramod$c5c783b17ab1d780abfad8cfe6563a0a7b47a3b0\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $adff.
+Using template $paramod$bb990411fd15fdc1f86721cf4a55c97ef699e08e\_90_pmux for cells of type $pmux.
+Using template $paramod$dc24062c3fd854a070e0ecdecefbe7ab84bd9f07\_90_pmux for cells of type $pmux.
+Using template $paramod$f311afc5076e4ed7a7dd4101ffa54855903ad4d6\_90_pmux for cells of type $pmux.
+Using template $paramod$d5c1c4131927aec19f116e7a36372b1981bfcd7e\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $reduce_or.
+Using template $paramod$6df0329addda9228fcc2546de2aaf14ad26c98e1\_90_alu for cells of type $alu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010000 for cells of type $fa.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010100 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010100 for cells of type $lcu.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000010 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000010 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $or.
+No more expansions possible.
+<suppressed ~5927 debug messages>
+
+6.22. Executing OPT pass (performing simple optimizations).
+
+6.22.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+<suppressed ~5432 debug messages>
+
+6.22.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_par'.
+Computing hashes of 14471 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Computing hashes of 13718 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Computing hashes of 13459 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Computing hashes of 13442 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Computing hashes of 13438 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+<suppressed ~3099 debug messages>
+Removed a total of 1033 cells.
+
+6.22.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.22.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+Removed 1024 unused cells and 6832 unused wires.
+<suppressed ~1025 debug messages>
+
+6.22.5. Finished fast OPT passes.
+
+6.23. Executing ABC pass (technology mapping using ABC).
+
+6.23.1. Extracting gate netlist of module `\matmul_par' to `<abc-temp-dir>/input.blif'..
+
+6.23.1.1. Executed ABC.
+Extracted 11801 gates and 12398 wires to a netlist network with 596 inputs and 344 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Apr  7 2026 21:27:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+6.23.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:     2204
+ABC RESULTS:            ANDNOT cells:      113
+ABC RESULTS:               MUX cells:       28
+ABC RESULTS:              NAND cells:     4553
+ABC RESULTS:               NOR cells:       60
+ABC RESULTS:               NOT cells:       25
+ABC RESULTS:                OR cells:      361
+ABC RESULTS:             ORNOT cells:      100
+ABC RESULTS:              XNOR cells:      434
+ABC RESULTS:               XOR cells:      880
+ABC RESULTS:        internal signals:    11458
+ABC RESULTS:           input signals:      596
+ABC RESULTS:          output signals:      344
+Removing temp directory.
+Removing global temp directory.
+
+6.24. Executing OPT pass (performing simple optimizations).
+
+6.24.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_par.
+
+6.24.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_par'.
+Computing hashes of 9371 cells of `\matmul_par'.
+Finding duplicate cells in `\matmul_par'.
+Removed a total of 0 cells.
+
+6.24.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.24.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+Removed 0 unused cells and 3951 unused wires.
+<suppressed ~129 debug messages>
+
+6.24.5. Finished fast OPT passes.
+
+6.25. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `matmul_par'. Setting top module to matmul_par.
+
+6.25.1. Analyzing design hierarchy..
+Top module:  \matmul_par
+
+6.25.2. Analyzing design hierarchy..
+Top module:  \matmul_par
+Removed 0 unused modules.
+
+6.26. Printing statistics.
+
+=== matmul_par ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     8529 wires
+    10336 wire bits
+       91 public wires
+     1576 public wire bits
+        9 ports
+      597 port bits
+     9371 cells
+      113   $_ANDNOT_
+     2204   $_AND_
+      595   $_DFFE_PN0P_
+        2   $_DFF_PN0_
+       28   $_MUX_
+     4553   $_NAND_
+       60   $_NOR_
+       25   $_NOT_
+      100   $_ORNOT_
+      361   $_OR_
+      434   $_XNOR_
+      880   $_XOR_
+       16   $scopeinfo
+
+6.27. Executing CHECK pass (checking for obvious problems).
+Checking module matmul_par...
+Found and reported 0 problems.
+
+7. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_2 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFE_NN_
+    unmapped dff cell: $_DFFE_NP_
+    unmapped dff cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+7.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+<suppressed ~24 debug messages>
+Mapping DFF cells in module `\matmul_par':
+  mapped 597 $_DFF_PN0_ cells to \sky130_fd_sc_hd__dfrtp_1 cells.
+
+8. Executing ABC pass (technology mapping using ABC).
+
+8.1. Extracting gate netlist of module `\matmul_par' to `<abc-temp-dir>/input.blif'..
+
+8.1.1. Executed ABC.
+Extracted 9353 gates and 10206 wires to a netlist network with 853 inputs and 597 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Apr  7 2026 21:27:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /apps/vlsi/src/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.08 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_0".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_8".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_bleeder_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__lpflow_inputisolatch_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_4".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "/apps/vlsi/src/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" has 334 cells (94 skipped: 63 seq; 13 tri-state; 18 no func; 0 dont_use; 0 with 2 outputs; 0 with 3+ outputs).  Time =     0.13 sec
+ABC: Memory =   19.81 MB. Time =     0.13 sec
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + retime -o -D 20000 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf -D 20000 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+8.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a2111oi_0 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a211o_1 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_1 cells:       29
+ABC RESULTS:   sky130_fd_sc_hd__a21bo_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_0 cells:       28
+ABC RESULTS:   sky130_fd_sc_hd__a21o_1 cells:       85
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:      353
+ABC RESULTS:   sky130_fd_sc_hd__a221o_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a221oi_1 cells:       40
+ABC RESULTS:   sky130_fd_sc_hd__a222oi_1 cells:      158
+ABC RESULTS:   sky130_fd_sc_hd__a22o_1 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:       96
+ABC RESULTS:   sky130_fd_sc_hd__a2bb2oi_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a311o_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a31o_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:       29
+ABC RESULTS:   sky130_fd_sc_hd__a32o_1 cells:       24
+ABC RESULTS:   sky130_fd_sc_hd__a32oi_1 cells:       31
+ABC RESULTS:   sky130_fd_sc_hd__a41oi_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__and2_0 cells:       94
+ABC RESULTS:   sky130_fd_sc_hd__and3_1 cells:       34
+ABC RESULTS:   sky130_fd_sc_hd__and3b_1 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__and4_1 cells:       43
+ABC RESULTS:   sky130_fd_sc_hd__and4b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:      169
+ABC RESULTS:   sky130_fd_sc_hd__lpflow_inputiso1p_1 cells:       77
+ABC RESULTS:   sky130_fd_sc_hd__lpflow_isobufsrc_1 cells:      102
+ABC RESULTS:   sky130_fd_sc_hd__maj3_1 cells:      362
+ABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__mux2i_1 cells:       14
+ABC RESULTS:   sky130_fd_sc_hd__mux4_2 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:     1761
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_1 cells:       77
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:      165
+ABC RESULTS:   sky130_fd_sc_hd__nand3b_1 cells:       61
+ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:       44
+ABC RESULTS:   sky130_fd_sc_hd__nand4b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand4bb_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:      505
+ABC RESULTS:   sky130_fd_sc_hd__nor2b_1 cells:       12
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:       72
+ABC RESULTS:   sky130_fd_sc_hd__nor3b_1 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:       23
+ABC RESULTS:   sky130_fd_sc_hd__nor4b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o2111ai_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__o211a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:       35
+ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:       18
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:      633
+ABC RESULTS:   sky130_fd_sc_hd__o21ba_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o221a_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__o221ai_1 cells:       82
+ABC RESULTS:   sky130_fd_sc_hd__o22a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:      249
+ABC RESULTS:   sky130_fd_sc_hd__o311a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o31a_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o31ai_1 cells:       20
+ABC RESULTS:   sky130_fd_sc_hd__o32a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o32ai_1 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__o41a_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__or3_1 cells:       16
+ABC RESULTS:   sky130_fd_sc_hd__or3b_1 cells:       33
+ABC RESULTS:   sky130_fd_sc_hd__or4_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__or4b_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:      640
+ABC RESULTS:   sky130_fd_sc_hd__xnor3_1 cells:       80
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:      464
+ABC RESULTS:   sky130_fd_sc_hd__xor3_1 cells:       31
+ABC RESULTS:        internal signals:     8756
+ABC RESULTS:           input signals:      853
+ABC RESULTS:          output signals:      597
+Removing temp directory.
+Removing global temp directory.
+
+9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_par..
+Removed 16 unused cells and 9934 unused wires.
+<suppressed ~65 debug messages>
+
+10. Executing Verilog backend.
+
+10.1. Executing BMUXMAP pass.
+
+10.2. Executing DEMUXMAP pass.
+Dumping module `\matmul_par'.
+
+11. Printing statistics.
+
+=== matmul_par ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     6939        - wires
+     7752        - wire bits
+       43        - public wires
+      856        - public wire bits
+        9        - ports
+      597        - port bits
+     7493 5.86E+04 cells
+        1    8.758   sky130_fd_sc_hd__a2111oi_0
+        8   70.067   sky130_fd_sc_hd__a211o_1
+       29  217.709   sky130_fd_sc_hd__a211oi_1
+        1    10.01   sky130_fd_sc_hd__a21bo_1
+       28  210.202   sky130_fd_sc_hd__a21boi_0
+       85  638.112   sky130_fd_sc_hd__a21o_1
+      353 1.77E+03   sky130_fd_sc_hd__a21oi_1
+        1    10.01   sky130_fd_sc_hd__a221o_1
+       40  350.336   sky130_fd_sc_hd__a221oi_1
+      158 1.58E+03   sky130_fd_sc_hd__a222oi_1
+       10   87.584   sky130_fd_sc_hd__a22o_1
+       96  720.691   sky130_fd_sc_hd__a22oi_1
+        2   17.517   sky130_fd_sc_hd__a2bb2oi_1
+        1    10.01   sky130_fd_sc_hd__a311o_1
+        5   43.792   sky130_fd_sc_hd__a31o_1
+       29  181.424   sky130_fd_sc_hd__a31oi_1
+       24   240.23   sky130_fd_sc_hd__a32o_1
+       31   271.51   sky130_fd_sc_hd__a32oi_1
+        4   35.034   sky130_fd_sc_hd__a41oi_1
+       94  588.064   sky130_fd_sc_hd__and2_0
+       34  212.704   sky130_fd_sc_hd__and3_1
+       10   87.584   sky130_fd_sc_hd__and3b_1
+       43  376.611   sky130_fd_sc_hd__and4_1
+        1    10.01   sky130_fd_sc_hd__and4b_1
+      169  634.358   sky130_fd_sc_hd__clkinv_1
+      597 1.49E+04   sky130_fd_sc_hd__dfrtp_1
+       77  481.712   sky130_fd_sc_hd__lpflow_inputiso1p_1
+      102  638.112   sky130_fd_sc_hd__lpflow_isobufsrc_1
+      362 3.62E+03   sky130_fd_sc_hd__maj3_1
+        2   22.522   sky130_fd_sc_hd__mux2_1
+       14  140.134   sky130_fd_sc_hd__mux2i_1
+       11  247.738   sky130_fd_sc_hd__mux4_2
+     1761  6610.09   sky130_fd_sc_hd__nand2_1
+       77  481.712   sky130_fd_sc_hd__nand2b_1
+      165  825.792   sky130_fd_sc_hd__nand3_1
+       61  457.939   sky130_fd_sc_hd__nand3b_1
+       44  275.264   sky130_fd_sc_hd__nand4_1
+        1    8.758   sky130_fd_sc_hd__nand4b_1
+        1   11.261   sky130_fd_sc_hd__nand4bb_1
+      505  1.9E+03   sky130_fd_sc_hd__nor2_1
+       12   75.072   sky130_fd_sc_hd__nor2b_1
+       72  360.346   sky130_fd_sc_hd__nor3_1
+        8   60.058   sky130_fd_sc_hd__nor3b_1
+       23  143.888   sky130_fd_sc_hd__nor4_1
+        1    8.758   sky130_fd_sc_hd__nor4b_1
+        5   43.792   sky130_fd_sc_hd__o2111ai_1
+        1    10.01   sky130_fd_sc_hd__o211a_1
+       35  262.752   sky130_fd_sc_hd__o211ai_1
+       18   135.13   sky130_fd_sc_hd__o21a_1
+      633 3.17E+03   sky130_fd_sc_hd__o21ai_0
+        3   30.029   sky130_fd_sc_hd__o21ba_1
+        2   15.014   sky130_fd_sc_hd__o21bai_1
+        5   56.304   sky130_fd_sc_hd__o221a_1
+       82  718.189   sky130_fd_sc_hd__o221ai_1
+        1    8.758   sky130_fd_sc_hd__o22a_1
+      249 1.56E+03   sky130_fd_sc_hd__o22ai_1
+        1    10.01   sky130_fd_sc_hd__o311a_1
+        2   17.517   sky130_fd_sc_hd__o31a_1
+       20  150.144   sky130_fd_sc_hd__o31ai_1
+        1    10.01   sky130_fd_sc_hd__o32a_1
+        9   78.826   sky130_fd_sc_hd__o32ai_1
+        5   56.304   sky130_fd_sc_hd__o41a_1
+       16  100.096   sky130_fd_sc_hd__or3_1
+       33  289.027   sky130_fd_sc_hd__or3b_1
+        2   15.014   sky130_fd_sc_hd__or4_1
+        2   20.019   sky130_fd_sc_hd__or4b_1
+      640 5.61E+03   sky130_fd_sc_hd__xnor2_1
+       80  1.8E+03   sky130_fd_sc_hd__xnor3_1
+      464 4.06E+03   sky130_fd_sc_hd__xor2_1
+       31  736.957   sky130_fd_sc_hd__xor3_1
+
+   Chip area for module '\matmul_par': 58648.748800
+     of which used for sequential elements: 14939.328000 (25.47%)
+
+Warnings: 4 unique messages, 7 total
+End of script. Logfile hash: f358abc7b9, time: 5.08s, user: 2.66s, system: 0.09s, MEM: 71.71 MB peak
+Yosys 0.64+26 (git sha1 a54bca549, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 52% 2x abc (2 sec), 9% 24x opt_expr (0 sec), ...

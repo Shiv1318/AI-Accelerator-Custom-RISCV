@@ -1,0 +1,4 @@
+[UART] arch=2 mult=0
+[UART] S1 cpu=2619 e2e=424 hw=5 ok=1 gold=1
+[UART] S2 cpu=4765 e2e=424 hw=5 ok=1
+[UART] END

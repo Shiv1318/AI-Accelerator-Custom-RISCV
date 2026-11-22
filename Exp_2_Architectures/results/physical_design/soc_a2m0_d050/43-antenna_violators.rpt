@@ -1,0 +1,12 @@
+Partial/Required:  1.53, Required:    400.0, Partial:   610.67, Net: _05001_, Pin: _25941_/C, Layer: met1
+Partial/Required:  1.40, Required:    400.0, Partial:   559.56, Net: _18837_, Pin: _21762_/A1, Layer: met1
+Partial/Required:  1.33, Required:    400.0, Partial:   532.11, Net: _18447_, Pin: _21363_/A1, Layer: met1
+Partial/Required:  1.30, Required:    400.0, Partial:   520.56, Net: _18232_, Pin: _21144_/A1, Layer: met1
+Partial/Required:  1.23, Required:    400.0, Partial:    492.0, Net: u_accel._110_\[10\], Pin: _45046_/D, Layer: met1
+Partial/Required:  1.22, Required:    400.0, Partial:   488.78, Net: _06109_, Pin: _27060_/D, Layer: met1
+Partial/Required:  1.18, Required:    400.0, Partial:   472.78, Net: net3249, Pin: _39759_/A1, Layer: met1
+Partial/Required:  1.17, Required:    400.0, Partial:   469.78, Net: _05482_, Pin: _26427_/B, Layer: met1
+Partial/Required:  1.17, Required:    400.0, Partial:   468.11, Net: _05171_, Pin: _26105_/C, Layer: met1
+Partial/Required:  1.13, Required:    400.0, Partial:   451.89, Net: _17549_, Pin: _40432_/A0, Layer: met1
+Partial/Required:  1.06, Required:    400.0, Partial:   423.56, Net: _05121_, Pin: _26058_/C, Layer: met1
+Partial/Required:  1.04, Required:    400.0, Partial:   415.44, Net: u_cpu.decoded_imm_j\[12\], Pin: hold5340/A, Layer: met1

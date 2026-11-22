@@ -1,0 +1,23 @@
+7c7
+< CSV=results/synthesis/ppa_${PERIOD}ns.csv
+---
+> CSV=results/synthesis/ppa_${PERIOD}ns_all.csv
+11c11,12
+<   for M in 0 1; do
+---
+>   for M in 0 1 2 3 4; do
+>     [ $M = 4 ] && [ $TOP != matmul_iter ] && continue
+15,16c16,17
+<     for f in mult_star mult_booth systolic_pe matmul_iter matmul_par matmul_systolic; do
+<       sed -E "s/parameter int MULT = [01]/parameter int MULT = $M/" rtl/$f.sv > $W/$f.sv
+---
+>     cp rtl/mult_sel.sv rtl/mult_wallace.sv rtl/mult_array.sv rtl/mult_shiftadd.sv $W/; for f in mult_star mult_booth systolic_pe matmul_iter matmul_par matmul_systolic; do
+>       sed -E "s/parameter int MULT = [0-9]/parameter int MULT = $M/" rtl/$f.sv > $W/$f.sv
+18c19
+<     SRC="$W/mult_star.sv $W/mult_booth.sv $W/systolic_pe.sv $W/$TOP.sv"
+---
+>     SRC="$W/mult_star.sv $W/mult_booth.sv $W/mult_sel.sv $W/mult_wallace.sv $W/mult_array.sv $W/mult_shiftadd.sv $W/systolic_pe.sv $W/$TOP.sv"
+49c50
+<     echo "${TOP#matmul_},$([ $M = 0 ] && echo star || echo booth),$PERIOD,$CELLS,$AREA,$SLACK,$CRIT" >> $CSV
+---
+>     echo "${TOP#matmul_},$(echo star booth wallace array shiftadd | cut -d" " -f$((M+1))),$PERIOD,$CELLS,$AREA,$SLACK,$CRIT" >> $CSV

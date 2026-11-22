@@ -1,0 +1,30 @@
+arch=0 mult=0
+[UART] arch=0 mult=0
+[UART] S1 cpu=2619 e2e=424 hw=8 ok=1 gold=1
+[UART] S2 cpu=4765 e2e=424 hw=8 ok=1
+[UART] END
+arch=0 mult=1
+[UART] arch=0 mult=1
+[UART] S1 cpu=2619 e2e=424 hw=8 ok=1 gold=1
+[UART] S2 cpu=4765 e2e=424 hw=8 ok=1
+[UART] END
+arch=1 mult=0
+[UART] arch=1 mult=0
+[UART] S1 cpu=2619 e2e=424 hw=2 ok=1 gold=1
+[UART] S2 cpu=4765 e2e=424 hw=2 ok=1
+[UART] END
+arch=1 mult=1
+[UART] arch=1 mult=1
+[UART] S1 cpu=2619 e2e=424 hw=2 ok=1 gold=1
+[UART] S2 cpu=4765 e2e=424 hw=2 ok=1
+[UART] END
+arch=2 mult=0
+[UART] arch=2 mult=0
+[UART] S1 cpu=2619 e2e=424 hw=5 ok=1 gold=1
+[UART] S2 cpu=4765 e2e=424 hw=5 ok=1
+[UART] END
+arch=2 mult=1
+[UART] arch=2 mult=1
+[UART] S1 cpu=2619 e2e=424 hw=5 ok=1 gold=1
+[UART] S2 cpu=4765 e2e=424 hw=5 ok=1
+[UART] END

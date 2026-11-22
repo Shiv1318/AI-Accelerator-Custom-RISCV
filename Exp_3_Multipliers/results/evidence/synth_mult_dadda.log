@@ -1,0 +1,2 @@
+mult   period_ns  cells  area_um2     worst_slack_ns  crit_delay_ns  cycles  latency_ns
+dadda  20         253    1809.235200  14.76           5.24           1       5.24      

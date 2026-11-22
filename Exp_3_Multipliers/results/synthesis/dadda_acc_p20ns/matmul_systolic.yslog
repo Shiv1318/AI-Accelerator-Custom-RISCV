@@ -1,0 +1,1453 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.64+26 (git sha1 a54bca549, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+
+-- Running command `
+    read_verilog -sv results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_star.sv results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_booth.sv results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_sel.sv results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_wallace.sv results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_array.sv results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_shiftadd.sv results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv;
+    hierarchy -check -top matmul_systolic;
+    synth -top matmul_systolic -flatten;
+    dfflibmap -liberty /apps/vlsi/src/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib;
+    abc -liberty /apps/vlsi/src/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib -D 20000;
+    opt_clean -purge;
+    write_verilog -noattr results/synthesis/dadda_acc_p20ns/matmul_systolic.v;
+    tee -o results/synthesis/dadda_acc_p20ns/matmul_systolic.stat stat -liberty /apps/vlsi/src/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib;
+  ' --
+
+1. Executing Verilog-2005 frontend: results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_star.sv
+Parsing SystemVerilog input from `results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_star.sv' to AST representation.
+Generating RTLIL representation for module `\mult_star'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_booth.sv
+Parsing SystemVerilog input from `results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_booth.sv' to AST representation.
+Generating RTLIL representation for module `\mult_booth'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_sel.sv
+Parsing SystemVerilog input from `results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_sel.sv' to AST representation.
+Generating RTLIL representation for module `\mult_sel'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_wallace.sv
+Parsing SystemVerilog input from `results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_wallace.sv' to AST representation.
+Generating RTLIL representation for module `\mult_wallace'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_array.sv
+Parsing SystemVerilog input from `results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_array.sv' to AST representation.
+Generating RTLIL representation for module `\mult_array'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_shiftadd.sv
+Parsing SystemVerilog input from `results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_shiftadd.sv' to AST representation.
+Generating RTLIL representation for module `\mult_shiftadd'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv
+Parsing SystemVerilog input from `results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv' to AST representation.
+Generating RTLIL representation for module `\mult_dadda'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv
+Parsing SystemVerilog input from `results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv' to AST representation.
+Generating RTLIL representation for module `\systolic_pe'.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv
+Parsing SystemVerilog input from `results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv' to AST representation.
+Generating RTLIL representation for module `\matmul_systolic'.
+Warning: Replacing memory \a_w with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:49
+Warning: Replacing memory \b_w with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:46
+Warning: Replacing memory \b_r with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:76
+Warning: Replacing memory \a_r with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:76
+Warning: Replacing memory \b_q with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:61
+Warning: Replacing memory \a_q with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:61
+Warning: Replacing memory \b_feed with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:36
+Warning: Replacing memory \a_feed with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:35
+Successfully finished Verilog frontend.
+
+10. Executing HIERARCHY pass (managing design hierarchy).
+
+10.1. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+Used module:     \systolic_pe
+Used module:         \mult_sel
+Used module:             \mult_booth
+Parameter 1 (\W) = 8
+
+10.2. Executing AST frontend in derive mode using pre-parsed AST for module `\mult_booth'.
+Parameter 1 (\W) = 8
+Generating RTLIL representation for module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Parameter \W = 8
+Parameter \MULT = 5
+
+10.3. Executing AST frontend in derive mode using pre-parsed AST for module `\mult_sel'.
+Parameter \W = 8
+Parameter \MULT = 5
+Generating RTLIL representation for module `$paramod$9c300a1ca5f215f645ee75143602dfc63c209fca\mult_sel'.
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 5
+
+10.4. Executing AST frontend in derive mode using pre-parsed AST for module `\systolic_pe'.
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 5
+Generating RTLIL representation for module `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe'.
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 5
+Found cached RTLIL representation for module `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe'.
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 5
+Found cached RTLIL representation for module `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe'.
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 5
+Found cached RTLIL representation for module `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe'.
+Reprocessing module matmul_systolic because instantiated module $paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe has become available.
+Generating RTLIL representation for module `\matmul_systolic'.
+Warning: Replacing memory \acc_w with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54
+Warning: Replacing memory \a_w with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:49
+Warning: Replacing memory \b_w with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:46
+Warning: Replacing memory \b_r with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:76
+Warning: Replacing memory \a_r with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:76
+Warning: Replacing memory \b_q with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:61
+Warning: Replacing memory \a_q with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:61
+Warning: Replacing memory \b_feed with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:36
+Warning: Replacing memory \a_feed with list of registers. See results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:35
+
+10.5. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+Used module:     \systolic_pe
+Used module:         $paramod$9c300a1ca5f215f645ee75143602dfc63c209fca\mult_sel
+Used module:             \mult_dadda
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 5
+Found cached RTLIL representation for module `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe'.
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 5
+Found cached RTLIL representation for module `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe'.
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 5
+Found cached RTLIL representation for module `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe'.
+Parameter \W = 8
+Parameter \ACC = 20
+Parameter \MULT = 5
+Found cached RTLIL representation for module `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe'.
+Parameter 1 (\W) = 8
+
+10.6. Executing AST frontend in derive mode using pre-parsed AST for module `\mult_dadda'.
+Parameter 1 (\W) = 8
+Generating RTLIL representation for module `$paramod\mult_dadda\W=s32'00000000000000000000000000001000'.
+
+10.7. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+Used module:     $paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe
+Used module:         \mult_sel
+Used module:             $paramod\mult_booth\W=s32'00000000000000000000000000001000
+Parameter \W = 8
+Parameter \MULT = 5
+Found cached RTLIL representation for module `$paramod$9c300a1ca5f215f645ee75143602dfc63c209fca\mult_sel'.
+
+10.8. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+Used module:     $paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe
+Used module:         $paramod$9c300a1ca5f215f645ee75143602dfc63c209fca\mult_sel
+Used module:             $paramod\mult_dadda\W=s32'00000000000000000000000000001000
+
+10.9. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+Used module:     $paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe
+Used module:         $paramod$9c300a1ca5f215f645ee75143602dfc63c209fca\mult_sel
+Used module:             $paramod\mult_dadda\W=s32'00000000000000000000000000001000
+Removing unused module `$paramod\mult_booth\W=s32'00000000000000000000000000001000'.
+Removing unused module `\systolic_pe'.
+Removing unused module `\mult_dadda'.
+Removing unused module `\mult_shiftadd'.
+Removing unused module `\mult_array'.
+Removing unused module `\mult_wallace'.
+Removing unused module `\mult_sel'.
+Removing unused module `\mult_booth'.
+Removing unused module `\mult_star'.
+Removed 9 unused modules.
+
+11. Executing SYNTH pass.
+
+11.1. Executing HIERARCHY pass (managing design hierarchy).
+
+11.1.1. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+Used module:     $paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe
+Used module:         $paramod$9c300a1ca5f215f645ee75143602dfc63c209fca\mult_sel
+Used module:             $paramod\mult_dadda\W=s32'00000000000000000000000000001000
+
+11.1.2. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+Used module:     $paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe
+Used module:         $paramod$9c300a1ca5f215f645ee75143602dfc63c209fca\mult_sel
+Used module:             $paramod\mult_dadda\W=s32'00000000000000000000000000001000
+Removed 0 unused modules.
+
+11.2. Executing PROC pass (convert processes to netlists).
+
+11.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+11.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011 in module matmul_systolic.
+Marked 3 switch rules as full_case in process $proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011 in module matmul_systolic.
+Marked 1 switch rules as full_case in process $proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:59$1001 in module matmul_systolic.
+Removed 4 dead cases from process $proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957 in module matmul_systolic.
+Marked 6 switch rules as full_case in process $proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957 in module matmul_systolic.
+Marked 2 switch rules as full_case in process $proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:21$928 in module $paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe.
+Removed a total of 5 dead cases.
+
+11.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 8 redundant assignments.
+Promoted 40 assignments to connections.
+
+11.2.4. Executing PROC_INIT pass (extract init attributes).
+
+11.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+Found async reset \rst_n in `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:59$1001'.
+Found async reset \rst_n in `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:21$928'.
+
+11.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~10 debug messages>
+
+11.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1036'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1035'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:53$1034'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1033'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1032'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:53$1031'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:49$1030'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1029'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1028'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:53$1027'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1026'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1025'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:53$1024'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:49$1023'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:46$1022'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:46$1021'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+     1/16: $3$fordecl_block$818.x[31:0]$1018
+     2/16: $2$fordecl_block$818.x[31:0]$1017
+     3/16: $1$fordecl_block$818.x[31:0]$1016
+     4/16: $0\done[0:0]
+     5/16: $1$fordecl_block$816.x[31:0]$1015
+     6/16: $0\b_r[3][7:0]
+     7/16: $0\b_r[2][7:0]
+     8/16: $0\b_r[1][7:0]
+     9/16: $0\b_r[0][7:0]
+    10/16: $0\a_r[3][7:0]
+    11/16: $0\a_r[2][7:0]
+    12/16: $0\a_r[1][7:0]
+    13/16: $0\a_r[0][7:0]
+    14/16: $0\st[0:0]
+    15/16: $0\cycles[15:0]
+    16/16: $0\busy[0:0]
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:67$1007'.
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:59$1001'.
+     1/6: $1$fordecl_block$810.i[31:0]$1006
+     2/6: $0\b_q[1][7:0]
+     3/6: $0\a_q[1][7:0]
+     4/6: $0\b_q[0][7:0]
+     5/6: $0\a_q[0][7:0]
+     6/6: $1$fordecl_block$808.i[31:0]$1005
+Creating decoders for process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957'.
+     1/16: $2$mem2reg_rd$\b_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$954_DATA[7:0]$1000
+     2/16: $2$mem2reg_rd$\a_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$953_DATA[7:0]$996
+     3/16: $1\b_feed[1][7:0]
+     4/16: $1$mem2reg_rd$\b_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$954_DATA[7:0]$993
+     5/16: $1$mem2reg_rd$\b_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$954_ADDR[1:0]$992
+     6/16: $1\a_feed[1][7:0]
+     7/16: $1$mem2reg_rd$\a_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$953_DATA[7:0]$991
+     8/16: $1$mem2reg_rd$\a_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$953_ADDR[1:0]$990
+     9/16: $2$mem2reg_rd$\b_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$952_DATA[7:0]$983
+    10/16: $2$mem2reg_rd$\a_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$951_DATA[7:0]$979
+    11/16: $1\b_feed[0][7:0]
+    12/16: $1$mem2reg_rd$\b_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$952_DATA[7:0]$976
+    13/16: $1$mem2reg_rd$\b_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$952_ADDR[1:0]$975
+    14/16: $1\a_feed[0][7:0]
+    15/16: $1$mem2reg_rd$\a_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$951_DATA[7:0]$974
+    16/16: $1$mem2reg_rd$\a_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$951_ADDR[1:0]$973
+Creating decoders for process `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:21$928'.
+     1/3: $0\acc[19:0]
+     2/3: $0\b_out[7:0]
+     3/3: $0\a_out[7:0]
+
+11.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\matmul_systolic.\acc_w[3]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1036'.
+No latch inferred for signal `\matmul_systolic.\b_w[5]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1035'.
+No latch inferred for signal `\matmul_systolic.\a_w[5]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:53$1034'.
+No latch inferred for signal `\matmul_systolic.\acc_w[2]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1033'.
+No latch inferred for signal `\matmul_systolic.\b_w[4]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1032'.
+No latch inferred for signal `\matmul_systolic.\a_w[4]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:53$1031'.
+No latch inferred for signal `\matmul_systolic.\a_w[3]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:49$1030'.
+No latch inferred for signal `\matmul_systolic.\acc_w[1]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1029'.
+No latch inferred for signal `\matmul_systolic.\b_w[3]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1028'.
+No latch inferred for signal `\matmul_systolic.\a_w[2]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:53$1027'.
+No latch inferred for signal `\matmul_systolic.\acc_w[0]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1026'.
+No latch inferred for signal `\matmul_systolic.\b_w[2]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1025'.
+No latch inferred for signal `\matmul_systolic.\a_w[1]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:53$1024'.
+No latch inferred for signal `\matmul_systolic.\a_w[0]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:49$1023'.
+No latch inferred for signal `\matmul_systolic.\b_w[1]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:46$1022'.
+No latch inferred for signal `\matmul_systolic.\b_w[0]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:46$1021'.
+No latch inferred for signal `\matmul_systolic.\c_flat' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:67$1007'.
+No latch inferred for signal `\matmul_systolic.$fordecl_block$812.i' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:67$1007'.
+No latch inferred for signal `\matmul_systolic.$fordecl_block$812.$for_loop$813[0].$fordecl_block$814.j' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:67$1007'.
+No latch inferred for signal `\matmul_systolic.$fordecl_block$812.$for_loop$813[1].$fordecl_block$814.j' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:67$1007'.
+No latch inferred for signal `\matmul_systolic.$fordecl_block$806.i' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957'.
+No latch inferred for signal `\matmul_systolic.\a_feed[0]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957'.
+No latch inferred for signal `\matmul_systolic.\a_feed[1]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957'.
+No latch inferred for signal `\matmul_systolic.\b_feed[0]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957'.
+No latch inferred for signal `\matmul_systolic.\b_feed[1]' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957'.
+No latch inferred for signal `\matmul_systolic.$mem2reg_rd$\a_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$951_ADDR' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957'.
+No latch inferred for signal `\matmul_systolic.$mem2reg_rd$\a_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$951_DATA' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957'.
+No latch inferred for signal `\matmul_systolic.$mem2reg_rd$\b_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$952_ADDR' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957'.
+No latch inferred for signal `\matmul_systolic.$mem2reg_rd$\b_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$952_DATA' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957'.
+No latch inferred for signal `\matmul_systolic.$mem2reg_rd$\a_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$953_ADDR' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957'.
+No latch inferred for signal `\matmul_systolic.$mem2reg_rd$\a_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$953_DATA' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957'.
+No latch inferred for signal `\matmul_systolic.$mem2reg_rd$\b_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$954_ADDR' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957'.
+No latch inferred for signal `\matmul_systolic.$mem2reg_rd$\b_r$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$954_DATA' from process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957'.
+
+11.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\matmul_systolic.\busy' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+  created $adff cell `$procdff$1544' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\done' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+  created $adff cell `$procdff$1549' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\cycles' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+  created $adff cell `$procdff$1554' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\st' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+  created $adff cell `$procdff$1559' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.$fordecl_block$816.x' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+  created $adff cell `$procdff$1564' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.$fordecl_block$818.x' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+  created $dff cell `$procdff$1571' with positive edge clock.
+Creating register for signal `\matmul_systolic.\a_r[0]' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+  created $adff cell `$procdff$1576' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\a_r[1]' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+  created $adff cell `$procdff$1581' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\a_r[2]' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+  created $adff cell `$procdff$1586' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\a_r[3]' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+  created $adff cell `$procdff$1591' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\b_r[0]' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+  created $adff cell `$procdff$1596' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\b_r[1]' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+  created $adff cell `$procdff$1601' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\b_r[2]' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+  created $adff cell `$procdff$1606' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\b_r[3]' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+  created $adff cell `$procdff$1611' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.$fordecl_block$808.i' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:59$1001'.
+  created $adff cell `$procdff$1616' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.$fordecl_block$810.i' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:59$1001'.
+  created $dff cell `$procdff$1623' with positive edge clock.
+Creating register for signal `\matmul_systolic.\a_q[0]' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:59$1001'.
+  created $adff cell `$procdff$1628' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\a_q[1]' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:59$1001'.
+  created $adff cell `$procdff$1633' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\b_q[0]' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:59$1001'.
+  created $adff cell `$procdff$1638' with positive edge clock and positive level reset.
+Creating register for signal `\matmul_systolic.\b_q[1]' using process `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:59$1001'.
+  created $adff cell `$procdff$1643' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe.\acc' using process `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:21$928'.
+  created $adff cell `$procdff$1648' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe.\a_out' using process `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:21$928'.
+  created $adff cell `$procdff$1653' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe.\b_out' using process `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:21$928'.
+  created $adff cell `$procdff$1658' with positive edge clock and positive level reset.
+
+11.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+11.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1036'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1035'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:53$1034'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1033'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1032'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:53$1031'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:49$1030'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1029'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1028'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:53$1027'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1026'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:54$1025'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:53$1024'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:49$1023'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:46$1022'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:46$1021'.
+Found and cleaned up 3 empty switches in `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:73$1011'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:67$1007'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:59$1001'.
+Found and cleaned up 6 empty switches in `\matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957'.
+Removing empty process `matmul_systolic.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:33$957'.
+Found and cleaned up 1 empty switch in `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:21$928'.
+Removing empty process `$paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe.$proc$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:21$928'.
+Cleaned up 10 empty switches.
+
+11.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+<suppressed ~74 debug messages>
+Optimizing module $paramod$9c300a1ca5f215f645ee75143602dfc63c209fca\mult_sel.
+Optimizing module $paramod\mult_dadda\W=s32'00000000000000000000000000001000.
+<suppressed ~3 debug messages>
+Optimizing module $paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe.
+<suppressed ~6 debug messages>
+
+11.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$9c300a1ca5f215f645ee75143602dfc63c209fca\mult_sel.
+Deleting now unused module $paramod\mult_dadda\W=s32'00000000000000000000000000001000.
+Deleting now unused module $paramod$b2616fc08457ca60b20ed53c0b1908c7a3c6bb77\systolic_pe.
+<suppressed ~6 debug messages>
+
+11.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+<suppressed ~9 debug messages>
+
+11.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 73 unused cells and 897 unused wires.
+<suppressed ~87 debug messages>
+
+11.6. Executing CHECK pass (checking for obvious problems).
+Checking module matmul_systolic...
+Found and reported 0 problems.
+
+11.7. Executing OPT pass (performing simple optimizations).
+
+11.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+<suppressed ~3 debug messages>
+
+11.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 1483 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 1478 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
+
+11.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$1443: \st -> 1'0
+      Replacing known input bits on port A of cell $procmux$1441: \st -> 1'1
+      Replacing known input bits on port A of cell $procmux$1446: \st -> 1'0
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$1511.
+    dead port 2/2 on $mux $procmux$1503.
+    dead port 1/5 on $pmux $procmux$1498.
+    dead port 3/5 on $pmux $procmux$1498.
+    dead port 2/2 on $mux $procmux$1477.
+    dead port 2/2 on $mux $procmux$1469.
+Removed 6 multiplexer ports.
+<suppressed ~70 debug messages>
+
+11.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 0 changes.
+
+11.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 1474 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+11.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 0 unused cells and 12 unused wires.
+<suppressed ~1 debug messages>
+
+11.7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+11.7.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+11.7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~66 debug messages>
+
+11.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 0 changes.
+
+11.7.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 1474 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+11.7.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+
+11.7.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+11.7.16. Finished fast OPT passes. (There is nothing left to do.)
+
+11.8. Executing FSM pass (extract and optimize FSM).
+
+11.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+11.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+11.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+11.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+
+11.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+11.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+11.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+11.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+11.9. Executing OPT pass (performing simple optimizations).
+
+11.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+11.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 1474 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+11.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~66 debug messages>
+
+11.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 0 changes.
+
+11.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 1474 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+11.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$1606 ($adff) from module matmul_systolic (D = \b_flat [23:16], Q = \b_r[2]).
+Adding EN signal on $procdff$1601 ($adff) from module matmul_systolic (D = \b_flat [15:8], Q = \b_r[1]).
+Adding EN signal on $procdff$1544 ($adff) from module matmul_systolic (D = $0\busy[0:0], Q = \busy).
+Adding EN signal on $procdff$1611 ($adff) from module matmul_systolic (D = \b_flat [31:24], Q = \b_r[3]).
+Adding EN signal on $procdff$1554 ($adff) from module matmul_systolic (D = $0\cycles[15:0], Q = \cycles).
+Adding EN signal on $procdff$1576 ($adff) from module matmul_systolic (D = \a_flat [7:0], Q = \a_r[0]).
+Adding EN signal on $procdff$1581 ($adff) from module matmul_systolic (D = \a_flat [15:8], Q = \a_r[1]).
+Adding EN signal on $procdff$1586 ($adff) from module matmul_systolic (D = \a_flat [23:16], Q = \a_r[2]).
+Adding EN signal on $procdff$1591 ($adff) from module matmul_systolic (D = \a_flat [31:24], Q = \a_r[3]).
+Adding EN signal on $procdff$1596 ($adff) from module matmul_systolic (D = \b_flat [7:0], Q = \b_r[0]).
+
+11.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 16 unused cells and 16 unused wires.
+<suppressed ~17 debug messages>
+
+11.9.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+<suppressed ~5 debug messages>
+
+11.9.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+11.9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~42 debug messages>
+
+11.9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+    New input vector for $reduce_and cell $auto$opt_dff.cc:252:make_patterns_logic$1685: { $auto$opt_dff.cc:234:make_patterns_logic$1678 $auto$opt_dff.cc:234:make_patterns_logic$1682 }
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 1 changes.
+
+11.9.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 1478 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 1469 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 1462 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+<suppressed ~48 debug messages>
+Removed a total of 16 cells.
+
+11.9.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 0 unused cells and 19 unused wires.
+<suppressed ~1 debug messages>
+
+11.9.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+11.9.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+11.9.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~42 debug messages>
+
+11.9.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 0 changes.
+
+11.9.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 1462 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+11.9.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.9.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+
+11.9.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+11.9.23. Finished fast OPT passes. (There is nothing left to do.)
+
+11.10. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 2) from port B of cell matmul_systolic.$auto$opt_dff.cc:235:make_patterns_logic$1683 ($ne).
+Removed top 16 bits (of 32) from port A of cell matmul_systolic.$ge$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:37$968 ($ge).
+Removed top 31 bits (of 32) from port B of cell matmul_systolic.$ge$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:37$968 ($ge).
+Removed top 16 bits (of 32) from port A of cell matmul_systolic.$lt$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:37$971 ($lt).
+Removed top 30 bits (of 32) from port B of cell matmul_systolic.$lt$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:37$971 ($lt).
+Removed top 16 bits (of 32) from port A of cell matmul_systolic.$ge$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:37$985 ($ge).
+Removed top 31 bits (of 32) from port B of cell matmul_systolic.$ge$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:37$985 ($ge).
+Removed top 30 bits (of 32) from port B of cell matmul_systolic.$lt$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:37$988 ($lt).
+Removed top 30 bits (of 32) from port A of cell matmul_systolic.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$995 ($add).
+Removed top 30 bits (of 32) from port Y of cell matmul_systolic.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$995 ($add).
+Removed top 30 bits (of 32) from port B of cell matmul_systolic.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$995 ($add).
+Removed top 16 bits (of 32) from port A of cell matmul_systolic.$sub$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$997 ($sub).
+Removed top 31 bits (of 32) from port B of cell matmul_systolic.$sub$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$997 ($sub).
+Removed top 15 bits (of 32) from port Y of cell matmul_systolic.$sub$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$997 ($sub).
+Converting cell matmul_systolic.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$999 ($add) from unsigned to signed.
+Removed top 14 bits (of 32) from port A of cell matmul_systolic.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$999 ($add).
+Removed top 30 bits (of 32) from port B of cell matmul_systolic.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$999 ($add).
+Removed top 30 bits (of 32) from port Y of cell matmul_systolic.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$999 ($add).
+Removed top 16 bits (of 18) from port A of cell matmul_systolic.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$999 ($add).
+Removed top 13 bits (of 16) from port B of cell matmul_systolic.$eq$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:89$1020 ($eq).
+Removed top 1 bits (of 2) from port B of cell matmul_systolic.$procmux$1467_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell matmul_systolic.$procmux$1475_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell matmul_systolic.$procmux$1509_CMP0 ($eq).
+Removed top 1 bits (of 16) from port B of cell matmul_systolic.$flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.genblk1.g_dad.u.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv:159$1379 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_systolic.$flatten\g_row[0].g_col[0].u_pe.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:27$930 ($add).
+Removed top 1 bits (of 16) from port B of cell matmul_systolic.$flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.genblk1.g_dad.u.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv:159$1379 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_systolic.$flatten\g_row[0].g_col[1].u_pe.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:27$930 ($add).
+Removed top 1 bits (of 16) from port B of cell matmul_systolic.$flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.genblk1.g_dad.u.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv:159$1379 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_systolic.$flatten\g_row[1].g_col[0].u_pe.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:27$930 ($add).
+Removed top 1 bits (of 16) from port B of cell matmul_systolic.$flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.genblk1.g_dad.u.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv:159$1379 ($add).
+Removed top 4 bits (of 20) from port B of cell matmul_systolic.$flatten\g_row[1].g_col[1].u_pe.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:27$930 ($add).
+Removed top 30 bits (of 32) from wire matmul_systolic.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$999_Y.
+Removed top 30 bits (of 32) from wire matmul_systolic.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$995_Y.
+
+11.11. Executing PEEPOPT pass (run peephole optimizers).
+
+11.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+11.13. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module matmul_systolic:
+  creating $macc model for $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.genblk1.g_dad.u.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv:159$1379 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[0].u_pe.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:27$930 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.genblk1.g_dad.u.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv:159$1379 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[1].u_pe.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:27$930 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.genblk1.g_dad.u.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv:159$1379 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[0].u_pe.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:27$930 ($add).
+  creating $macc model for $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.genblk1.g_dad.u.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv:159$1379 ($add).
+  creating $macc model for $add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:88$1019 ($add).
+  creating $macc model for $add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$999 ($add).
+  creating $macc model for $flatten\g_row[1].g_col[1].u_pe.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:27$930 ($add).
+  creating $macc model for $sub$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$997 ($sub).
+  creating $macc model for $add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$995 ($add).
+  creating $alu model for $macc $add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$995.
+  creating $alu model for $macc $sub$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$997.
+  creating $alu model for $macc $flatten\g_row[1].g_col[1].u_pe.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:27$930.
+  creating $alu model for $macc $add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$999.
+  creating $alu model for $macc $add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:88$1019.
+  creating $alu model for $macc $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.genblk1.g_dad.u.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv:159$1379.
+  creating $alu model for $macc $flatten\g_row[0].g_col[0].u_pe.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:27$930.
+  creating $alu model for $macc $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.genblk1.g_dad.u.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv:159$1379.
+  creating $alu model for $macc $flatten\g_row[0].g_col[1].u_pe.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:27$930.
+  creating $alu model for $macc $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.genblk1.g_dad.u.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv:159$1379.
+  creating $alu model for $macc $flatten\g_row[1].g_col[0].u_pe.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:27$930.
+  creating $alu model for $macc $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.genblk1.g_dad.u.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv:159$1379.
+  creating $alu model for $lt$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:37$988 ($lt): new $alu
+  creating $alu model for $ge$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:37$985 ($ge): merged with $sub$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$997.
+  creating $alu model for $lt$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:37$971 ($lt): new $alu
+  creating $alu model for $ge$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:37$968 ($ge): new $alu
+  creating $alu cell for $ge$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:37$968: $auto$alumacc.cc:512:replace_alu$1728
+  creating $alu cell for $lt$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:37$971: $auto$alumacc.cc:512:replace_alu$1741
+  creating $alu cell for $lt$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:37$988: $auto$alumacc.cc:512:replace_alu$1746
+  creating $alu cell for $flatten\g_row[1].g_col[1].u_pe.\g_b.u_mul.\genblk1.genblk1.g_dad.u.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv:159$1379: $auto$alumacc.cc:512:replace_alu$1751
+  creating $alu cell for $flatten\g_row[1].g_col[0].u_pe.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:27$930: $auto$alumacc.cc:512:replace_alu$1754
+  creating $alu cell for $flatten\g_row[1].g_col[0].u_pe.\g_b.u_mul.\genblk1.genblk1.g_dad.u.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv:159$1379: $auto$alumacc.cc:512:replace_alu$1757
+  creating $alu cell for $flatten\g_row[0].g_col[1].u_pe.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:27$930: $auto$alumacc.cc:512:replace_alu$1760
+  creating $alu cell for $flatten\g_row[0].g_col[1].u_pe.\g_b.u_mul.\genblk1.genblk1.g_dad.u.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv:159$1379: $auto$alumacc.cc:512:replace_alu$1763
+  creating $alu cell for $flatten\g_row[0].g_col[0].u_pe.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:27$930: $auto$alumacc.cc:512:replace_alu$1766
+  creating $alu cell for $flatten\g_row[0].g_col[0].u_pe.\g_b.u_mul.\genblk1.genblk1.g_dad.u.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/mult_dadda.sv:159$1379: $auto$alumacc.cc:512:replace_alu$1769
+  creating $alu cell for $add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:88$1019: $auto$alumacc.cc:512:replace_alu$1772
+  creating $alu cell for $add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$999: $auto$alumacc.cc:512:replace_alu$1775
+  creating $alu cell for $flatten\g_row[1].g_col[1].u_pe.$add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/systolic_pe.sv:27$930: $auto$alumacc.cc:512:replace_alu$1778
+  creating $alu cell for $sub$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:39$997, $ge$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:37$985: $auto$alumacc.cc:512:replace_alu$1781
+  creating $alu cell for $add$results/synthesis/dadda_acc_p20ns/work_matmul_systolic/matmul_systolic.sv:38$995: $auto$alumacc.cc:512:replace_alu$1794
+  created 15 $alu and 0 $macc cells.
+
+11.14. Executing SHARE pass (SAT-based resource sharing).
+
+11.15. Executing OPT pass (performing simple optimizations).
+
+11.15.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+<suppressed ~5 debug messages>
+
+11.15.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 1470 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+11.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~42 debug messages>
+
+11.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 0 changes.
+
+11.15.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 1470 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+11.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 3 unused cells and 14 unused wires.
+<suppressed ~5 debug messages>
+
+11.15.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+11.15.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+11.15.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~42 debug messages>
+
+11.15.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 0 changes.
+
+11.15.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 1466 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+11.15.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.15.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+
+11.15.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+11.15.16. Finished fast OPT passes. (There is nothing left to do.)
+
+11.16. Executing MEMORY pass.
+
+11.16.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+11.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+11.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+11.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+11.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+11.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+
+11.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+11.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+11.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+
+11.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+11.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+
+11.18. Executing OPT pass (performing simple optimizations).
+
+11.18.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+<suppressed ~26 debug messages>
+
+11.18.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 1461 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+11.18.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.18.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 5 unused cells and 15 unused wires.
+<suppressed ~7 debug messages>
+
+11.18.5. Finished fast OPT passes.
+
+11.19. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+11.20. Executing OPT pass (performing simple optimizations).
+
+11.20.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+<suppressed ~3 debug messages>
+
+11.20.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 1454 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 1453 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+11.20.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/4 on $pmux $procmux$1464.
+Removed 1 multiplexer ports.
+<suppressed ~32 debug messages>
+
+11.20.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 0 changes.
+
+11.20.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 1453 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+11.20.6. Executing OPT_SHARE pass.
+
+11.20.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.20.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+11.20.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+11.20.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+11.20.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \matmul_systolic..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+11.20.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \matmul_systolic.
+Performed a total of 0 changes.
+
+11.20.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 1453 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+11.20.14. Executing OPT_SHARE pass.
+
+11.20.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.20.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+
+11.20.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+11.20.18. Finished fast OPT passes. (There is nothing left to do.)
+
+11.21. Executing TECHMAP pass (map to technology primitives).
+
+11.21.1. Executing Verilog-2005 frontend: /apps/vlsi/tools/yosys/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/apps/vlsi/tools/yosys/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+11.21.2. Continuing TECHMAP pass.
+Using template $paramod$d588c4475f18bc347201f0f2671d73b8c1e7b7ea\_90_alu for cells of type $alu.
+Using template $paramod$fc972a7a46956c1788f3cb5257b53c8f1df2d0cc\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $reduce_and.
+Using template $paramod$fc69e1e055122f161e82f14586c9accf99d83cb8\_90_alu for cells of type $alu.
+Using template $paramod$743ee5cec06d810a0663fb1b806f0a75035616ec\_90_alu for cells of type $alu.
+Using template $paramod$2af30114e9bd4ccb04dad757b3f0a8f6bf0615b0\_90_alu for cells of type $alu.
+Using template $paramod$7a879e600cfb66edc319701e3d60cd93f323b9dc\_90_alu for cells of type $alu.
+Using template $paramod$675ee3ed071b156aa661bdfa838b7e469d095ac0\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $adffe.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod$c5c783b17ab1d780abfad8cfe6563a0a7b47a3b0\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $mux.
+Using template $paramod$fc16b9f758000d363d24f130038bd99b46b4fa1b\_90_pmux for cells of type $pmux.
+Using template $paramod$645fe0cc96ae5edb83bff90cc2c78f4a20ca3e3c\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $adff.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001111 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001111 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000011111 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000011111 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010100 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010100 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010000 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000001 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000001 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010001 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010001 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~3557 debug messages>
+
+11.22. Executing OPT pass (performing simple optimizations).
+
+11.22.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+<suppressed ~1324 debug messages>
+
+11.22.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 3393 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 3335 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 3325 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 3314 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 3311 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 3307 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 3306 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Computing hashes of 3305 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+<suppressed ~264 debug messages>
+Removed a total of 88 cells.
+
+11.22.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.22.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 247 unused cells and 891 unused wires.
+<suppressed ~248 debug messages>
+
+11.22.5. Finished fast OPT passes.
+
+11.23. Executing ABC pass (technology mapping using ABC).
+
+11.23.1. Extracting gate netlist of module `\matmul_systolic' to `<abc-temp-dir>/input.blif'..
+
+11.23.1.1. Executed ABC.
+Extracted 2819 gates and 3046 wires to a netlist network with 226 inputs and 166 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Apr  7 2026 21:27:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+11.23.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:      680
+ABC RESULTS:            ANDNOT cells:       42
+ABC RESULTS:               MUX cells:       16
+ABC RESULTS:              NAND cells:      891
+ABC RESULTS:               NOR cells:        7
+ABC RESULTS:               NOT cells:        6
+ABC RESULTS:                OR cells:      176
+ABC RESULTS:             ORNOT cells:       72
+ABC RESULTS:              XNOR cells:      211
+ABC RESULTS:               XOR cells:      151
+ABC RESULTS:        internal signals:     2654
+ABC RESULTS:           input signals:      226
+ABC RESULTS:          output signals:      166
+Removing temp directory.
+Removing global temp directory.
+
+11.24. Executing OPT pass (performing simple optimizations).
+
+11.24.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module matmul_systolic.
+
+11.24.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\matmul_systolic'.
+Computing hashes of 2491 cells of `\matmul_systolic'.
+Finding duplicate cells in `\matmul_systolic'.
+Removed a total of 0 cells.
+
+11.24.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.24.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 0 unused cells and 2235 unused wires.
+<suppressed ~605 debug messages>
+
+11.24.5. Finished fast OPT passes.
+
+11.25. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `matmul_systolic'. Setting top module to matmul_systolic.
+
+11.25.1. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+
+11.25.2. Analyzing design hierarchy..
+Top module:  \matmul_systolic
+Removed 0 unused modules.
+
+11.26. Printing statistics.
+
+=== matmul_systolic ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     2295 wires
+     3103 wire bits
+       91 public wires
+      883 public wire bits
+        9 ports
+      165 port bits
+     2491 cells
+       42   $_ANDNOT_
+      680   $_AND_
+       81   $_DFFE_PN0P_
+      146   $_DFF_PN0_
+       16   $_MUX_
+      891   $_NAND_
+        7   $_NOR_
+        6   $_NOT_
+       72   $_ORNOT_
+      176   $_OR_
+      211   $_XNOR_
+      151   $_XOR_
+       12   $scopeinfo
+
+11.27. Executing CHECK pass (checking for obvious problems).
+Checking module matmul_systolic...
+Found and reported 0 problems.
+
+12. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_2 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFE_NN_
+    unmapped dff cell: $_DFFE_NP_
+    unmapped dff cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+12.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+<suppressed ~24 debug messages>
+Mapping DFF cells in module `\matmul_systolic':
+  mapped 227 $_DFF_PN0_ cells to \sky130_fd_sc_hd__dfrtp_1 cells.
+
+13. Executing ABC pass (technology mapping using ABC).
+
+13.1. Extracting gate netlist of module `\matmul_systolic' to `<abc-temp-dir>/input.blif'..
+
+13.1.1. Executed ABC.
+Extracted 2333 gates and 2624 wires to a netlist network with 291 inputs and 227 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Apr  7 2026 21:27:22)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /apps/vlsi/src/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.08 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_0".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_8".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_bleeder_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__lpflow_inputisolatch_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_4".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "/apps/vlsi/src/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" has 334 cells (94 skipped: 63 seq; 13 tri-state; 18 no func; 0 dont_use; 0 with 2 outputs; 0 with 3+ outputs).  Time =     0.11 sec
+ABC: Memory =   19.81 MB. Time =     0.11 sec
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + retime -o -D 20000 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf -D 20000 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+13.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_0 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__a21o_1 cells:       17
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:      138
+ABC RESULTS:   sky130_fd_sc_hd__a221oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a222oi_1 cells:       16
+ABC RESULTS:   sky130_fd_sc_hd__a22o_1 cells:       27
+ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:       43
+ABC RESULTS:   sky130_fd_sc_hd__a311oi_1 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__a31o_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__a32oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a41oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and2_0 cells:       56
+ABC RESULTS:   sky130_fd_sc_hd__and3_1 cells:       23
+ABC RESULTS:   sky130_fd_sc_hd__and4_1 cells:       14
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:       49
+ABC RESULTS:   sky130_fd_sc_hd__lpflow_inputiso1p_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__lpflow_isobufsrc_1 cells:       62
+ABC RESULTS:   sky130_fd_sc_hd__maj3_1 cells:      133
+ABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__mux2i_1 cells:       16
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:      404
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_1 cells:       20
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:       33
+ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:       46
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:      128
+ABC RESULTS:   sky130_fd_sc_hd__nor2b_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:       21
+ABC RESULTS:   sky130_fd_sc_hd__nor3b_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__o211a_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:       93
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o311a_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o31ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__or3_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or4_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:      191
+ABC RESULTS:   sky130_fd_sc_hd__xnor3_1 cells:       29
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:       98
+ABC RESULTS:   sky130_fd_sc_hd__xor3_1 cells:       19
+ABC RESULTS:        internal signals:     2106
+ABC RESULTS:           input signals:      291
+ABC RESULTS:          output signals:      227
+Removing temp directory.
+Removing global temp directory.
+
+14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \matmul_systolic..
+Removed 12 unused cells and 2669 unused wires.
+<suppressed ~74 debug messages>
+
+15. Executing Verilog backend.
+
+15.1. Executing BMUXMAP pass.
+
+15.2. Executing DEMUXMAP pass.
+Dumping module `\matmul_systolic'.
+
+16. Printing statistics.
+
+=== matmul_systolic ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     1758        - wires
+     2054        - wire bits
+       30        - public wires
+      326        - public wire bits
+        9        - ports
+      165        - port bits
+     1987 1.73E+04 cells
+        3   22.522   sky130_fd_sc_hd__a211oi_1
+       13   97.594   sky130_fd_sc_hd__a21boi_0
+       17  127.622   sky130_fd_sc_hd__a21o_1
+      138  690.662   sky130_fd_sc_hd__a21oi_1
+        1    8.758   sky130_fd_sc_hd__a221oi_1
+       16  160.154   sky130_fd_sc_hd__a222oi_1
+       27  236.477   sky130_fd_sc_hd__a22o_1
+       43   322.81   sky130_fd_sc_hd__a22oi_1
+        6    52.55   sky130_fd_sc_hd__a311oi_1
+        2   17.517   sky130_fd_sc_hd__a31o_1
+       13   81.328   sky130_fd_sc_hd__a31oi_1
+        1    8.758   sky130_fd_sc_hd__a32oi_1
+        1    8.758   sky130_fd_sc_hd__a41oi_1
+       56  350.336   sky130_fd_sc_hd__and2_0
+       23  143.888   sky130_fd_sc_hd__and3_1
+       14  122.618   sky130_fd_sc_hd__and4_1
+       49  183.926   sky130_fd_sc_hd__clkinv_1
+      227 5.68E+03   sky130_fd_sc_hd__dfrtp_1
+        7   43.792   sky130_fd_sc_hd__lpflow_inputiso1p_1
+       62  387.872   sky130_fd_sc_hd__lpflow_isobufsrc_1
+      133 1.33E+03   sky130_fd_sc_hd__maj3_1
+        1   11.261   sky130_fd_sc_hd__mux2_1
+       16  160.154   sky130_fd_sc_hd__mux2i_1
+      404 1.52E+03   sky130_fd_sc_hd__nand2_1
+       20   125.12   sky130_fd_sc_hd__nand2b_1
+       33  165.158   sky130_fd_sc_hd__nand3_1
+       46  287.776   sky130_fd_sc_hd__nand4_1
+      128  480.461   sky130_fd_sc_hd__nor2_1
+        3   18.768   sky130_fd_sc_hd__nor2b_1
+       21  105.101   sky130_fd_sc_hd__nor3_1
+        2   15.014   sky130_fd_sc_hd__nor3b_1
+        4   25.024   sky130_fd_sc_hd__nor4_1
+        2   20.019   sky130_fd_sc_hd__o211a_1
+        2   15.014   sky130_fd_sc_hd__o211ai_1
+       10   75.072   sky130_fd_sc_hd__o21a_1
+       93  465.446   sky130_fd_sc_hd__o21ai_0
+        5   37.536   sky130_fd_sc_hd__o21bai_1
+        1    6.256   sky130_fd_sc_hd__o22ai_1
+        2   20.019   sky130_fd_sc_hd__o311a_1
+        2   15.014   sky130_fd_sc_hd__o31ai_1
+        1    6.256   sky130_fd_sc_hd__or3_1
+        2   15.014   sky130_fd_sc_hd__or4_1
+      191 1.67E+03   sky130_fd_sc_hd__xnor2_1
+       29  653.126   sky130_fd_sc_hd__xnor3_1
+       98  858.323   sky130_fd_sc_hd__xor2_1
+       19  451.683   sky130_fd_sc_hd__xor3_1
+
+   Chip area for module '\matmul_systolic': 17301.593600
+     of which used for sequential elements: 5680.448000 (32.83%)
+
+Warnings: 9 unique messages, 17 total
+End of script. Logfile hash: 1aaf951218, time: 1.59s, user: 0.83s, system: 0.04s, MEM: 49.65 MB peak
+Yosys 0.64+26 (git sha1 a54bca549, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)
+Time spent: 47% 2x abc (0 sec), 10% 30x opt_expr (0 sec), ...

@@ -1,0 +1,13 @@
+Converted 194 words (776 bytes) → ../build/rom.hex
+   text	   data	    bss	    dec	    hex	filename
+    776	      0	      0	    776	    308	fw.elf
+[ROM] loaded from plusarg: build/rom.hex
+[UART] k=0 e=6 add=12 get=12 run=17 get4=30 add4=30 
+[UART] k=1 e=6 add=12 get=12 run=17 get4=30 add4=30 
+[UART] k=2 e=6 add=12 get=12 run=17 get4=30 add4=30 
+[UART] END
+simulated 616821 cycles
+- tb/tb_soc_accel.sv:31: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05
+- Verilator: $finish at 12ms; walltime 0.401 s; speed 30.755 ms/s
+- Verilator: cpu 0.400 s on 1 threads; allocated 4 MB

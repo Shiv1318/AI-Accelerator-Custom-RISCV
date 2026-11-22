@@ -1,0 +1,9 @@
+[UART] arch=2 mult=0
+[UART] S1 cpu=2619 e2e=424 hw=5 ok=1 gold=1
+[UART] S2 cpu=4765 e2e=424 hw=5 ok=1
+[UART] END
+simulated 369357 cycles
+- tb/tb_soc_accel.sv:31: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.052 2026-09-05
+- Verilator: $finish at 7ms; walltime 0.570 s; speed 12.966 ms/s
+- Verilator: cpu 0.568 s on 1 threads; allocated 4 MB
