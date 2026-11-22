@@ -134,5 +134,3 @@ Independent Python/NumPy golden model (MATLAB was not available in the lab), sel
 
 Verilator 5.052, Yosys 0.64 (0.30 inside OpenLane), OpenSTA 3.1.0, OpenLane 1 / OpenROAD, Magic, KLayout, RISC-V GCC 15.2.0, Python 3 (NumPy, Pandas, Matplotlib).
 
-
-```
