@@ -91,11 +91,3 @@ scripts/synth_mult.sh 20                     # multiplier synthesis and timing
 scripts/soc_run.sh <ARCH> <MULT>             # full SoC with firmware
 sha256sum -c SHA256SUMS.txt                  # integrity check
 ```
-
-## Limitations (not claimed: silicon, FPGA, tape-out, 100 MHz, formal equivalence)
-
-Typical corner only; 2x2 only; software baseline has no hardware multiplier, so a stronger baseline would reduce the speedups. Post-route, gate-level and power results cover ARCH 2 with the star multiplier only. N = 4 and N = 8 delay data were retracted; only area is reported. XMAT and Dadda results are at synthesis level, and 18 of the 24 original data sets were recovered for XMAT. Withdrawn claims are listed in the report (Section 4.1.4).
-
-## Credits and licences
-
-Built on open-source work that keeps its own licences: **PicoRV32** (ISC, https://github.com/YosysHQ/picorv32), **OpenLane / OpenROAD / Yosys / OpenSTA / Magic / Verilator**, and the **SkyWater SKY130 PDK**. All runs used the NIELIT eChipHub remote lab. Thanks to Dr. Rachna Singh and the Department of ECE, JIIT Noida.
