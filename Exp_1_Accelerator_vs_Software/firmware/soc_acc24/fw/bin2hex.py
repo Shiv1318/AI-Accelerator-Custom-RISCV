@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 # -----------------------------------------------------------------------------
-# Author       : Deepak
-# Designation  : Sr. VLSI Engineer
-# Organization : NIELIT CoE
+# Author       : Shiv
+# Designation  : Student
 # -----------------------------------------------------------------------------
 
 """
