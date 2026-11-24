@@ -2,7 +2,6 @@
 
 A 2×2, 8-bit signed matrix-multiplication accelerator attached to a PicoRV32 RISC-V SoC, studied end to end on the open SkyWater SKY130HD platform: RTL, verification, synthesis, place and route, sign-off checks, gate-level simulation and power.
 
-**Authors:** Shiv Kumar (23118048), Harsh Mishra (23118052)
 **Supervisor:** Dr. Rachna Singh, Dept. of ECE, JIIT Noida (B.Tech major project, Nov 2026)
 
 ## The question
